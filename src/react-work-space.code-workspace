@@ -1,8 +1,10 @@
 {
-	"folders": [
-		{
-			"path": "C:\\Users\\chenp\\Dropbox\\upclass"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "C:\\Users\\chenp\\Dropbox\\upclass"
+    }
+  ],
+  "settings": {
+    "prettier.jsxBracketSameLine": true
+  }
 }
