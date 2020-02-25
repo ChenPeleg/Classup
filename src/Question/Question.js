@@ -5,11 +5,11 @@ import "./question.css";
 
 const question = props => {
   return (
-    <div className="question">
-      <Answer content="ans1" />
-      <Answer content="ans2" />
-      <Answer content="ans3" />
-      <Answer content="ans4" />
+    <div className="question" onClick={props.click}>
+      <Answer content="Red " />
+      <Answer content="Orange" />
+      <Answer content="Blue" />
+      <Answer content="Pink" />
     </div>
   );
 };
