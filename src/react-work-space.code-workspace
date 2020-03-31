@@ -5,6 +5,7 @@
     }
   ],
   "settings": {
-    "prettier.jsxBracketSameLine": true
+    "prettier.jsxBracketSameLine": true,
+    "editor.lightbulb.enabled": true
   }
 }
