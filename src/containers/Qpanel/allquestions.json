@@ -4,42 +4,42 @@
   },
   "questions": {
     "1": {
-      "question": "What is the color of the sky?",
+      "ask": "What is the color of the sky?",
       "answers": ["blue", "white", "green", "pink"],
       "solution": "1"
     },
     "2": {
-      "question": "What is the color of the sand?",
+      "ask": "What is the color of the sand?",
       "answers": ["blue", "black", "green", "yellow"],
       "solution": "4"
     },
     "3": {
-      "question": "My dog Lucky is brown and...",
+      "ask": "My dog Lucky is brown and...",
       "answers": ["purple", "white", "green", "pink"],
       "solution": "2"
     },
     "4": {
-      "question": "Please cook the meat it's too...",
+      "ask": "Please cook the meat it's too...",
       "answers": ["orange", "yellow", "red", "green"],
       "solution": "3"
     },
     "5": {
-      "question": "Look! your grass is very beautiful and...",
+      "ask": "Look! your grass is very beautiful and...",
       "answers": ["blue", "white", "green", "pink"],
       "solution": "3"
     },
     "6": {
-      "question": "Are you shy? your face is...",
+      "ask": "Are you shy? your face is...",
       "answers": ["red", "purple", "green", "black"],
       "solution": "1"
     },
     "7": {
-      "question": "This banana looks good and...",
+      "ask": "This banana looks good and...",
       "answers": ["white", "yellow", "blue", "pink"],
       "solution": "2"
     },
     "8": {
-      "question": "What is the color of the sky?",
+      "ask": "What is the color of the sky?",
       "answers": ["blue", "white", "green", "pink"],
       "solution": "1"
     }
