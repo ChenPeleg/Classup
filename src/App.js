@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import Question from "./Question/Question";
-import Uplogo from "./Uplogo/Uplogo.js";
+import Question from "./components/Question/Question";
+import Uplogo from "./components/Uplogo/Uplogo.js";
 
 class App extends Component {
   answerHandler = event => {

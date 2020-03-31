@@ -2,7 +2,7 @@
   font-family: "KulimPark";
   font-weight: 400;
   font-style: normal;
-  src: url("./styles/KulimPark-Regular.ttf") format("truetype");
+  src: url("./components/styles/KulimPark-Regular.ttf") format("truetype");
 }
 
 .App {
