@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Question from "../../components/Question/Question";
 import allquestions from "./allquestions";
+import AdvanceContext from "../../context/advance-context";
 // import
 class Qpanel extends Component {
   answerHandler = event => {
@@ -13,11 +14,16 @@ class Qpanel extends Component {
   };
   render() {
     return (
-      <Question
-        q_obj={this.state.current_question}
-        q_num={this.state.question_number}
-        click={this.answerHandler}
-      />
+      <AdvanceContext.Consumer>
+        {context => (
+          <Question
+            // q_obj={this.state.current_question}
+            q_obj={allquestions.questions[context.q_number]}
+            q_num={this.state.question_number}
+            click={this.answerHandler}
+          />
+        )}
+      </AdvanceContext.Consumer>
     );
   }
 }

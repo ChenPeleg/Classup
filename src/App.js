@@ -7,7 +7,6 @@ class App extends Component {
     return (
       <div className="App">
         <Uplogo />
-        <p>What is the color of sky?</p>
         <Qpanel />
       </div>
     );

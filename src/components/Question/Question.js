@@ -8,11 +8,14 @@ const question = props => {
   const answers = props.q_obj.answers;
 
   return (
-    <div className="question" onClick={props.click}>
-      {answers.map(a => {
-        const key = "Q" + props.question_number + (1 + answers.indexOf(a));
-        return <Answer content={a} key={key} />;
-      })}
+    <div>
+      <p>{ask}</p>
+      <div className="question" onClick={props.click}>
+        {answers.map(a => {
+          const key = "Q" + props.question_number + (1 + answers.indexOf(a));
+          return <Answer content={a} key={key} />;
+        })}
+      </div>
     </div>
   );
 };
