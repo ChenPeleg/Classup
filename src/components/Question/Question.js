@@ -6,8 +6,6 @@ import "./question.css";
 const question = props => {
   const ask = props.q_obj.ask;
   const answers = props.q_obj.answers;
-  const clickHandler = props.passClick;
-  console.log(clickHandler);
 
   return (
     <div>
@@ -19,7 +17,8 @@ const question = props => {
             <Answer
               content={a}
               key={key}
-              onClick={event => clickHandler(event, key)}
+              num={answers.indexOf(a)}
+              answerHandler={props.answerHandler}
             />
           );
         })}

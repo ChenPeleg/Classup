@@ -4,14 +4,17 @@ import allquestions from "./allquestions";
 import AdvanceContext from "../../context/advance-context";
 // import
 class Qpanel extends Component {
-  answerHandler = (event, key) => {
+  answerHandler = (event, num) => {
     const oldNumber = this.state.question_number;
-    this.setState({ ...this.state, question_number: oldNumber + 1 });
+    //
     const rightAns = allquestions.questions[oldNumber].solution;
-    console.log(key, event, rightAns);
-    // if ()
-
-    // alert("clicked " + oldNumber);
+    console.log(num, event, rightAns);
+    if (num === +allquestions.questions[oldNumber].solution) {
+      alert("correct");
+      this.setState({ ...this.state, question_number: oldNumber + 1 });
+    } else {
+      alert("false");
+    }
   };
   num = 1;
   state = {
@@ -26,7 +29,7 @@ class Qpanel extends Component {
             // q_obj={this.state.current_question}
             q_num={this.state.question_number}
             q_obj={allquestions.questions[this.state.question_number]}
-            passClick={this.answerHandler}
+            answerHandler={this.answerHandler}
           />
         )}
       </AdvanceContext.Consumer>
