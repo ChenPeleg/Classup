@@ -2,10 +2,11 @@
 import React from "react";
 
 const answer = props => {
+  console.log(props.num, props.isChosen);
   return (
     <p
-      className="answer"
-      onClick={event => props.answerHandler(event, +props.num + 1)}
+      className={`answer ${props.isChosen ? "choosenAnswer" : ""}`}
+      onClick={event => props.answerHandler(event, +props.num)}
     >
       {props.content}
     </p>

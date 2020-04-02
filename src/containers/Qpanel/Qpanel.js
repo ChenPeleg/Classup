@@ -5,20 +5,27 @@ import AdvanceContext from "../../context/advance-context";
 // import
 class Qpanel extends Component {
   answerHandler = (event, num) => {
-    const oldNumber = this.state.question_number;
-    //
-    const rightAns = allquestions.questions[oldNumber].solution;
-    console.log(num, event, rightAns);
-    if (num === +allquestions.questions[oldNumber].solution) {
-      alert("correct");
-      this.setState({ ...this.state, question_number: oldNumber + 1 });
-    } else {
-      alert("false");
-    }
+    this.setState({ ...this.state, chosenAnswer: num });
+  };
+  submitHandler = event => {
+    alert("submit");
+    const num = this.state.chosenAnswer;
+    console.log(num);
+    return;
+    // const oldNumber = this.state.question_number;
+    // //
+    // const rightAns = allquestions.questions[oldNumber].solution;
+    // if (num === +allquestions.questions[oldNumber].solution) {
+    //   alert("correct");
+    //   this.setState({ ...this.state, question_number: oldNumber + 1 });
+    // } else {
+    //   alert("false");
+    // }
   };
   num = 1;
   state = {
     question_number: 1,
+    chosenAnswer: false,
     current_question: allquestions.questions[this.num]
   };
   render() {
@@ -30,6 +37,8 @@ class Qpanel extends Component {
             q_num={this.state.question_number}
             q_obj={allquestions.questions[this.state.question_number]}
             answerHandler={this.answerHandler}
+            submitHandler={this.submitHandler}
+            chosenAnswer={this.state.chosenAnswer}
           />
         )}
       </AdvanceContext.Consumer>

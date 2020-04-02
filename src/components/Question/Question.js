@@ -9,19 +9,29 @@ const question = props => {
 
   return (
     <div>
-      <p>{ask}</p>
+      <p>
+        {ask} {props.chosenAnswer}
+      </p>
       <div className="question" onClick={props.click}>
         {answers.map(a => {
           const key = "Q" + props.question_number + (1 + answers.indexOf(a));
+
           return (
             <Answer
               content={a}
               key={key}
-              num={answers.indexOf(a)}
+              num={answers.indexOf(a) + 1}
               answerHandler={props.answerHandler}
+              isChosen={
+                props.chosenAnswer === answers.indexOf(a) + 1 ? true : false
+              }
             />
           );
         })}
+
+        <button className="submitButton" onClick={props.submitHandler}>
+          submit
+        </button>
       </div>
     </div>
   );

@@ -16,6 +16,7 @@
   border-radius: 2px;
   box-shadow: 2px 2px 4px 2px rgba(2, 0, 36, 0.5);
   padding: 5px;
+  padding-bottom: 15px;
 }
 .answer {
   position: relative;
@@ -31,7 +32,35 @@
   box-shadow: 2px 2px 4px 2px rgba(2, 0, 36, 0.5);
   padding: 5px;
 }
-.answer:hover {
+.choosenAnswer {
+  background: rgb(223, 200, 175);
+  box-shadow: 2px 2px 4px 2px rgba(2, 20, 36, 0.9);
+}
+.submitButton {
+  position: relative;
+  display: block;
+
+  background-color: rgb(70, 216, 70);
+  padding: 15px 32px;
+  align-self: center;
+  color: rgb(24, 20, 20);
+  border: none;
+  width: 30%;
+  left: 35%;
+  height: 60%;
+  font-family: inherit;
+  font-size: inherit;
+
+  border-radius: 1px;
+  box-shadow: 2px 2px 4px 2px rgba(2, 0, 36, 0.2);
+  padding: 7px;
+}
+.submitButton:hover {
+  cursor: pointer;
+  background-color: rgb(20, 233, 20);
+  box-shadow: 2px 2px 4px 2px rgba(2, 0, 36, 0.9);
+}
+.answer:not(.choosenAnswer):hover {
   cursor: pointer;
   background: rgb(223, 175, 175);
   box-shadow: 2px 2px 4px 2px rgba(2, 0, 36, 0.9);
