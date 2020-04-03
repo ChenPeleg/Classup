@@ -4,15 +4,16 @@ import "./Answer.css";
 import Mark from "./Mark";
 
 const answer = props => {
-  console.log(props.num, props.isChosen);
   return (
-    <p
+    <div
       className={`answer ${props.isChosen ? "choosenAnswer" : ""}`}
       onClick={event => props.answerHandler(event, +props.num)}
     >
       {props.content}
-      <Mark />
-    </p>
+      {props.isChosen && props.marked_Answer ? (
+        <Mark marked_Answer={props.marked_Answer} />
+      ) : null}
+    </div>
   );
 };
 export default answer;

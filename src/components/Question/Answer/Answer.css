@@ -10,6 +10,7 @@
   background: rosybrown;
   border-radius: 9px;
   box-shadow: 2px 2px 4px 2px rgba(2, 0, 36, 0.5);
+  margin: 15px;
   padding: 5px;
 }
 .choosenAnswer {
@@ -28,8 +29,15 @@
   box-shadow: 2px 2px 4px 2px rgba(2, 20, 36, 0.9);
 }
 
-.check-mark svg {
-  position: relative;
+.check-mark-wrapper {
+  position: absolute;
+  width: 50px;
+  height: 50px;
   top: -10px;
   left: -10px;
+}
+.check-mark {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }

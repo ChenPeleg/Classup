@@ -6,25 +6,28 @@ import "./question.css";
 const question = props => {
   const ask = props.q_obj.ask;
   const answers = props.q_obj.answers;
+  const arrayOfAnswers = answers =>
+    answers.map(a => {
+      return { content: a, number: 1 + answers.indexOf(a) };
+    });
 
   return (
     <div>
-      <p>
+      <div>
         {ask} {props.chosenAnswer}
-      </p>
-      <div className="question" onClick={props.click}>
-        {answers.map(a => {
-          const key = "Q" + props.question_number + (1 + answers.indexOf(a));
+      </div>
+      <div className="question-options" onClick={props.click}>
+        {arrayOfAnswers(answers).map(a => {
+          const key = "Q" + props.question_number + a.number;
 
           return (
             <Answer
-              content={a}
+              content={a.content}
               key={key}
-              num={answers.indexOf(a) + 1}
+              num={a.number}
               answerHandler={props.answerHandler}
-              isChosen={
-                props.chosenAnswer === answers.indexOf(a) + 1 ? true : false
-              }
+              isChosen={props.chosenAnswer === a.number ? true : false}
+              marked_Answer={props.marked_Answer}
             />
           );
         })}
@@ -34,7 +37,7 @@ const question = props => {
             props.chosenAnswer ? "" : "submitDisabled"
           }`}
           onClick={props.submitHandler}
-          disabled={props.chosenAnswer ? true : false}
+          disabled={props.chosenAnswer ? false : true}
         >
           submit
         </button>

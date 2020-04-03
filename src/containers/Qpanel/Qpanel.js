@@ -8,22 +8,22 @@ class Qpanel extends Component {
     this.setState({ ...this.state, chosenAnswer: num });
   };
   submitHandler = event => {
-    alert("submit");
     const num = this.state.chosenAnswer;
     const oldNumber = this.state.question_number;
     // const rightAns = allquestions.questions[oldNumber].solution;
     if (num === +allquestions.questions[oldNumber].solution) {
-      alert("correct");
-      this.setState({ ...this.state, question_number: oldNumber + 1 });
+      // this.setState({ ...this.state, question_number: oldNumber + 1 });
+      this.setState({ ...this.state, marked_Answer: "RIGHT" });
     } else {
-      alert("false");
+      this.setState({ ...this.state, marked_Answer: "WRONG" });
     }
   };
   num = 1;
   state = {
     question_number: 1,
     chosenAnswer: false,
-    current_question: allquestions.questions[this.num]
+    current_question: allquestions.questions[this.num],
+    marked_Answer: false // WRONG, RIGHT
   };
   render() {
     return (
@@ -36,6 +36,7 @@ class Qpanel extends Component {
             answerHandler={this.answerHandler}
             submitHandler={this.submitHandler}
             chosenAnswer={this.state.chosenAnswer}
+            marked_Answer={this.state.marked_Answer}
           />
         )}
       </AdvanceContext.Consumer>

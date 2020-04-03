@@ -1,8 +1,17 @@
 import "./Answer.css";
 import React from "react";
-import "../../../assets/images/check-mark.svg";
+import Vmark from "../../../assets/images/check-mark.svg";
+import Xmark from "../../../assets/images/x-mark.svg";
 
 const mark = props => {
-  return <div className="check-mark">{}</div>;
+  return (
+    <div className="check-mark-wrapper">
+      <img
+        src={props.marked_Answer === "RIGHT" ? Xmark : Vmark}
+        className="check-mark"
+        alt="MyBurger"
+      />
+    </div>
+  );
 };
 export default mark;
