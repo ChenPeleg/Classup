@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-import Uplogo from "./components/Uplogo/Uplogo.js";
-import Qpanel from "./containers/Qpanel/Qpanel";
+import Layout from "./hoc/Layout/Layout";
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Uplogo />
-        <Qpanel />
+        <Layout />
       </div>
     );
   }

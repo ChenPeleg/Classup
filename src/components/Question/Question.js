@@ -1,6 +1,6 @@
 /* one question */
 import React from "react";
-import Answer from "./Answer";
+import Answer from "./Answer/Answer";
 import "./question.css";
 
 const question = props => {
@@ -29,7 +29,13 @@ const question = props => {
           );
         })}
 
-        <button className="submitButton" onClick={props.submitHandler}>
+        <button
+          className={`submitButton ${
+            props.chosenAnswer ? "" : "submitDisabled"
+          }`}
+          onClick={props.submitHandler}
+          disabled={props.chosenAnswer ? true : false}
+        >
           submit
         </button>
       </div>

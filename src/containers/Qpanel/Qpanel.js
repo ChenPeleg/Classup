@@ -10,17 +10,14 @@ class Qpanel extends Component {
   submitHandler = event => {
     alert("submit");
     const num = this.state.chosenAnswer;
-    console.log(num);
-    return;
-    // const oldNumber = this.state.question_number;
-    // //
+    const oldNumber = this.state.question_number;
     // const rightAns = allquestions.questions[oldNumber].solution;
-    // if (num === +allquestions.questions[oldNumber].solution) {
-    //   alert("correct");
-    //   this.setState({ ...this.state, question_number: oldNumber + 1 });
-    // } else {
-    //   alert("false");
-    // }
+    if (num === +allquestions.questions[oldNumber].solution) {
+      alert("correct");
+      this.setState({ ...this.state, question_number: oldNumber + 1 });
+    } else {
+      alert("false");
+    }
   };
   num = 1;
   state = {

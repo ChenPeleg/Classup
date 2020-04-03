@@ -1,0 +1,35 @@
+.answer {
+  position: relative;
+  background-color: antiquewhite;
+  color: rgb(24, 20, 20);
+  width: 70%;
+  left: 15%;
+  height: 60%;
+  background: rgb(2, 0, 36);
+  background: rgb(2, 0, 36);
+  background: rosybrown;
+  border-radius: 9px;
+  box-shadow: 2px 2px 4px 2px rgba(2, 0, 36, 0.5);
+  padding: 5px;
+}
+.choosenAnswer {
+  background: rgb(223, 200, 175);
+  box-shadow: 2px 2px 4px 2px rgba(2, 20, 36, 0.9);
+}
+
+.answer:not(.choosenAnswer):hover {
+  cursor: pointer;
+  background: rgb(223, 175, 175);
+  box-shadow: 2px 2px 4px 2px rgba(2, 0, 36, 0.9);
+}
+.answer:active {
+  cursor: pointer;
+  background: rgb(223, 200, 175);
+  box-shadow: 2px 2px 4px 2px rgba(2, 20, 36, 0.9);
+}
+
+.check-mark svg {
+  position: relative;
+  top: -10px;
+  left: -10px;
+}
