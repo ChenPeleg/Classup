@@ -4,21 +4,14 @@ import Answer from "./Answer/Answer";
 import "./question.css";
 
 const question = props => {
-  const ask = props.q_obj.ask;
-  const answers = props.q_obj.answers;
-  const arrayOfAnswers = answers =>
-    answers.map(a => {
-      return { content: a, number: 1 + answers.indexOf(a) };
-    });
-
   return (
     <div>
       <div>
-        {ask} {props.chosenAnswer}
+        {props.q_num}. {props.q_ask}
       </div>
       <div className="question-options" onClick={props.click}>
-        {arrayOfAnswers(answers).map(a => {
-          const key = "Q" + props.question_number + a.number;
+        {props.q_Ans_obj.map(a => {
+          const key = "Q" + props.q_num + a.number;
 
           return (
             <Answer
