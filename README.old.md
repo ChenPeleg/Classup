@@ -1,4 +1,0 @@
-# clicklass
-
-one
-two
