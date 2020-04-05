@@ -1,24 +1,19 @@
 .Toolbar {
   height: 56px;
-  width: 100%;
-  position: fixed;
+
   top: 0;
   left: 0;
-  background-color: #703b09;
-  display: flex;
-  justify-content: space-between;
-  align-items: left;
+  text-align: left;
   padding: 0 20px;
-  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   z-index: 90;
+  vertical-align: middle;
 }
 
-.Toolbar nav {
-  height: 100%;
-}
-
-.Logo {
-  height: 80%;
+.Logo-in-Header {
+  vertical-align: middle;
+  font-size: 32px;
+  padding-bottom: 5px;
 }
 
 @media (max-width: 499px) {

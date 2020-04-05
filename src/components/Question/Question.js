@@ -5,7 +5,7 @@ import "./question.scss";
 
 const question = (props) => {
   return (
-    <div>
+    <div className="questionWrapper">
       <div>
         {props.q_num}. {props.q_ask}
       </div>
