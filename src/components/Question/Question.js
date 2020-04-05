@@ -1,16 +1,16 @@
 /* one question */
 import React from "react";
 import Answer from "./Answer/Answer";
-import "./question.css";
+import "./question.scss";
 
-const question = props => {
+const question = (props) => {
   return (
     <div>
       <div>
         {props.q_num}. {props.q_ask}
       </div>
       <div className="question-options" onClick={props.click}>
-        {props.q_Ans_obj.map(a => {
+        {props.q_Ans_obj.map((a) => {
           const key = "Q" + props.q_num + a.number;
 
           return (

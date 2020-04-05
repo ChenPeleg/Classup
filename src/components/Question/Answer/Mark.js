@@ -1,9 +1,9 @@
-import "./Mark.css";
+import "./Mark.scss";
 import React from "react";
 import Vmark from "../../../assets/images/check-mark.svg";
 import Xmark from "../../../assets/images/x-mark.svg";
 
-const mark = props => {
+const mark = (props) => {
   return (
     <div className="check-mark-wrapper">
       <img

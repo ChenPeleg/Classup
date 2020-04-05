@@ -1,7 +1,7 @@
 import React from "react";
-import "./uplogo.css";
+import "./uplogo.scss";
 
-const uplogo = props => {
+const uplogo = (props) => {
   return <div className="logo">Class-Up!</div>;
 };
 export default uplogo;
