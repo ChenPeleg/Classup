@@ -1,7 +1,6 @@
 import React from "react";
 
 const AdvanceContext = React.createContext({
-  q_number: 2,
-  nextQuestion: q_number => q_number++
+  q_number: 1,
 });
 export default AdvanceContext;

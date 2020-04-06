@@ -1,15 +1,17 @@
 /* one question */
 import React from "react";
 import Answer from "./Answer/Answer";
-import "./question.scss";
+import "./Question.scss";
 
 const question = (props) => {
   return (
     <div className="questionWrapper">
-      <div>
-        {props.q_num}. {props.q_ask}
-      </div>
       <div className="question-options" onClick={props.click}>
+        <br></br>
+        <div style={{ margin: "10px" }}>
+          {props.q_num}. {props.q_ask}
+        </div>
+        <br></br>
         {props.q_Ans_obj.map((a) => {
           const key = "Q" + props.q_num + a.number;
 

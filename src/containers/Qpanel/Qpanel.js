@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import Question from "../../components/Question/Question";
 import allquestions from "./allquestions";
 import AdvanceContext from "../../context/advance-context";
+import ProgressBar from "../../components/ProgressBar/ProgressBar";
 
 // import
 class Qpanel extends Component {
-  TIME_AFTER_ANSWER = 3000;
+  TIME_AFTER_ANSWER = 1000;
   answerHandler = (event, num) => {
     this.setState({ ...this.state, chosenAnswer: num, marked_Answer: false });
   };
-  submitHandler = event => {
+  submitHandler = (event) => {
     const num = this.state.chosenAnswer;
     const oldNumber = this.state.question_number;
 
@@ -26,7 +27,7 @@ class Qpanel extends Component {
           current_question_ask: allquestions.questions[new_q_number].ask,
           current_answer_obj: this.createAnswerObject(
             allquestions.questions[new_q_number].answers
-          )
+          ),
         });
       }, this.TIME_AFTER_ANSWER);
     } else {
@@ -40,13 +41,13 @@ class Qpanel extends Component {
           ...this.state,
           marked_Answer: false,
           current_answer_obj: new_ans_array,
-          chosenAnswer: false
+          chosenAnswer: false,
         });
       }, this.TIME_AFTER_ANSWER);
     }
   };
-  createAnswerObject = answers =>
-    answers.map(a => {
+  createAnswerObject = (answers) =>
+    answers.map((a) => {
       return { content: a, number: 1 + answers.indexOf(a) };
     });
 
@@ -59,24 +60,23 @@ class Qpanel extends Component {
     current_answer_obj: this.createAnswerObject(
       allquestions.questions[this.num].answers
     ),
-    marked_Answer: false // WRONG, RIGHT
+    marked_Answer: false, // WRONG, RIGHT
   };
 
   render() {
     return (
-      <AdvanceContext.Consumer>
-        {context => (
-          <Question
-            q_num={this.state.question_number}
-            q_ask={this.state.current_question_ask}
-            q_Ans_obj={this.state.current_answer_obj}
-            answerHandler={this.answerHandler}
-            submitHandler={this.submitHandler}
-            chosenAnswer={this.state.chosenAnswer}
-            marked_Answer={this.state.marked_Answer}
-          />
-        )}
-      </AdvanceContext.Consumer>
+      <AdvanceContext.Provider value={{ q_number: this.state.question_number }}>
+        <ProgressBar />
+        <Question
+          q_num={this.state.question_number}
+          q_ask={this.state.current_question_ask}
+          q_Ans_obj={this.state.current_answer_obj}
+          answerHandler={this.answerHandler}
+          submitHandler={this.submitHandler}
+          chosenAnswer={this.state.chosenAnswer}
+          marked_Answer={this.state.marked_Answer}
+        />
+      </AdvanceContext.Provider>
     );
   }
 }

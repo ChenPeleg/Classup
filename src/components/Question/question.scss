@@ -1,18 +1,15 @@
 .question-options {
   position: relative;
-  background-color: antiquewhite;
-  color: brown;
+
+  color: black;
   width: 70%;
   left: 15%;
 
-  background: rgb(2, 0, 36);
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(207, 176, 244, 0.9868989832261029) 0%,
-    rgba(232, 189, 241, 1) 100%
-  );
+  // background: linear-gradient(
+  //   100deg,
+  //   rgb(55, 186, 212) 0%,
+  //   rgba(53, 172, 231, 0.987) 100%
+  // );
   border-radius: 2px;
   box-shadow: 2px 2px 4px 2px rgba(2, 0, 36, 0.5);
   margin: 10px;
