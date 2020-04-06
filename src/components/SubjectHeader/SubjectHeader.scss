@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "LuckiestGuy";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../../components/styles/Luckiest_Guy/LuckiestGuy-Regular.ttf")
+    format("truetype");
+}
+.subjectHeader {
+  font-family: LuckiestGuy;
+  color: yellow;
+  display: inline-block;
+  margin: 0px;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
