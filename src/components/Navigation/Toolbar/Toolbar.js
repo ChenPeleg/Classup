@@ -7,7 +7,7 @@ import SubjectHeader from "../../SubjectHeader/SubjectHeader";
 
 const toolbar = (props) => (
   <header className="Toolbar">
-    <MenuButton /> {console.log(AllQuestionsContext)}
+    <MenuButton />
     {"\u00A0"} {"\u00A0"}
     <Uplogo className="Logo-in-Header" /> {"\u00A0"} {"\u00A0"} {"\u00A0"}
     <AllQuestionsContext.Consumer>

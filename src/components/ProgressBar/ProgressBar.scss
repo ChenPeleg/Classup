@@ -1,5 +1,6 @@
 .progbar {
   position: relative;
+
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -9,8 +10,9 @@
 }
 .prog-line {
   position: absolute;
+  left: 0px;
   z-index: 1;
-  background-color: rgba(68, 28, 97, 0.5);
+  background-color: rgba(68, 28, 97, 0.2);
   top: 30%;
   height: 30%;
   width: 100%;
