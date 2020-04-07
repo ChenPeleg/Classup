@@ -7,7 +7,6 @@ class Layout extends Component {
     return (
       <React.Fragment>
         <Toolbar />
-
         <Qpanel />
       </React.Fragment>
     );

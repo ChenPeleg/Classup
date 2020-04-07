@@ -9,9 +9,19 @@ class ProgressBar extends Component {
 
   render() {
     return (
-      <AdvanceContext.Consumer>
-        {(context) => <ProgressStick text={context.q_number} />}
-      </AdvanceContext.Consumer>
+      <div className="progbar">
+        <div className="prog-line"></div>
+        <AdvanceContext.Consumer>
+          {(context) => (
+            <ProgressStick
+              q_counter={{
+                q_current: +context.q_number,
+                q_total: +context.total_q,
+              }}
+            />
+          )}
+        </AdvanceContext.Consumer>
+      </div>
     );
   }
 }

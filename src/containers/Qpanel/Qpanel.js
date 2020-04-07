@@ -65,7 +65,12 @@ class Qpanel extends Component {
 
   render() {
     return (
-      <AdvanceContext.Provider value={{ q_number: this.state.question_number }}>
+      <AdvanceContext.Provider
+        value={{
+          q_number: this.state.question_number,
+          total_q: Object.keys(allquestions.questions).length,
+        }}
+      >
         <ProgressBar />
         <Question
           q_num={this.state.question_number}
