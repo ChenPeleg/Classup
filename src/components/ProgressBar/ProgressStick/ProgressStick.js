@@ -3,6 +3,9 @@ import "./ProgressStick.scss";
 import ProgressNumber from "../ProgressNumber/ProgressNumber";
 
 class progressStick extends Component {
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return !equals(nextProps, this.props); // equals() is your implementation
+  // }
   render() {
     const { q_current, q_total } = this.props.q_counter;
     let q_prog_array = [];

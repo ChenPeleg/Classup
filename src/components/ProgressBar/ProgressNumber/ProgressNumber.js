@@ -4,21 +4,22 @@ import "./ProgressNumber.scss";
 class ProgressNumber extends Component {
   constructor(props) {
     super(props);
-    this.myRef = React.createRef();
+    this.currentNumberRef = React.createRef();
   }
-  componentDidMount() {
-    if (this.props.number === this.props.current) {
-      console.log(this.myRef.current.offsetLeft);
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.current === this.props.current ? false : true;
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      this.props.number === this.props.current &&
+      this.currentNumberRef.current
+    ) {
+      this.props.lineWidthHandler(this.currentNumberRef.current.offsetLeft);
     }
   }
-
   render() {
-    if (this.props.number === this.props.current && this.myRef.current) {
-      console.log(this.myRef.current.offsetLeft);
-      this.props.lineWidthHandler(this.myRef.current.offsetLeft);
-    }
     return (
-      <div ref={this.myRef} className={this.props.className}>
+      <div ref={this.currentNumberRef} className={this.props.className}>
         {this.props.text}
       </div>
     );

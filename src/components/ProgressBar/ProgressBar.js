@@ -9,15 +9,17 @@ class ProgressBar extends Component {
       q_number: "2",
       widthOfLine: "600px",
     };
+    this.progBarRef = React.createRef();
+    this.lineWidthHandler = this.lineWidthHandler.bind(this);
   }
   lineWidthHandler(length_) {
-    //this.setState({ ...this.state, widthOfLine: length_ + "px" });
-    console.log(this.state.widthOfLine);
+    this.setState({ ...this.state, widthOfLine: length_ + "px" });
+    console.log(length_, this.state.widthOfLine);
   }
 
   render() {
     return (
-      <div className="progbar">
+      <div className="progbar" ref={this.progBarRef}>
         <div
           className="prog-line"
           style={{ width: this.state.widthOfLine }}
