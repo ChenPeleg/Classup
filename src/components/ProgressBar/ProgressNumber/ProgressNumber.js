@@ -9,14 +9,22 @@ class ProgressNumber extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     return nextProps.current === this.props.current ? false : true;
   }
-  componentDidUpdate(prevProps, prevState) {
+
+  updateLineLength(prevProps, prevState) {
     if (
-      this.props.number + 1 === this.props.current &&
+      this.props.number === this.props.current &&
       this.currentNumberRef.current
     ) {
       this.props.lineWidthHandler(this.currentNumberRef.current.offsetLeft);
     }
   }
+  componentDidUpdate(prevProps, prevState) {
+    return this.updateLineLength(prevProps, prevState);
+  }
+  componentDidMount(prevProps, prevState) {
+    return this.updateLineLength(prevProps, prevState);
+  }
+
   render() {
     return (
       <div ref={this.currentNumberRef} className={this.props.className}>

@@ -6,11 +6,19 @@
   border-radius: 50%;
   border: 0px solid black;
   z-index: 10;
+  transition: all 0.4s;
+  transition-delay: 0.3s;
 }
 .unanswered {
   color: grey;
 }
 .answered {
   color: blue;
-  background-color: rgb(234, 255, 47);
+  background-color: rgb(241, 218, 143);
+}
+.current_Q_num {
+  font-weight: bold;
+  background-color: rgb(180, 173, 151);
+
+  color: black;
 }

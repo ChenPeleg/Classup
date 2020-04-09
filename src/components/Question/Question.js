@@ -1,12 +1,12 @@
 /* one question */
 import React from "react";
 import Answer from "./Answer/Answer";
-import "./Question.scss";
+import styles from "./Question.module.scss";
 
 const question = (props) => {
   return (
-    <div className="questionWrapper">
-      <div className="question-options" onClick={props.click}>
+    <div className={styles.questionWrapper}>
+      <div className={styles.questionOptions} onClick={props.click}>
         <br></br>
         <div style={{ margin: "10px" }}>
           {props.q_num}. {props.q_ask}
@@ -28,8 +28,8 @@ const question = (props) => {
         })}
 
         <button
-          className={`submitButton ${
-            props.chosenAnswer ? "" : "submitDisabled"
+          className={`${styles.submitButton} ${
+            props.chosenAnswer ? "" : styles.submitDisabled
           }`}
           onClick={props.submitHandler}
           disabled={props.chosenAnswer ? false : true}

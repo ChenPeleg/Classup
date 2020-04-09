@@ -13,8 +13,14 @@ class ProgressBar extends Component {
     this.lineWidthHandler = this.lineWidthHandler.bind(this);
   }
   lineWidthHandler(length_) {
+    if (!this.progBarRef.current) {
+      setTimeout(() => {
+        this.lineWidthHandler(length_);
+      }, 500);
+      return;
+    }
     const startPosition = this.progBarRef.current.getBoundingClientRect().left;
-    const lineLength = length_ - startPosition;
+    const lineLength = length_ - startPosition + 20;
     this.setState({ ...this.state, widthOfLine: lineLength + "px" });
     console.log(
       length_,
