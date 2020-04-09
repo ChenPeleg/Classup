@@ -11,7 +11,7 @@ class ProgressNumber extends Component {
   }
   componentDidUpdate(prevProps, prevState) {
     if (
-      this.props.number === this.props.current &&
+      this.props.number + 1 === this.props.current &&
       this.currentNumberRef.current
     ) {
       this.props.lineWidthHandler(this.currentNumberRef.current.offsetLeft);

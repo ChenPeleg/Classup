@@ -7,14 +7,24 @@ class ProgressBar extends Component {
     super(props);
     this.state = {
       q_number: "2",
-      widthOfLine: "600px",
+      widthOfLine: "0px",
     };
     this.progBarRef = React.createRef();
     this.lineWidthHandler = this.lineWidthHandler.bind(this);
   }
   lineWidthHandler(length_) {
-    this.setState({ ...this.state, widthOfLine: length_ + "px" });
-    console.log(length_, this.state.widthOfLine);
+    const startPosition = this.progBarRef.current.getBoundingClientRect().left;
+    const lineLength = length_ - startPosition;
+    this.setState({ ...this.state, widthOfLine: lineLength + "px" });
+    console.log(
+      length_,
+      this.state.widthOfLine,
+      "progBar"
+
+      // these are relative to the viewport, i.e. the window
+      // var top = viewportOffset.top;
+      // var left = viewportOffset;
+    );
   }
 
   render() {
