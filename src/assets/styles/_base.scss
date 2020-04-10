@@ -1,2 +1,11 @@
+@font-face {
+  font-family: "KulimPark1";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/src/assets/fonts/Kulim_Park/KulimPark-Regular.ttf")
+    format("truetype");
+}
+
 $Base_Black: rgb(43, 1, 1);
 $Base_fontSize: 15px;
+$Base_fontFace: "KulimPark", sans-serif;
