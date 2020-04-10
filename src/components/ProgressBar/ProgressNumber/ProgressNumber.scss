@@ -1,3 +1,4 @@
+@import "../../../assets/styles/base";
 .prog_q_icon {
   display: inline;
   width: 15px;
@@ -6,19 +7,19 @@
   border-radius: 50%;
   border: 0px solid black;
   z-index: 10;
-  transition: all 0.4s;
-  transition-delay: 0.3s;
+  transition: $Transition_Duration;
+  // transition-delay: 0.3s;
 }
 .unanswered {
-  color: grey;
+  color: $ProgBar_unanswered_color;
 }
 .answered {
-  color: blue;
-  background-color: rgb(241, 218, 143);
+  color: $ProgBar_answered_color;
+  background-color: $ProgBar_answered_BGcolor;
 }
 .current_Q_num {
+  transition-delay: 0.3s;
   font-weight: bold;
-  background-color: rgb(180, 173, 151);
-
-  color: black;
+  @include current_question_icon;
+  color: $ProgBar_current_color;
 }
