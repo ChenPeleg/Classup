@@ -102,6 +102,7 @@ class Qpanel extends Component {
         value={{
           q_number: this.state.question_number,
           total_q: Object.keys(allquestions.questions).length,
+          q_next: this.state.next_unanswered_q,
         }}
       >
         <ProgressBar viewHandler={this.viewHandler} />

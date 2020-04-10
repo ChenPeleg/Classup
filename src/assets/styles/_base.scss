@@ -33,7 +33,15 @@ $ProgBar_current_color: black;
     rgba(255, 242, 0, 1) 53%,
     rgba(168, 160, 0, 1) 100%
   );
-  box-shadow: inset 0 0 4px #000000;
+  box-shadow: inset 0 0 3px #000000;
+}
+@mixin next_question_icon {
+  background: linear-gradient(
+    90deg,
+    rgb(231, 223, 62) 0%,
+    rgba(255, 242, 0, 1) 53%,
+    rgb(236, 228, 76) 100%
+  );
 }
 /* Animation */
 $Transition_Duration: 0.4s;

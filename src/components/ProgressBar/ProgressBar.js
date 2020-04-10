@@ -37,10 +37,11 @@ class ProgressBar extends Component {
               q_counter={{
                 q_current: +context.q_number,
                 q_total: +context.total_q,
+                q_next: +context.q_next,
               }}
               lineWidthHandler={this.lineWidthHandler}
               viewHandler={this.props.viewHandler}
-              next_unanswered_q={this.props.next_unanswered_q}
+              next_unanswered_q={+context.q_next}
             />
           )}
         </AdvanceContext.Consumer>

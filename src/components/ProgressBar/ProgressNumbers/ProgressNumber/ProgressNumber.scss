@@ -8,7 +8,6 @@
   border: 0px solid black;
   z-index: 10;
   transition: $Transition_Duration;
-  // transition-delay: 0.3s;
 }
 .unanswered {
   color: $ProgBar_unanswered_color;
@@ -16,10 +15,17 @@
 .answered {
   color: $ProgBar_answered_color;
   background-color: $ProgBar_answered_BGcolor;
+  cursor: pointer;
 }
 .current_Q_num {
   transition-delay: 0.3s;
   font-weight: bold;
   @include current_question_icon;
   color: $ProgBar_current_color;
+  cursor: pointer;
+}
+.next_q_num {
+  @include next_question_icon;
+  color: $ProgBar_current_color;
+  cursor: pointer;
 }
