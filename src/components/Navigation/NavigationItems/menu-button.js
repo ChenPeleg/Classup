@@ -1,8 +1,8 @@
 import React from "react";
 import menuIcon from "./menu-button.svg";
-import "./menu-button.scss";
+import styles from "./menu-button.module.scss";
 const menuButton = (props) => (
-  <img className="menu-button" src={menuIcon} alt="menu" />
+  <img className={styles.menuButton} src={menuIcon} alt="menu" />
 );
 
 export default menuButton;

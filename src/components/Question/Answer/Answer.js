@@ -1,12 +1,14 @@
 /* one question */
 import React from "react";
-import "./Answer.scss";
+import styles from "./Answer.module.scss";
 import Mark from "./Mark";
 
 const answer = (props) => {
   return (
     <div
-      className={`answer ${props.isChosen ? "choosenAnswer" : ""}`}
+      className={`${styles.answer} ${
+        props.isChosen ? styles.choosenAnswer : ""
+      }`}
       onClick={(event) => props.answerHandler(event, +props.num)}
     >
       {props.content}
