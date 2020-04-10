@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./ProgressBar.scss";
 import AdvanceContext from "../../context/advance-context";
-import ProgressStick from "./ProgressStick/ProgressStick";
+import ProgressNumbers from "./ProgressNumbers/ProgressNumbers";
 class ProgressBar extends Component {
   constructor(props) {
     super(props);
@@ -22,15 +22,6 @@ class ProgressBar extends Component {
     const startPosition = this.progBarRef.current.getBoundingClientRect().left;
     const lineLength = length_ - startPosition + 20;
     this.setState({ ...this.state, widthOfLine: lineLength + "px" });
-    console.log(
-      length_,
-      this.state.widthOfLine,
-      "progBar"
-
-      // these are relative to the viewport, i.e. the window
-      // var top = viewportOffset.top;
-      // var left = viewportOffset;
-    );
   }
 
   render() {
@@ -42,12 +33,14 @@ class ProgressBar extends Component {
         ></div>
         <AdvanceContext.Consumer>
           {(context) => (
-            <ProgressStick
+            <ProgressNumbers
               q_counter={{
                 q_current: +context.q_number,
                 q_total: +context.total_q,
               }}
               lineWidthHandler={this.lineWidthHandler}
+              viewHandler={this.props.viewHandler}
+              next_unanswered_q={this.props.next_unanswered_q}
             />
           )}
         </AdvanceContext.Consumer>

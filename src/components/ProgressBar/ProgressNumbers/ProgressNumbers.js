@@ -1,21 +1,17 @@
 import React, { Component } from "react";
-import "./ProgressStick.scss";
-import ProgressNumber from "../ProgressNumber/ProgressNumber";
+import "./ProgressNumbers.scss";
+import ProgressNumber from "./ProgressNumber/ProgressNumber";
 
-class progressStick extends Component {
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return !equals(nextProps, this.props); // equals() is your implementation
-  // }
+class progressNumbers extends Component {
   render() {
     const { q_current, q_total } = this.props.q_counter;
     let q_prog_array = [];
     let isCurrent = false;
-
     for (let i = 1; i <= q_total; i++) {
       const txt = i;
       const wasAnswered = q_current > i ? true : false;
       isCurrent = i === q_current ? true : false;
-      console.log(i, q_current, q_total);
+
       q_prog_array.push({
         txt: txt,
         wasAnswered: wasAnswered,
@@ -33,9 +29,11 @@ class progressStick extends Component {
         current={q_current}
         number={q_prog_array.indexOf(q)}
         lineWidthHandler={this.props.lineWidthHandler}
+        viewHandler={this.props.viewHandler}
+        next_unanswered_q={this.props.next_unanswered_q}
       />
     ));
   }
 }
 
-export default progressStick;
+export default progressNumbers;

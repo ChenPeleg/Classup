@@ -23,6 +23,7 @@ const question = (props) => {
               answerHandler={props.answerHandler}
               isChosen={props.chosenAnswer === a.number ? true : false}
               marked_Answer={props.marked_Answer}
+              next_unanswered_q={props.next_unanswered_q}
             />
           );
         })}

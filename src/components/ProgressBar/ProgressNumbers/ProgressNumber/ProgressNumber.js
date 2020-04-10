@@ -27,7 +27,11 @@ class ProgressNumber extends Component {
 
   render() {
     return (
-      <div ref={this.currentNumberRef} className={this.props.className}>
+      <div
+        ref={this.currentNumberRef}
+        className={this.props.className}
+        onClick={(event) => this.props.viewHandler(event, this.props.number)}
+      >
         {this.props.text}
       </div>
     );
