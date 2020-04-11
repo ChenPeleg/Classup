@@ -42,6 +42,26 @@
       "ask": "What is the color of the sky?",
       "answers": ["blue", "white", "green", "pink"],
       "solution": "1"
+    },
+    "9": {
+      "ask": "Look! your grass is very beautiful and...",
+      "answers": ["blue", "white", "green", "pink"],
+      "solution": "3"
+    },
+    "10": {
+      "ask": "Are you shy? your face is...",
+      "answers": ["red", "purple", "green", "black"],
+      "solution": "1"
+    },
+    "11": {
+      "ask": "This banana looks good and...",
+      "answers": ["white", "yellow", "blue", "pink"],
+      "solution": "2"
+    },
+    "12": {
+      "ask": "What is the color of the sky?",
+      "answers": ["blue", "white", "green", "pink"],
+      "solution": "1"
     }
   }
 }

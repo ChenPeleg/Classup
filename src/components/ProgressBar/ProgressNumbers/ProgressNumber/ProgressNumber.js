@@ -12,10 +12,12 @@ class ProgressNumber extends Component {
 
   updateLineLength(prevProps, prevState) {
     if (
-      +this.props.number === +this.props.next_unanswered_q &&
+      +this.props.number + 1 === +this.props.next_unanswered_q &&
       this.currentNumberRef.current
     ) {
-      this.props.lineWidthHandler(this.currentNumberRef.current.offsetLeft);
+      this.props.lineWidthHandler(
+        this.currentNumberRef.current.getBoundingClientRect().left
+      );
     }
   }
   componentDidUpdate(prevProps, prevState) {

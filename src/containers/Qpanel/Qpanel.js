@@ -6,7 +6,7 @@ import ProgressBar from "../../components/ProgressBar/ProgressBar";
 
 // import
 class Qpanel extends Component {
-  TIME_AFTER_ANSWER = 100;
+  TIME_AFTER_ANSWER = 1500;
   answerHandler = (event, num) => {
     if (this.state.next_unanswered_q > this.state.question_number) {
       return;

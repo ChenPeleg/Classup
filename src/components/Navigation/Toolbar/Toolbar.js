@@ -7,12 +7,20 @@ import SubjectHeader from "../../SubjectHeader/SubjectHeader";
 
 const toolbar = (props) => (
   <header className={styles.Toolbar}>
-    <MenuButton />
-    {"\u00A0"} {"\u00A0"}
-    <Uplogo /> {"\u00A0"} {"\u00A0"} {"\u00A0"}
+    <div style={{ alignSelf: "flex-start" }}>
+      <MenuButton /> {"\u00A0"} <Uplogo />
+    </div>
     <AllQuestionsContext.Consumer>
       {(context) => <SubjectHeader text={context.meta.name} />}
     </AllQuestionsContext.Consumer>
+    <div
+      style={{ verticalAlign: "middle", color: "green", margin: " auto 0 " }}
+    >
+      Logged In{" "}
+      <span role="img" aria-label="login">
+        👤
+      </span>
+    </div>
   </header>
 );
 export default toolbar;

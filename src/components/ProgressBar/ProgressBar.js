@@ -21,6 +21,11 @@ class ProgressBar extends Component {
     }
     const startPosition = this.progBarRef.current.getBoundingClientRect().left;
     const lineLength = length_ - startPosition + 20;
+    console.log(
+      this.progBarRef.current,
+      "startPosition :" + startPosition,
+      "length_ " + length_
+    );
     this.setState({ ...this.state, widthOfLine: lineLength + "px" });
   }
 
