@@ -5,8 +5,8 @@
   "questions": {
     "1": {
       "type": "info",
-      "text": "What is the color of the sky?",
-      "answers": ["blue", "red"],
+      "text": "What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?",
+      "answers": [],
       "solution": "1"
     },
     "2": {

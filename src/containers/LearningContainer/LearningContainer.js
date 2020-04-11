@@ -13,33 +13,60 @@ class LearningContainer extends Component {
     }
     this.setState({ ...this.state, chosenAnswer: num, marked_Answer: false });
   };
-  submitHandler = (event) => {
+  submitHandler = (event, TEST_MODE = false) => {
+    console.log(
+      "this " + this.state.question_number,
+      "next " + this.state.next_unanswered_q
+    );
     const num = this.state.chosenAnswer;
     const oldNumber = this.state.question_number;
-    if (this.state.next_unanswered_q > oldNumber) {
+    if (
+      this.state.next_unanswered_q > oldNumber &&
+      this.state.current_question_object.type !== "info"
+    ) {
       return;
     }
 
-    if (num === +allquestions.questions[oldNumber].solution) {
+    if (num === +allquestions.questions[oldNumber].solution || TEST_MODE) {
       this.setState({ ...this.state, marked_Answer: "RIGHT" });
       const new_q_number = this.state.question_number + 1;
-      setTimeout(() => {
-        this.setState({
-          ...this.state,
-          marked_Answer: false,
-          chosenAnswer: false,
-          question_number: new_q_number,
-          next_unanswered_q: new_q_number,
-          current_question_object: allquestions.questions[new_q_number],
-          current_question_ask: allquestions.questions[new_q_number].text,
-          current_answer_obj: this.createAnswerObject(
-            allquestions.questions[new_q_number].answers
-          ),
-        });
-      }, this.TIME_AFTER_ANSWER);
+      setTimeout(
+        () => {
+          this.setState({
+            ...this.state,
+            marked_Answer: false,
+            chosenAnswer: false,
+            question_number: new_q_number,
+            next_unanswered_q: new_q_number,
+            current_question_object: allquestions.questions[new_q_number],
+            current_question_ask: allquestions.questions[new_q_number].text,
+            current_answer_obj: this.createAnswerObject(
+              allquestions.questions[new_q_number].answers
+            ),
+          });
+        },
+        TEST_MODE ? 2 : this.TIME_AFTER_ANSWER
+      );
+    } else if (this.state.current_question_object.type === "info") {
+      if (this.state.question_number !== this.state.next_unanswered_q) {
+        alert("been there");
+      }
+
+      const new_q_number = this.state.question_number + 1;
+      this.setState({
+        ...this.state,
+        marked_Answer: false,
+        chosenAnswer: false,
+        question_number: new_q_number,
+        next_unanswered_q: new_q_number,
+        current_question_object: allquestions.questions[new_q_number],
+        current_question_ask: allquestions.questions[new_q_number].text,
+        current_answer_obj: this.createAnswerObject(
+          allquestions.questions[new_q_number].answers
+        ),
+      });
     } else {
       this.setState({ ...this.state, marked_Answer: "WRONG" });
-
       setTimeout(() => {
         const new_ans_array = [...this.state.current_answer_obj].sort(
           () => Math.random() - 0.5
@@ -60,7 +87,7 @@ class LearningContainer extends Component {
     } else if (this.state.next_unanswered_q === +number + 1) {
       returnToLast = true;
     }
-    console.log("clicked " + number, "was in " + this.state.question_view);
+
     const question_to_view = +number + 1;
 
     this.setState({
@@ -81,7 +108,14 @@ class LearningContainer extends Component {
     answers.map((a) => {
       return { content: a, number: 1 + answers.indexOf(a) };
     });
-
+  componentDidMount() {
+    document.addEventListener("keydown", (event) => {
+      if (event.keyCode === 32) {
+        this.submitHandler(event, true);
+      }
+      // do something
+    });
+  }
   num = 1;
   state = {
     question_number: this.num,
@@ -108,6 +142,7 @@ class LearningContainer extends Component {
         <ProgressBar viewHandler={this.viewHandler} />
         <Question
           type={this.state.current_question_object.type}
+          Question_Object={this.state.current_question_object}
           q_num={this.state.question_number}
           q_ask={this.state.current_question_ask}
           q_Ans_obj={this.state.current_answer_obj}

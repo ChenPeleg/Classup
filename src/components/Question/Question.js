@@ -30,12 +30,18 @@ const question = (props) => {
 
         <button
           className={`${styles.submitButton} ${
-            props.chosenAnswer ? "" : styles.submitDisabled
+            props.chosenAnswer || props.Question_Object.type === "info"
+              ? ""
+              : styles.submitDisabled
           }`}
           onClick={props.submitHandler}
-          disabled={props.chosenAnswer ? false : true}
+          disabled={
+            props.chosenAnswer || props.Question_Object.type === "info"
+              ? false
+              : true
+          }
         >
-          submit
+          {props.Question_Object.type === "info" ? "Continue" : "Submit"}
         </button>
       </div>
     </div>
