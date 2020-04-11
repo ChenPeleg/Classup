@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Toolbar.module.scss";
 import Uplogo from "../../Uplogo/Uplogo";
 import MenuButton from "../NavigationItems/menu-button";
-import AllQuestionsContext from "../../../context/AllQuestions-context";
+
 import SubjectHeader from "../../SubjectHeader/SubjectHeader";
 
 const toolbar = (props) => (
@@ -10,9 +10,9 @@ const toolbar = (props) => (
     <div style={{ alignSelf: "flex-start" }}>
       <MenuButton /> {"\u00A0"} <Uplogo />
     </div>
-    <AllQuestionsContext.Consumer>
-      {(context) => <SubjectHeader text={context.meta.name} />}
-    </AllQuestionsContext.Consumer>
+
+    <SubjectHeader text={props.AllQuestions.meta.name} />
+
     <div
       style={{ verticalAlign: "middle", color: "green", margin: " auto 0 " }}
     >

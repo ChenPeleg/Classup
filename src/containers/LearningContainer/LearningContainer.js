@@ -5,7 +5,7 @@ import AdvanceContext from "../../context/advance-context";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
 
 // import
-class Qpanel extends Component {
+class LearningContainer extends Component {
   TIME_AFTER_ANSWER = 1500;
   answerHandler = (event, num) => {
     if (this.state.next_unanswered_q > this.state.question_number) {
@@ -30,8 +30,8 @@ class Qpanel extends Component {
           chosenAnswer: false,
           question_number: new_q_number,
           next_unanswered_q: new_q_number,
-          current_question: allquestions.questions[new_q_number],
-          current_question_ask: allquestions.questions[new_q_number].ask,
+          current_question_object: allquestions.questions[new_q_number],
+          current_question_ask: allquestions.questions[new_q_number].text,
           current_answer_obj: this.createAnswerObject(
             allquestions.questions[new_q_number].answers
           ),
@@ -70,8 +70,8 @@ class Qpanel extends Component {
         ? false
         : +allquestions.questions[question_to_view].solution,
       question_number: question_to_view,
-      current_question: allquestions.questions[question_to_view],
-      current_question_ask: allquestions.questions[question_to_view].ask,
+      current_question_object: allquestions.questions[question_to_view],
+      current_question_ask: allquestions.questions[question_to_view].text,
       current_answer_obj: this.createAnswerObject(
         allquestions.questions[question_to_view].answers
       ),
@@ -87,8 +87,8 @@ class Qpanel extends Component {
     question_number: this.num,
     question_view: this.num,
     chosenAnswer: false,
-    current_question: allquestions.questions[this.num],
-    current_question_ask: allquestions.questions[this.num].ask,
+    current_question_object: allquestions.questions[this.num],
+    current_question_ask: allquestions.questions[this.num].text,
     current_answer_obj: this.createAnswerObject(
       allquestions.questions[this.num].answers
     ),
@@ -107,6 +107,7 @@ class Qpanel extends Component {
       >
         <ProgressBar viewHandler={this.viewHandler} />
         <Question
+          type={this.state.current_question_object.type}
           q_num={this.state.question_number}
           q_ask={this.state.current_question_ask}
           q_Ans_obj={this.state.current_answer_obj}
@@ -120,4 +121,4 @@ class Qpanel extends Component {
     );
   }
 }
-export default Qpanel;
+export default LearningContainer;

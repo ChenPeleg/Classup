@@ -4,62 +4,63 @@
   },
   "questions": {
     "1": {
-      "ask": "What is the color of the sky?",
-      "answers": ["blue", "white", "green", "pink"],
+      "type": "info",
+      "text": "What is the color of the sky?",
+      "answers": ["blue", "red"],
       "solution": "1"
     },
     "2": {
-      "ask": "What is the color of the sand?",
+      "text": "What is the color of the sand?",
       "answers": ["blue", "black", "green", "yellow"],
       "solution": "4"
     },
     "3": {
-      "ask": "My dog Lucky is brown and...",
+      "text": "My dog Lucky is brown and...",
       "answers": ["purple", "white", "green", "pink"],
       "solution": "2"
     },
     "4": {
-      "ask": "Please cook the meat it's too...",
+      "text": "Please cook the meat it's too...",
       "answers": ["orange", "yellow", "red", "green"],
       "solution": "3"
     },
     "5": {
-      "ask": "Look! your grass is very beautiful and...",
+      "text": "Look! your grass is very beautiful and...",
       "answers": ["blue", "white", "green", "pink"],
       "solution": "3"
     },
     "6": {
-      "ask": "Are you shy? your face is...",
+      "text": "Are you shy? your face is...",
       "answers": ["red", "purple", "green", "black"],
       "solution": "1"
     },
     "7": {
-      "ask": "This banana looks good and...",
+      "text": "This banana looks good and...",
       "answers": ["white", "yellow", "blue", "pink"],
       "solution": "2"
     },
     "8": {
-      "ask": "What is the color of the sky?",
+      "text": "What is the color of the sky?",
       "answers": ["blue", "white", "green", "pink"],
       "solution": "1"
     },
     "9": {
-      "ask": "Look! your grass is very beautiful and...",
+      "text": "Look! your grass is very beautiful and...",
       "answers": ["blue", "white", "green", "pink"],
       "solution": "3"
     },
     "10": {
-      "ask": "Are you shy? your face is...",
+      "text": "Are you shy? your face is...",
       "answers": ["red", "purple", "green", "black"],
       "solution": "1"
     },
     "11": {
-      "ask": "This banana looks good and...",
+      "text": "This banana looks good and...",
       "answers": ["white", "yellow", "blue", "pink"],
       "solution": "2"
     },
     "12": {
-      "ask": "What is the color of the sky?",
+      "text": "What is the color of the sky?",
       "answers": ["blue", "white", "green", "pink"],
       "solution": "1"
     }
