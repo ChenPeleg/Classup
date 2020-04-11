@@ -5,7 +5,8 @@
   "questions": {
     "1": {
       "type": "info",
-      "text": "What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?What is the color of the sky?",
+      "text": "These are the Colors",
+      "text_img": "/images/colors_main.png",
       "answers": [],
       "solution": "1"
     },

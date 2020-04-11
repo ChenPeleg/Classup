@@ -9,7 +9,17 @@ const question = (props) => {
       <div className={styles.questionOptions} onClick={props.click}>
         <br></br>
         <div style={{ margin: "10px" }}>
-          {props.q_num}. {props.q_ask}
+          {props.q_num}. {props.q_ask}{" "}
+          {props.Question_Object.text_img ? (
+            <>
+              <br></br>
+              <img
+                className={styles.img_0}
+                src={process.env.PUBLIC_URL + props.Question_Object.text_img}
+                alt="image_text"
+              />
+            </>
+          ) : null}
         </div>
         <br></br>
         {props.q_Ans_obj.map((a) => {
