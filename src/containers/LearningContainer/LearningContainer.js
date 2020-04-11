@@ -26,8 +26,29 @@ class LearningContainer extends Component {
     ) {
       return;
     }
+    if (this.state.current_question_object.type === "info") {
+      if (this.state.question_number !== this.state.next_unanswered_q) {
+        this.viewHandler(true, this.state.question_number);
+        return;
+      }
 
-    if (num === +allquestions.questions[oldNumber].solution || TEST_MODE) {
+      const new_q_number = this.state.question_number + 1;
+      this.setState({
+        ...this.state,
+        marked_Answer: false,
+        chosenAnswer: false,
+        question_number: new_q_number,
+        next_unanswered_q: new_q_number,
+        current_question_object: allquestions.questions[new_q_number],
+        current_question_ask: allquestions.questions[new_q_number].text,
+        current_answer_obj: this.createAnswerObject(
+          allquestions.questions[new_q_number].answers
+        ),
+      });
+    } else if (
+      num === +allquestions.questions[oldNumber].solution ||
+      TEST_MODE
+    ) {
       this.setState({ ...this.state, marked_Answer: "RIGHT" });
       const new_q_number = this.state.question_number + 1;
       setTimeout(
@@ -47,24 +68,6 @@ class LearningContainer extends Component {
         },
         TEST_MODE ? 2 : this.TIME_AFTER_ANSWER
       );
-    } else if (this.state.current_question_object.type === "info") {
-      if (this.state.question_number !== this.state.next_unanswered_q) {
-        alert("been there");
-      }
-
-      const new_q_number = this.state.question_number + 1;
-      this.setState({
-        ...this.state,
-        marked_Answer: false,
-        chosenAnswer: false,
-        question_number: new_q_number,
-        next_unanswered_q: new_q_number,
-        current_question_object: allquestions.questions[new_q_number],
-        current_question_ask: allquestions.questions[new_q_number].text,
-        current_answer_obj: this.createAnswerObject(
-          allquestions.questions[new_q_number].answers
-        ),
-      });
     } else {
       this.setState({ ...this.state, marked_Answer: "WRONG" });
       setTimeout(() => {
