@@ -132,6 +132,11 @@ class LearningContainer extends Component {
     marked_Answer: false, // WRONG, RIGHT
     next_unanswered_q: 1,
   };
+  info_Array = Object.keys(allquestions.questions)
+    .filter((num) =>
+      allquestions.questions[num].type === "info" ? Number(+num) : null
+    )
+    .map((e) => +e);
 
   render() {
     return (
@@ -140,6 +145,7 @@ class LearningContainer extends Component {
           q_number: this.state.question_number,
           total_q: Object.keys(allquestions.questions).length,
           q_next: this.state.next_unanswered_q,
+          info_questions: this.info_Array,
         }}
       >
         <ProgressBar viewHandler={this.viewHandler} />
