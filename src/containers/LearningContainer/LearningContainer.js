@@ -14,19 +14,15 @@ class LearningContainer extends Component {
     this.setState({ ...this.state, chosenAnswer: num, marked_Answer: false });
   };
   submitHandler = (event, TEST_MODE = false) => {
-    console.log(
-      "this " + this.state.question_number,
-      "next " + this.state.next_unanswered_q
-    );
     const num = this.state.chosenAnswer;
     const oldNumber = this.state.question_number;
     if (
       this.state.next_unanswered_q > oldNumber &&
-      this.state.current_question_object.type !== "info"
+      this.state.question_Object.type !== "info"
     ) {
       return;
     }
-    if (this.state.current_question_object.type === "info") {
+    if (this.state.question_Object.type === "info") {
       if (this.state.question_number !== this.state.next_unanswered_q) {
         this.viewHandler(true, this.state.question_number);
         return;
@@ -39,11 +35,7 @@ class LearningContainer extends Component {
         chosenAnswer: false,
         question_number: new_q_number,
         next_unanswered_q: new_q_number,
-        current_question_object: allquestions.questions[new_q_number],
-        current_question_ask: allquestions.questions[new_q_number].text,
-        current_answer_obj: this.createAnswerObject(
-          allquestions.questions[new_q_number].answers
-        ),
+        question_Object: allquestions.questions[new_q_number],
       });
     } else if (
       num === +allquestions.questions[oldNumber].solution ||
@@ -59,11 +51,7 @@ class LearningContainer extends Component {
             chosenAnswer: false,
             question_number: new_q_number,
             next_unanswered_q: new_q_number,
-            current_question_object: allquestions.questions[new_q_number],
-            current_question_ask: allquestions.questions[new_q_number].text,
-            current_answer_obj: this.createAnswerObject(
-              allquestions.questions[new_q_number].answers
-            ),
+            question_Object: allquestions.questions[new_q_number],
           });
         },
         TEST_MODE ? 2 : this.TIME_AFTER_ANSWER
@@ -71,13 +59,13 @@ class LearningContainer extends Component {
     } else {
       this.setState({ ...this.state, marked_Answer: "WRONG" });
       setTimeout(() => {
-        const new_ans_array = [...this.state.current_answer_obj].sort(
-          () => Math.random() - 0.5
-        );
+        // const new_ans_array = [...this.state.current_answer_obj].sort(
+        //   () => Math.random() - 0.5
+        // );
         this.setState({
           ...this.state,
           marked_Answer: false,
-          current_answer_obj: new_ans_array,
+          // current_answer_obj: new_ans_array,
           chosenAnswer: false,
         });
       }, this.TIME_AFTER_ANSWER);
@@ -100,17 +88,13 @@ class LearningContainer extends Component {
         ? false
         : +allquestions.questions[question_to_view].solution,
       question_number: question_to_view,
-      current_question_object: allquestions.questions[question_to_view],
-      current_question_ask: allquestions.questions[question_to_view].text,
+      question_Object: allquestions.questions[question_to_view],
       current_answer_obj: this.createAnswerObject(
         allquestions.questions[question_to_view].answers
       ),
     });
   };
-  createAnswerObject = (answers) =>
-    answers.map((a) => {
-      return { content: a, number: 1 + answers.indexOf(a) };
-    });
+
   componentDidMount() {
     document.addEventListener("keydown", (event) => {
       if (event.keyCode === 32) {
@@ -122,13 +106,8 @@ class LearningContainer extends Component {
   num = 1;
   state = {
     question_number: this.num,
-    question_view: this.num,
     chosenAnswer: false,
-    current_question_object: allquestions.questions[this.num],
-    current_question_ask: allquestions.questions[this.num].text,
-    current_answer_obj: this.createAnswerObject(
-      allquestions.questions[this.num].answers
-    ),
+    question_Object: allquestions.questions[this.num],
     marked_Answer: false, // WRONG, RIGHT
     next_unanswered_q: 1,
   };
@@ -150,11 +129,10 @@ class LearningContainer extends Component {
       >
         <ProgressBar viewHandler={this.viewHandler} />
         <QuestionContainer
-          type={this.state.current_question_object.type}
-          Question_Object={this.state.current_question_object}
+          type={this.state.question_Object.type}
+          Question_Object={this.state.question_Object}
           q_num={this.state.question_number}
-          q_ask={this.state.current_question_ask}
-          q_Ans_obj={this.state.current_answer_obj}
+          q_ask={this.state.question_Object.text}
           answerHandler={this.answerHandler}
           submitHandler={this.submitHandler}
           chosenAnswer={this.state.chosenAnswer}

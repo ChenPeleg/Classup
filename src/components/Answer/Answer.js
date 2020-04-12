@@ -9,7 +9,10 @@ const answer = (props) => {
       className={`${styles.answer} ${
         props.isChosen ? styles.choosenAnswer : ""
       }`}
-      onClick={(event) => props.answerHandler(event, +props.num)}
+      onClick={(event) => {
+        props.answerHandler(event, +props.num);
+        props.chooseHandlerHook(event, +props.num);
+      }}
     >
       {props.content}
       {props.isChosen && props.marked_Answer ? (
