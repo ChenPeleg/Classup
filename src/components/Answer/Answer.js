@@ -1,7 +1,7 @@
 /* one question */
 import React from "react";
 import styles from "./Answer.module.scss";
-import Mark from "./Mark";
+import Mark from "../Mark/Mark";
 
 const answer = (props) => {
   return (
