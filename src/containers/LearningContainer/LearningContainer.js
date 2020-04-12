@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Question from "../../components/Question/Question";
+import QuestionContainer from "../QuestionContainer/QuestionContainer";
 import allquestions from "./allquestions";
 import AdvanceContext from "../../context/advance-context";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
@@ -149,7 +149,7 @@ class LearningContainer extends Component {
         }}
       >
         <ProgressBar viewHandler={this.viewHandler} />
-        <Question
+        <QuestionContainer
           type={this.state.current_question_object.type}
           Question_Object={this.state.current_question_object}
           q_num={this.state.question_number}

@@ -1,0 +1,29 @@
+.submitButton {
+  position: relative;
+  display: block;
+
+  background-color: rgb(70, 216, 70);
+  padding: 15px 32px;
+  align-self: center;
+  color: rgb(24, 20, 20);
+  border: none;
+  width: 30%;
+  left: 35%;
+
+  font-family: inherit;
+  font-size: inherit;
+
+  border-radius: 1px;
+  box-shadow: 2px 2px 4px 2px rgba(2, 0, 36, 0.2);
+  padding: 7px;
+}
+.submitDisabled {
+  color: gray;
+  box-shadow: 2px 2px 4px 2px rgba(2, 0, 36, 0.1);
+  /* background-color: rgb(57, 182, 57); */
+}
+.submitButton:not(.submitDisabled):hover {
+  cursor: pointer;
+  background-color: rgb(20, 233, 20);
+  box-shadow: 2px 2px 4px 2px rgba(2, 0, 36, 0.5);
+}

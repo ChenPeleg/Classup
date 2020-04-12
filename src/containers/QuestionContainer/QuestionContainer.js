@@ -1,15 +1,15 @@
 import React from "react";
-import Answer from "../../components/Question/Answer";
+import Answer from "../../components/Question/Answer/Answer";
+import styles from "./Question.module.scss";
+import QuestionText from "../../components/QuestionText/QuestionText";
+import SubmitButton from "../../components/SubmitButton/SubmitButton";
 
 const question = (props) => {
   return (
     <div className={styles.questionWrapper}>
       <div className={styles.questionOptions} onClick={props.click}>
-        <br></br>
-        <div style={{ margin: "10px" }}>
-          {props.q_num}. {props.q_ask}
-        </div>
-        <br></br>
+        <QuestionText q_num={props.q_num} q_text={props.q_ask} />
+
         {props.q_Ans_obj.map((a) => {
           const key = "Q" + props.q_num + a.number;
 
@@ -26,21 +26,14 @@ const question = (props) => {
           );
         })}
 
-        <button
-          className={`${styles.submitButton} ${
-            props.chosenAnswer || props.Question_Object.type === "info"
-              ? ""
-              : styles.submitDisabled
-          }`}
-          onClick={props.submitHandler}
-          disabled={
-            props.chosenAnswer || props.Question_Object.type === "info"
-              ? false
-              : true
+        <SubmitButton
+          disableButton={
+            !(props.chosenAnswer || props.Question_Object.type === "info")
           }
+          submitHandler={props.submitHandler}
         >
           {props.Question_Object.type === "info" ? "Continue" : "Submit"}
-        </button>
+        </SubmitButton>
       </div>
     </div>
   );
