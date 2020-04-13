@@ -1,4 +1,10 @@
 @import "./assets/styles/base";
+@font-face {
+  font-family: "KulimPark";
+  font-weight: 400;
+  font-style: normal;
+  src: url("./assets/fonts/Kulim_Park/KulimPark-Regular.ttf") format("truetype");
+}
 
 .App {
   color: $Base_Black;

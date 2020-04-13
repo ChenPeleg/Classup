@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Answer from "../../components/Answer/Answer";
-
 import QuestionText from "../../components/QuestionText/QuestionText";
 import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import QuestionWrapper from "../../components/QuestionWrapper/QuestionWrapper";
@@ -30,11 +29,11 @@ const reorderAnswers = (answers) => {
 const Question = (props) => {
   const [chosenAnswer, setChosenAnswer] = useState(false);
   const [markInAnswer, setMarkInAnswer] = useState(false);
-  const [answersObject, setAnswersObject] = useState(
+  const [answersArray, setanswersArray] = useState(
     createAnswerObject(props.Question_Object.answers)
   );
   useEffect(() => {
-    setAnswersObject(createAnswerObject(props.Question_Object.answers));
+    setanswersArray(createAnswerObject(props.Question_Object.answers));
 
     if (props.next_unanswered_q > props.q_num) {
       setChosenAnswer(+props.Question_Object.solution);
@@ -50,7 +49,6 @@ const Question = (props) => {
 
   const setAnswerHandler = (event, num) => {
     if (wasAnswered) return;
-    console.log(wasAnswered);
     setChosenAnswer(num);
   };
   const submitHandler = (event) => {
@@ -73,7 +71,7 @@ const Question = (props) => {
     } else {
       setMarkInAnswer("WRONG");
       setTimeout(() => {
-        setAnswersObject(reorderAnswers(answersObject));
+        setanswersArray(reorderAnswers(answersArray));
         setChosenAnswer(false);
         setMarkInAnswer(false);
       }, TIME_AFTER_ANSWER);
@@ -84,7 +82,7 @@ const Question = (props) => {
       <QuestionText>
         {props.q_num}. {props.Question_Object.text}
       </QuestionText>
-      {answersObject.map((a) => (
+      {answersArray.map((a) => (
         <Answer
           content={a.content}
           key={"Q" + props.q_num + a.number}
@@ -96,7 +94,9 @@ const Question = (props) => {
       ))}
       <br></br>
       <SubmitButton
-        disableButton={!(chosenAnswer || isInfo || markInAnswer)}
+        disableButton={
+          (!(chosenAnswer && !markInAnswer) || markInAnswer) && !isInfo
+        }
         submitHandler={submitHandler}
       >
         {isInfo ? "Continue" : "Submit"}

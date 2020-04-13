@@ -9,11 +9,15 @@ class LearningContainer extends Component {
   TIME_AFTER_ANSWER = 1500;
 
   nextQuestionHandler = (event, TEST_MODE = false) => {
-    if (
-      this.state.question_number < this.state.next_unanswered_q &&
-      this.state.question_Object.type !== "info"
-    )
+    const wasAnswered =
+      this.state.question_number < this.state.next_unanswered_q;
+    const isInfo = this.state.question_Object.type === "info";
+    if (wasAnswered && !isInfo) {
       return;
+    } else if (wasAnswered && isInfo) {
+      this.viewAnotherQuestionHandler(event, this.state.question_number);
+      return;
+    }
     const new_q_number = this.state.question_number + 1;
     this.setState({
       ...this.state,
@@ -44,9 +48,7 @@ class LearningContainer extends Component {
   num = 1;
   state = {
     question_number: this.num,
-    chosenAnswer: false,
     question_Object: allquestions.questions[this.num],
-    marked_Answer: false, // WRONG, RIGHT
     next_unanswered_q: this.num,
   };
   info_Array = Object.keys(allquestions.questions)

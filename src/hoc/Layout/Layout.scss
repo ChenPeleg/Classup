@@ -1,15 +1,6 @@
-// @import "../../assets/styles/base";
-
-@font-face {
-  font-family: "KulimPark";
-  font-weight: 400;
-  font-style: normal;
-  src: url("../../assets/fonts/Kulim_Park/KulimPark-Regular.ttf")
-    format("truetype");
-}
+@import "../../assets/styles/base";
 
 .Layout {
-  font-family: KulimPark;
   position: absolute;
   height: 100%;
   width: 80%;
