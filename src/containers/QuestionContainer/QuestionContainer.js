@@ -69,8 +69,10 @@ const createAnswerObject = (answers) =>
 const Question = (props) => {
   const [isAnsChosen, setAnsChosen] = useState(false);
   const setAnswerToChoosen = (event, num) => {
-    console.log("answer " + num + " was chosen");
     setAnsChosen(true);
+  };
+  const submitHandler = (event) => {
+    props.nextQuestionHandler(event);
   };
   return (
     <QuestionWrapper>
@@ -95,7 +97,7 @@ const Question = (props) => {
         disableButton={
           !(props.chosenAnswer || props.Question_Object.type === "info")
         }
-        submitHandler={props.submitHandler}
+        submitHandler={submitHandler}
       >
         {props.Question_Object.type === "info" ? "Continue" : "Submit"}
       </SubmitButton>

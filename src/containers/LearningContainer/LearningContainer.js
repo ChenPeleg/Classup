@@ -13,7 +13,7 @@ class LearningContainer extends Component {
     }
     this.setState({ ...this.state, chosenAnswer: num, marked_Answer: false });
   };
-  submitHandler = (event, TEST_MODE = false) => {
+  nextQuestionHandler = (event, TEST_MODE = false) => {
     const num = this.state.chosenAnswer;
     const oldNumber = this.state.question_number;
     if (
@@ -98,7 +98,7 @@ class LearningContainer extends Component {
   componentDidMount() {
     document.addEventListener("keydown", (event) => {
       if (event.keyCode === 32) {
-        this.submitHandler(event, true);
+        this.nextQuestionHandler(event, true);
       }
       // do something
     });
@@ -129,12 +129,10 @@ class LearningContainer extends Component {
       >
         <ProgressBar viewHandler={this.viewHandler} />
         <QuestionContainer
-          type={this.state.question_Object.type}
           Question_Object={this.state.question_Object}
           q_num={this.state.question_number}
-          q_ask={this.state.question_Object.text}
           answerHandler={this.answerHandler}
-          submitHandler={this.submitHandler}
+          nextQuestionHandler={this.nextQuestionHandler}
           chosenAnswer={this.state.chosenAnswer}
           marked_Answer={this.state.marked_Answer}
           next_unanswered_q={this.state.next_unanswered_q}
