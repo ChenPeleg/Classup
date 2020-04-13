@@ -10,8 +10,7 @@ const answer = (props) => {
         props.isChosen ? styles.choosenAnswer : ""
       }`}
       onClick={(event) => {
-        props.answerHandler(event, +props.num);
-        props.chooseHandlerHook(event, +props.num);
+        props.chooseAnswerHandler(event, +props.num);
       }}
     >
       {props.content}
