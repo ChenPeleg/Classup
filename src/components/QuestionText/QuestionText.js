@@ -1,11 +1,11 @@
 import React from "react";
-
+import styles from "./QuestionText.module.scss";
 const QuestionText = (props) => {
   return (
     <>
       <br></br>
-      <div style={{ margin: "10px" }}>
-        {props.q_num}. {props.q_text}
+      <div className={styles.centeringDiv}>
+        <pre className={styles.questionText}> {props.children}</pre>
       </div>
       <br></br>
     </>

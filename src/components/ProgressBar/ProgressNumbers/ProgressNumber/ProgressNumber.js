@@ -32,7 +32,9 @@ class ProgressNumber extends Component {
       <div
         ref={this.currentNumberRef}
         className={this.props.className}
-        onClick={(event) => this.props.viewHandler(event, this.props.number)}
+        onClick={(event) =>
+          this.props.viewAnotherQuestionHandler(event, this.props.number)
+        }
       >
         {this.props.text}
       </div>

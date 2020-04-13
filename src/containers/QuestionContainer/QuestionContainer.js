@@ -4,13 +4,28 @@ import Answer from "../../components/Answer/Answer";
 import QuestionText from "../../components/QuestionText/QuestionText";
 import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import QuestionWrapper from "../../components/QuestionWrapper/QuestionWrapper";
+
 const TIME_AFTER_ANSWER = 2000;
-const TEST_MODE = true;
 
 const createAnswerObject = (answers) =>
   answers.map((a) => {
     return { content: a, number: 1 + answers.indexOf(a) };
   });
+const reorderAnswers = (answers) => {
+  const wasReorderCompletely = (arr1, arr2) => {
+    for (let i = 1; i < arr1.length; i++) {
+      if (arr1[i].number === arr2[i].number) {
+        return false;
+      }
+      return true;
+    }
+  };
+  let newAnswersObject = [...answers];
+  newAnswersObject.sort(() => Math.random() - 0.5);
+  return wasReorderCompletely(newAnswersObject, answers)
+    ? newAnswersObject
+    : reorderAnswers(answers);
+};
 
 const Question = (props) => {
   const [chosenAnswer, setChosenAnswer] = useState(false);
@@ -28,17 +43,17 @@ const Question = (props) => {
       setChosenAnswer(false);
       setMarkInAnswer(false);
     }
-  }, [props.Question_Object]);
+  }, [props.Question_Object, props.q_num, props.next_unanswered_q]);
 
   const wasAnswered = props.q_num < props.next_unanswered_q;
   const isInfo = props.Question_Object.type === "info";
 
   const setAnswerHandler = (event, num) => {
     if (wasAnswered) return;
+    console.log(wasAnswered);
     setChosenAnswer(num);
   };
   const submitHandler = (event) => {
-    const questionNumber = props.q_num;
     const isCorrect = chosenAnswer === +props.Question_Object.solution;
     if (wasAnswered && !isInfo) {
       return;
@@ -58,7 +73,7 @@ const Question = (props) => {
     } else {
       setMarkInAnswer("WRONG");
       setTimeout(() => {
-        setAnswersObject(answersObject.sort(() => Math.random() - 0.5));
+        setAnswersObject(reorderAnswers(answersObject));
         setChosenAnswer(false);
         setMarkInAnswer(false);
       }, TIME_AFTER_ANSWER);
@@ -66,20 +81,20 @@ const Question = (props) => {
   };
   return (
     <QuestionWrapper>
-      <QuestionText q_num={props.q_num} q_text={props.Question_Object.text} />
-      {answersObject.map((a) => {
-        const key = "Q" + props.q_num + a.number;
-        return (
-          <Answer
-            content={a.content}
-            key={key}
-            num={a.number}
-            isChosen={chosenAnswer === a.number ? true : false}
-            chooseAnswerHandler={setAnswerHandler}
-            marked_Answer={markInAnswer}
-          />
-        );
-      })}
+      <QuestionText>
+        {props.q_num}. {props.Question_Object.text}
+      </QuestionText>
+      {answersObject.map((a) => (
+        <Answer
+          content={a.content}
+          key={"Q" + props.q_num + a.number}
+          num={a.number}
+          isChosen={chosenAnswer === a.number ? true : false}
+          chooseAnswerHandler={setAnswerHandler}
+          marked_Answer={markInAnswer}
+        />
+      ))}
+      <br></br>
       <SubmitButton
         disableButton={!(chosenAnswer || isInfo || markInAnswer)}
         submitHandler={submitHandler}

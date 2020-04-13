@@ -33,7 +33,7 @@ class progressNumbers extends Component {
         current={q_current}
         number={q_prog_array.indexOf(q)}
         lineWidthHandler={this.props.lineWidthHandler}
-        viewHandler={this.props.viewHandler}
+        viewAnotherQuestionHandler={this.props.viewAnotherQuestionHandler}
         next_unanswered_q={this.props.next_unanswered_q}
       />
     ));

@@ -42,7 +42,7 @@ class ProgressBar extends Component {
                 info_questions: context.info_questions,
               }}
               lineWidthHandler={this.lineWidthHandler}
-              viewHandler={this.props.viewHandler}
+              viewAnotherQuestionHandler={this.props.viewAnotherQuestionHandler}
               next_unanswered_q={+context.q_next}
             />
           )}

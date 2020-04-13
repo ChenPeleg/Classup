@@ -1,6 +1,6 @@
 @import "../../assets/styles/scrollbar";
 @import "../../assets/styles/base";
-.questionOptions {
+.questionScroller {
   position: relative;
   width: 70%;
   left: 15%;
@@ -10,7 +10,7 @@
   padding: 5px;
   padding-bottom: 15px;
   overflow-y: auto;
-  // overflow-y: scroll;
+  overflow-x: hidden;
   height: 450px;
   @include scrollbars(10px, rgba(12, 134, 196, 0.986899), #00d4ff);
 }

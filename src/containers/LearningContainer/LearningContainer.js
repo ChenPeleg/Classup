@@ -9,7 +9,11 @@ class LearningContainer extends Component {
   TIME_AFTER_ANSWER = 1500;
 
   nextQuestionHandler = (event, TEST_MODE = false) => {
-    if (this.state.question_number < this.state.next_unanswered_q) return;
+    if (
+      this.state.question_number < this.state.next_unanswered_q &&
+      this.state.question_Object.type !== "info"
+    )
+      return;
     const new_q_number = this.state.question_number + 1;
     this.setState({
       ...this.state,
@@ -18,20 +22,14 @@ class LearningContainer extends Component {
       next_unanswered_q: new_q_number,
     });
   };
-  viewHandler = (event, number) => {
-    let returnToLast = false;
+  viewAnotherQuestionHandler = (event, number) => {
     if (this.state.next_unanswered_q < +number + 1) {
       return;
-    } else if (this.state.next_unanswered_q === +number + 1) {
-      returnToLast = true;
     }
-
-    const question_to_view = +number + 1;
-
     this.setState({
       ...this.state,
-      question_number: question_to_view,
-      question_Object: allquestions.questions[question_to_view],
+      question_number: number + 1,
+      question_Object: allquestions.questions[number + 1],
     });
   };
 
@@ -67,7 +65,9 @@ class LearningContainer extends Component {
           info_questions: this.info_Array,
         }}
       >
-        <ProgressBar viewHandler={this.viewHandler} />
+        <ProgressBar
+          viewAnotherQuestionHandler={this.viewAnotherQuestionHandler}
+        />
         <QuestionContainer
           Question_Object={this.state.question_Object}
           q_num={this.state.question_number}
