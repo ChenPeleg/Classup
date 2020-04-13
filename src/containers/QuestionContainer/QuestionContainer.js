@@ -11,17 +11,24 @@ const createAnswerObject = (answers) =>
   answers.map((a) => {
     return { content: a, number: 1 + answers.indexOf(a) };
   });
-//
 
 const Question = (props) => {
   const [chosenAnswer, setChosenAnswer] = useState(false);
   const [markInAnswer, setMarkInAnswer] = useState(false);
   const [answersObject, setAnswersObject] = useState(
-    props.Question_Object.answers
+    createAnswerObject(props.Question_Object.answers)
   );
   useEffect(() => {
-    setAnswersObject(props.Question_Object.answers);
-  }, [props.Question_Object.answers]);
+    setAnswersObject(createAnswerObject(props.Question_Object.answers));
+
+    if (props.next_unanswered_q > props.q_num) {
+      setChosenAnswer(+props.Question_Object.solution);
+      setMarkInAnswer("RIGHT");
+    } else {
+      setChosenAnswer(false);
+      setMarkInAnswer(false);
+    }
+  }, [props.Question_Object]);
 
   const wasAnswered = props.q_num < props.next_unanswered_q;
   const isInfo = props.Question_Object.type === "info";
@@ -34,7 +41,6 @@ const Question = (props) => {
     const questionNumber = props.q_num;
     const isCorrect = chosenAnswer === +props.Question_Object.solution;
     if (wasAnswered && !isInfo) {
-      alert("already answered this");
       return;
     } else if (isInfo) {
       props.nextQuestionHandler();
@@ -42,8 +48,12 @@ const Question = (props) => {
     } else if (isCorrect) {
       setMarkInAnswer("RIGHT");
       setTimeout(
-        () => props.nextQuestionHandler(),
-        TEST_MODE ? 2 : TIME_AFTER_ANSWER
+        () => {
+          props.nextQuestionHandler();
+          setMarkInAnswer(false);
+          setChosenAnswer(false);
+        },
+        false ? 2 : TIME_AFTER_ANSWER
       );
     } else {
       setMarkInAnswer("WRONG");
@@ -57,7 +67,7 @@ const Question = (props) => {
   return (
     <QuestionWrapper>
       <QuestionText q_num={props.q_num} q_text={props.Question_Object.text} />
-      {createAnswerObject(answersObject).map((a) => {
+      {answersObject.map((a) => {
         const key = "Q" + props.q_num + a.number;
         return (
           <Answer
