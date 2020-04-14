@@ -3,16 +3,18 @@ import QuestionContainer from "../QuestionContainer/QuestionContainer";
 import allquestions from "./allquestions";
 import AdvanceContext from "../../context/advance-context";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
+import SummaryContainer from "../SummaryContatiner/SummaryContatiner";
 
 // import
 class LearningContainer extends Component {
   TIME_AFTER_ANSWER = 1500;
-
+  total_q = Object.keys(allquestions.questions).length;
   nextQuestionHandler = (event, TEST_MODE = false) => {
     const wasAnswered =
       this.state.question_number < this.state.next_unanswered_q;
-    const isInfo = this.state.question_Object.type === "info";
-    if (wasAnswered && !isInfo) {
+    const isInfo =
+      this.state.question_Object && this.state.question_Object.type === "info";
+    if ((wasAnswered && !isInfo) || this.total_q < this.state.question_number) {
       return;
     } else if (wasAnswered && isInfo) {
       this.viewAnotherQuestionHandler(event, this.state.question_number);
@@ -27,7 +29,9 @@ class LearningContainer extends Component {
     });
   };
   viewAnotherQuestionHandler = (event, number) => {
-    if (this.state.next_unanswered_q < +number + 1) {
+    const questionWasntReached = this.state.next_unanswered_q < +number + 1;
+    const isItSummary = this.total_q <= this.state.question_number;
+    if (questionWasntReached || isItSummary) {
       return;
     }
     this.setState({
@@ -36,7 +40,6 @@ class LearningContainer extends Component {
       question_Object: allquestions.questions[number + 1],
     });
   };
-
   componentDidMount() {
     document.addEventListener("keydown", (event) => {
       if (event.keyCode === 32) {
@@ -62,7 +65,7 @@ class LearningContainer extends Component {
       <AdvanceContext.Provider
         value={{
           q_number: this.state.question_number,
-          total_q: Object.keys(allquestions.questions).length,
+          total_q: this.total_q,
           q_next: this.state.next_unanswered_q,
           info_questions: this.info_Array,
         }}
@@ -70,12 +73,16 @@ class LearningContainer extends Component {
         <ProgressBar
           viewAnotherQuestionHandler={this.viewAnotherQuestionHandler}
         />
-        <QuestionContainer
-          Question_Object={this.state.question_Object}
-          q_num={this.state.question_number}
-          nextQuestionHandler={this.nextQuestionHandler}
-          next_unanswered_q={this.state.next_unanswered_q}
-        />
+        {this.total_q >= this.state.question_number ? (
+          <QuestionContainer
+            Question_Object={this.state.question_Object}
+            q_num={this.state.question_number}
+            nextQuestionHandler={this.nextQuestionHandler}
+            next_unanswered_q={this.state.next_unanswered_q}
+          />
+        ) : (
+          <SummaryContainer />
+        )}
       </AdvanceContext.Provider>
     );
   }
