@@ -48,7 +48,7 @@ const Question = (props) => {
   const isInfo = props.Question_Object.type === "info";
 
   const setAnswerHandler = (event, num) => {
-    if (wasAnswered) return;
+    if (wasAnswered || markInAnswer) return;
     setChosenAnswer(num);
   };
   const submitHandler = (event) => {

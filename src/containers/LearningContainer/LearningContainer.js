@@ -17,7 +17,6 @@ class LearningContainer extends Component {
   TIME_AFTER_ANSWER = 1500;
   total_q = Object.keys(allquestions.questions).length;
   answeringHandler = (action) => {
-    console.log(action);
     const newSummaryArray = updateSummaryArray(
       [...this.state.summaryArray],
       this.state.question_number,
@@ -36,37 +35,6 @@ class LearningContainer extends Component {
           : this.state.next_unanswered_q,
       summaryArray: newSummaryArray,
     });
-    // const wasAnswered =
-    //   this.state.question_number < this.state.next_unanswered_q;
-    // const isInfo =
-    //   this.state.question_Object && this.state.question_Object.type === "info";
-    // let newSummaryArray = [...this.state.summaryArray];
-    // if ((wasAnswered && !isInfo) || this.total_q < this.state.question_number) {
-    //   return;
-    // } else if (wasAnswered && isInfo) {
-    //   this.viewAnotherQuestionHandler(this.state.question_number);
-    //   return;
-    // } else if (wasCorrect === "WRONG") {
-    //   newSummaryArray = updateSummaryArray(
-    //     this.state.summaryArray,
-    //     this.state.question_number,
-    //     wasCorrect
-    //   );
-    //   return;
-    // }
-    // const new_q_number = this.state.question_number + 1;
-    // newSummaryArray = updateSummaryArray(
-    //   this.state.summaryArray,
-    //   this.state.question_number,
-    //   "RIGHT"
-    // );
-    // this.setState({
-    //   ...this.state,
-    //   question_number: new_q_number,
-    //   question_Object: allquestions.questions[new_q_number],
-    //   next_unanswered_q: new_q_number,
-    //   summaryArray: newSummaryArray,
-    // });
   };
   viewAnotherQuestionHandler = (number) => {
     const questionWasntReached = this.state.next_unanswered_q < +number + 1;
@@ -84,7 +52,7 @@ class LearningContainer extends Component {
   componentDidMount() {
     document.addEventListener("keydown", (event) => {
       if (event.keyCode === 32) {
-        this.answeringHandler(true, true);
+        this.answeringHandler("RIGHT");
       }
       // for Testing purpuses
     });
@@ -103,7 +71,6 @@ class LearningContainer extends Component {
     .map((e) => +e);
 
   render() {
-    // console.log(this.state.summaryArray);
     return (
       <AdvanceContext.Provider
         value={{
@@ -116,7 +83,7 @@ class LearningContainer extends Component {
         <ProgressBar
           viewAnotherQuestionHandler={this.viewAnotherQuestionHandler}
         />
-        {this.total_q >= this.state.question_number ? (
+        {this.total_q >= this.state.question_number && false ? (
           <QuestionContainer
             Question_Object={this.state.question_Object}
             q_num={this.state.question_number}
