@@ -7,7 +7,9 @@ class ProgressNumber extends Component {
     this.currentNumberRef = React.createRef();
   }
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.current === this.props.current ? false : true;
+    return nextProps.curren_q_number === this.props.curren_q_number
+      ? false
+      : true;
   }
 
   updateLineLength(prevProps, prevState) {
@@ -33,7 +35,7 @@ class ProgressNumber extends Component {
         ref={this.currentNumberRef}
         className={this.props.className}
         onClick={(event) =>
-          this.props.viewAnotherQuestionHandler(event, this.props.number)
+          this.props.viewAnotherQuestionHandler(this.props.number)
         }
       >
         {this.props.text}

@@ -21,8 +21,9 @@ class ProgressBar extends Component {
     }
     const startPosition = this.progBarRef.current.getBoundingClientRect().left;
     const lineLength = length_ - startPosition + 20;
-
-    this.setState({ ...this.state, widthOfLine: lineLength + "px" });
+    setTimeout(() => {
+      this.setState({ ...this.state, widthOfLine: lineLength + "px" });
+    }, 500);
   }
 
   render() {
@@ -36,7 +37,7 @@ class ProgressBar extends Component {
           {(context) => (
             <ProgressNumbers
               q_counter={{
-                q_current: +context.q_number,
+                q_number: +context.q_number,
                 q_total: +context.total_q,
                 q_next: +context.q_next,
                 info_questions: context.info_questions,

@@ -6,29 +6,69 @@ import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import SummaryContainer from "../SummaryContatiner/SummaryContatiner";
 
 // import
+
+const updateSummaryArray = (sumArray = [], q_number, result = "RIGHT") => {
+  let array = [...sumArray];
+
+  array[q_number].push(result);
+  return array;
+};
 class LearningContainer extends Component {
   TIME_AFTER_ANSWER = 1500;
   total_q = Object.keys(allquestions.questions).length;
-  nextQuestionHandler = (event, TEST_MODE = false) => {
-    const wasAnswered =
-      this.state.question_number < this.state.next_unanswered_q;
-    const isInfo =
-      this.state.question_Object && this.state.question_Object.type === "info";
-    if ((wasAnswered && !isInfo) || this.total_q < this.state.question_number) {
-      return;
-    } else if (wasAnswered && isInfo) {
-      this.viewAnotherQuestionHandler(event, this.state.question_number);
-      return;
-    }
-    const new_q_number = this.state.question_number + 1;
+  answeringHandler = (action) => {
+    console.log(action);
+    const newSummaryArray = updateSummaryArray(
+      [...this.state.summaryArray],
+      this.state.question_number,
+      action
+    );
+
+    const new_q_number =
+      this.state.question_number + (action === "WRONG" ? 0 : 1);
     this.setState({
       ...this.state,
       question_number: new_q_number,
       question_Object: allquestions.questions[new_q_number],
-      next_unanswered_q: new_q_number,
+      next_unanswered_q:
+        new_q_number > this.state.next_unanswered_q
+          ? new_q_number
+          : this.state.next_unanswered_q,
+      summaryArray: newSummaryArray,
     });
+    // const wasAnswered =
+    //   this.state.question_number < this.state.next_unanswered_q;
+    // const isInfo =
+    //   this.state.question_Object && this.state.question_Object.type === "info";
+    // let newSummaryArray = [...this.state.summaryArray];
+    // if ((wasAnswered && !isInfo) || this.total_q < this.state.question_number) {
+    //   return;
+    // } else if (wasAnswered && isInfo) {
+    //   this.viewAnotherQuestionHandler(this.state.question_number);
+    //   return;
+    // } else if (wasCorrect === "WRONG") {
+    //   newSummaryArray = updateSummaryArray(
+    //     this.state.summaryArray,
+    //     this.state.question_number,
+    //     wasCorrect
+    //   );
+    //   return;
+    // }
+    // const new_q_number = this.state.question_number + 1;
+    // newSummaryArray = updateSummaryArray(
+    //   this.state.summaryArray,
+    //   this.state.question_number,
+    //   "RIGHT"
+    // );
+    // this.setState({
+    //   ...this.state,
+    //   question_number: new_q_number,
+    //   question_Object: allquestions.questions[new_q_number],
+    //   next_unanswered_q: new_q_number,
+    //   summaryArray: newSummaryArray,
+    // });
   };
-  viewAnotherQuestionHandler = (event, number) => {
+  viewAnotherQuestionHandler = (number) => {
     const questionWasntReached = this.state.next_unanswered_q < +number + 1;
     const isItSummary = this.total_q <= this.state.question_number;
     if (questionWasntReached || isItSummary) {
@@ -40,12 +80,13 @@ class LearningContainer extends Component {
       question_Object: allquestions.questions[number + 1],
     });
   };
+
   componentDidMount() {
     document.addEventListener("keydown", (event) => {
       if (event.keyCode === 32) {
-        this.nextQuestionHandler(event, true);
+        this.answeringHandler(true, true);
       }
-      // do something
+      // for Testing purpuses
     });
   }
   num = 1;
@@ -53,6 +94,7 @@ class LearningContainer extends Component {
     question_number: this.num,
     question_Object: allquestions.questions[this.num],
     next_unanswered_q: this.num,
+    summaryArray: [...Array(this.total_q + 1)].map((e) => []),
   };
   info_Array = Object.keys(allquestions.questions)
     .filter((num) =>
@@ -61,6 +103,7 @@ class LearningContainer extends Component {
     .map((e) => +e);
 
   render() {
+    // console.log(this.state.summaryArray);
     return (
       <AdvanceContext.Provider
         value={{
@@ -77,7 +120,7 @@ class LearningContainer extends Component {
           <QuestionContainer
             Question_Object={this.state.question_Object}
             q_num={this.state.question_number}
-            nextQuestionHandler={this.nextQuestionHandler}
+            answeringHandler={this.answeringHandler}
             next_unanswered_q={this.state.next_unanswered_q}
           />
         ) : (

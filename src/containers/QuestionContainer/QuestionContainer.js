@@ -53,27 +53,30 @@ const Question = (props) => {
   };
   const submitHandler = (event) => {
     const isCorrect = chosenAnswer === +props.Question_Object.solution;
+    const resetQuestionState = () => {
+      setMarkInAnswer(false);
+      setChosenAnswer(false);
+    };
     if (wasAnswered && !isInfo) {
       return;
     } else if (isInfo) {
-      props.nextQuestionHandler();
+      props.answeringHandler("INFO");
       return;
     } else if (isCorrect) {
       setMarkInAnswer("RIGHT");
       setTimeout(
         () => {
-          props.nextQuestionHandler();
-          setMarkInAnswer(false);
-          setChosenAnswer(false);
+          props.answeringHandler("RIGHT");
+          resetQuestionState();
         },
         false ? 2 : TIME_AFTER_ANSWER
       );
     } else {
       setMarkInAnswer("WRONG");
+      props.answeringHandler("WRONG");
       setTimeout(() => {
         setanswersArray(reorderAnswers(answersArray));
-        setChosenAnswer(false);
-        setMarkInAnswer(false);
+        resetQuestionState();
       }, TIME_AFTER_ANSWER);
     }
   };
