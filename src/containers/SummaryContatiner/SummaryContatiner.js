@@ -2,6 +2,9 @@ import React from "react";
 import QuestionWrapper from "../../components/QuestionWrapper/QuestionWrapper";
 import QuestionText from "../../components/QuestionText/QuestionText";
 import SubmitButton from "../../components/SubmitButton/SubmitButton";
+import SummaryText from "../../components/SummaryText/SummaryText";
+import SummaryTable from "../../components/SummaryTable/SummaryTable";
+
 const test1 = [
   [],
   ["INFO"],
@@ -18,31 +21,26 @@ const test1 = [
   ["WRONG", "RIGHT"],
 ];
 const summaryObject = (sumArray) => {
-  const MAX_MISTAKES = 4;
   let numOfquestions = 0;
-  let mistakesObject = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0 };
+  let mistakesObject = { q0: 0, q1: 0, q23: 0 };
   for (let i = 0; i < sumArray.length; i++) {
     const wrongs = sumArray[i].filter((e) => e === "WRONG").length;
     const rights = sumArray[i].filter((e) => e === "RIGHT").length;
-    let mistakeCound = wrongs < MAX_MISTAKES ? wrongs : MAX_MISTAKES;
+    let mistakeCound = wrongs < 2 ? "q" + wrongs : "q23";
     mistakesObject[mistakeCound] += 1;
     numOfquestions += rights;
   }
 
-  return { mistakesObject, numOfquestions, MAX_MISTAKES };
+  return { mistakesObject, numOfquestions };
 };
 const SummaryContainer = (props) => {
   return (
     <QuestionWrapper>
       {" "}
       <QuestionText>
-        <div style={{ textAlign: "center" }}>
-          <span style={{ fontWeight: "Bold" }}> Very Good! </span>
-          <br></br>
-          <br></br> You've answered all the questions and completed this lesson.
-          <br></br>
-          {JSON.stringify(summaryObject(test1))}
-        </div>
+        <SummaryText>
+          <SummaryTable summaryObject={summaryObject(test1)} />
+        </SummaryText>
       </QuestionText>
       <SubmitButton>Start Again</SubmitButton>
     </QuestionWrapper>

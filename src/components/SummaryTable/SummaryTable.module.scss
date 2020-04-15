@@ -1,0 +1,11 @@
+.sumTable {
+  text-align: center;
+  td,
+  th {
+    padding: 3px;
+  }
+  td:first-child,
+  th:first-child {
+    text-align: left;
+  }
+}
