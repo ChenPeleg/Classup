@@ -20,9 +20,11 @@ const test1 = [
   ["RIGHT"],
   ["WRONG", "RIGHT"],
 ];
-const summaryObject = (sumArray) => {
+const summaryObject = (allQuestions) => {
+  allQuestions = test1;
   let numOfquestions = 0;
   let mistakesObject = { q0: 0, q1: 0, q23: 0 };
+  const sumArray = allQuestions.filter((e) => e.includes("RIGHT"));
   for (let i = 0; i < sumArray.length; i++) {
     const wrongs = sumArray[i].filter((e) => e === "WRONG").length;
     const rights = sumArray[i].filter((e) => e === "RIGHT").length;
@@ -34,15 +36,17 @@ const summaryObject = (sumArray) => {
   return { mistakesObject, numOfquestions };
 };
 const SummaryContainer = (props) => {
+  const submitHandler = () => {
+    props.resetHandler();
+  };
   return (
     <QuestionWrapper>
-      {" "}
       <QuestionText>
         <SummaryText>
-          <SummaryTable summaryObject={summaryObject(test1)} />
+          <SummaryTable summaryObject={summaryObject(props.sumData)} />
         </SummaryText>
       </QuestionText>
-      <SubmitButton>Start Again</SubmitButton>
+      <SubmitButton submitHandler={submitHandler}>Start Again</SubmitButton>
     </QuestionWrapper>
   );
 };

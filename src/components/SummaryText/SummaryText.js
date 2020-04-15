@@ -3,15 +3,23 @@ import React from "react";
 const SummaryText = (props) => {
   return (
     <>
-      <div style={{ textAlign: "center" }}>
-        <span style={{ fontWeight: "Bold" }}> Very Good! </span>
+      <div style={{ textAlign: "left" }}>
+        <div
+          style={{
+            paddingBottom: "5px",
+            fontWeight: "Bold",
+            textAlign: "center",
+          }}
+        >
+          {" "}
+          Very Good!{" "}
+        </div>
+        You've completed this lesson. This is your lesson summary:
         <br></br>
-        <br></br> You've completed this lesson. This is your lesson summary by
-        number of attempts to answer each question.
+        <br></br>
         {props.children}
         <br></br>
-        You can practice this lesson again by Pressing "Strat Again". all Of
-        your progress will be deleted.
+        You can practice this lesson again by Pressing "Strat Again".
       </div>
     </>
   );

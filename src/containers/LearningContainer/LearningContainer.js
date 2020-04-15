@@ -48,21 +48,40 @@ class LearningContainer extends Component {
       question_Object: allquestions.questions[number + 1],
     });
   };
+  resetGameHandler = () => {
+    const newGameHistory = [...this.state.gameHistory];
+    newGameHistory.push({ summary: this.summaryArray, time: Date.now() });
+    this.initState();
+    setTimeout(() => {
+      this.setState({ ...this.state, gameHistory: newGameHistory });
+    }, 1000);
+  };
 
+  initState = () => {
+    const num = 1;
+    this.setState({
+      question_number: num,
+      question_Object: allquestions.questions[1],
+      next_unanswered_q: num,
+      summaryArray: [...Array(this.total_q + 1)].map((e) => []),
+    });
+  };
   componentDidMount() {
     document.addEventListener("keydown", (event) => {
       if (event.keyCode === 32) {
-        this.answeringHandler("RIGHT");
+        this.total_q >= this.state.question_number
+          ? this.answeringHandler("RIGHT")
+          : this.resetGameHandler();
       }
       // for Testing purpuses
     });
   }
-  num = 1;
   state = {
-    question_number: this.num,
-    question_Object: allquestions.questions[this.num],
-    next_unanswered_q: this.num,
+    question_number: 1,
+    question_Object: allquestions.questions[1],
+    next_unanswered_q: 1,
     summaryArray: [...Array(this.total_q + 1)].map((e) => []),
+    gameHistory: [],
   };
   info_Array = Object.keys(allquestions.questions)
     .filter((num) =>
@@ -83,7 +102,7 @@ class LearningContainer extends Component {
         <ProgressBar
           viewAnotherQuestionHandler={this.viewAnotherQuestionHandler}
         />
-        {this.total_q >= this.state.question_number && false ? (
+        {this.total_q >= this.state.question_number ? (
           <QuestionContainer
             Question_Object={this.state.question_Object}
             q_num={this.state.question_number}
@@ -91,7 +110,10 @@ class LearningContainer extends Component {
             next_unanswered_q={this.state.next_unanswered_q}
           />
         ) : (
-          <SummaryContainer />
+          <SummaryContainer
+            sumData={this.state.summaryArray}
+            resetHandler={this.resetGameHandler}
+          />
         )}
       </AdvanceContext.Provider>
     );

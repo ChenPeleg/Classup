@@ -1,11 +1,20 @@
+@import "../../assets/styles/base";
 .sumTable {
   text-align: center;
+  font-size: $Base_fontSize * 0.9;
+  border: 1px solid black;
+  padding: 3px;
+  border-collapse: collapse;
   td,
   th {
-    padding: 3px;
+    padding: 5px;
+    border: inherit;
   }
   td:first-child,
   th:first-child {
     text-align: left;
+  }
+  tr {
+    border: 1px solid black;
   }
 }
