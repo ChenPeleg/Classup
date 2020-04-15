@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Toolbar.module.scss";
 import Uplogo from "../../Uplogo/Uplogo";
 import MenuButton from "../NavigationItems/menu-button";
-
+import SoundToggle from "../../SoundToggle/SoundToggle";
 import SubjectHeader from "../../SubjectHeader/SubjectHeader";
 
 const toolbar = (props) => (
@@ -12,14 +12,21 @@ const toolbar = (props) => (
     </div>
 
     <SubjectHeader text={props.AllQuestions.meta.name} />
-
     <div
-      style={{ verticalAlign: "middle", color: "green", margin: " auto 0 " }}
+      style={{
+        display: "inline",
+        verticalAlign: "middle",
+        color: "green",
+        margin: " auto 0 ",
+        position: "relative",
+        paddingRight: "50px",
+      }}
     >
       Logged In{" "}
       <span role="img" aria-label="login">
         👤
-      </span>
+      </span>{" "}
+      <SoundToggle soundHandler={props.soundHandler} soundOn={props.soundOn} />
     </div>
   </header>
 );

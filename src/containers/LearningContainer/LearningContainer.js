@@ -108,6 +108,7 @@ class LearningContainer extends Component {
             q_num={this.state.question_number}
             answeringHandler={this.answeringHandler}
             next_unanswered_q={this.state.next_unanswered_q}
+            soundOn={this.props.soundOn}
           />
         ) : (
           <SummaryContainer

@@ -3,6 +3,8 @@ import Answer from "../../components/Answer/Answer";
 import QuestionText from "../../components/QuestionText/QuestionText";
 import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import QuestionWrapper from "../../components/QuestionWrapper/QuestionWrapper";
+import CorrectMedia from "../../assets/media/Correct.mp3";
+import WrongMedia from "../../assets/media/Wrong.mp3";
 
 const TIME_AFTER_ANSWER = 2000;
 
@@ -25,7 +27,8 @@ const reorderAnswers = (answers) => {
     ? newAnswersObject
     : reorderAnswers(answers);
 };
-
+const correctSound = new Audio(CorrectMedia);
+const Wrongsound = new Audio(WrongMedia);
 const Question = (props) => {
   const [chosenAnswer, setChosenAnswer] = useState(false);
   const [markInAnswer, setMarkInAnswer] = useState(false);
@@ -63,6 +66,7 @@ const Question = (props) => {
       props.answeringHandler("INFO");
       return;
     } else if (isCorrect) {
+      if (props.soundOn) correctSound.play();
       setMarkInAnswer("RIGHT");
       setTimeout(
         () => {
@@ -72,6 +76,7 @@ const Question = (props) => {
         false ? 2 : TIME_AFTER_ANSWER
       );
     } else {
+      if (props.soundOn) Wrongsound.play();
       setMarkInAnswer("WRONG");
       props.answeringHandler("WRONG");
       setTimeout(() => {
