@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import QuestionContainer from "../QuestionContainer/QuestionContainer";
 
-//https://click123.s3.eu-west-2.amazonaws.com/classUp_dev/this.props.AllQuestions.json
 import AdvanceContext from "../../context/advance-context";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import SummaryContainer from "../SummaryContatiner/SummaryContatiner";
-
-// import
 
 const updateSummaryArray = (sumArray = [], q_number, result = "RIGHT") => {
   let array = [...sumArray];
@@ -69,6 +66,7 @@ class LearningContainer extends Component {
   };
   componentDidMount() {
     document.addEventListener("keydown", (event) => {
+      if (this.state.next_unanswered_q > this.state.question_number) return;
       if (event.keyCode === 32) {
         this.total_q >= this.state.question_number
           ? this.answeringHandler("RIGHT")

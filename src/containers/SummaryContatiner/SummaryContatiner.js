@@ -5,23 +5,23 @@ import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import SummaryText from "../../components/SummaryText/SummaryText";
 import SummaryTable from "../../components/SummaryTable/SummaryTable";
 
-const test1 = [
-  [],
-  ["INFO"],
-  ["WRONG", "RIGHT"],
-  ["RIGHT"],
-  ["WRONG", "WRONG", "WRONG", "RIGHT"],
-  ["RIGHT"],
-  ["RIGHT"],
-  ["WRONG", "WRONG", "RIGHT"],
-  ["WRONG", "RIGHT"],
-  ["RIGHT"],
-  ["RIGHT"],
-  ["RIGHT"],
-  ["WRONG", "RIGHT"],
-];
+// const test1 = [
+//   [],
+//   ["INFO"],
+//   ["WRONG", "RIGHT"],
+//   ["RIGHT"],
+//   ["WRONG", "WRONG", "WRONG", "RIGHT"],
+//   ["RIGHT"],
+//   ["RIGHT"],
+//   ["WRONG", "WRONG", "RIGHT"],
+//   ["WRONG", "RIGHT"],
+//   ["RIGHT"],
+//   ["RIGHT"],
+//   ["RIGHT"],
+//   ["WRONG", "RIGHT"],
+// ];
+
 const summaryObject = (allQuestions) => {
-  allQuestions = test1;
   let numOfquestions = 0;
   let mistakesObject = { q0: 0, q1: 0, q23: 0 };
   const sumArray = allQuestions.filter((e) => e.includes("RIGHT"));

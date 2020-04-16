@@ -6,14 +6,14 @@ import "./Layout.scss";
 import LoaderAnimation from "../../components/LoaderAnimation/LoaderAnimation";
 
 class Layout extends Component {
-  state = { AllQuestions: false, soundOn: true };
+  state = { AllQuestions: false, soundOn: false };
   soundHandler = () => {
     this.setState({ ...this.state, soundOn: !this.state.soundOn });
   };
   componentDidMount() {
-    // https://click123.s3.eu-west-2.amazonaws.com/classUp_dev/allquestions.json
     let url =
       "https://click123.s3.eu-west-2.amazonaws.com/classUp_dev/allquestions.json";
+    url = "allquestions.json"; // for local file
     axios.get(url, { crossdomain: true }).then((res) => {
       this.setState({ ...this.state, AllQuestions: res.data });
     });
