@@ -1,17 +1,11 @@
-// @font-face {
-//   font-family: "KulimPark";
-//   font-weight: 400;
-//   font-style: normal;
-//   src: url("/src/assets/fonts/Kulim_Park/KulimPark-Regular.woff2")
-//     format("woff2");
-//   src: url("/src/assets/fonts/Kulim_Park/KulimPark-Regular.woff") format("woff");
-//   src: url("/src/assets/fonts/Kulim_Park/KulimPark-Regular.ttf")
-//     format("truetype");
-// }
-
 /* General */
 $Base_Black: rgb(43, 1, 1);
+
 $Base_fontSize: 24px;
+$base_Header_Size: 32px;
+
+$Mobile_fontSize: 16px;
+$Mobile_Header_Size: 12px;
 
 /* progress bar */
 $ProgBar_BGrColor: rgb(177, 233, 64);
@@ -40,3 +34,24 @@ $ProgBar_current_color: black;
 }
 /* Animation */
 $Transition_Duration: 0.4s;
+
+/*Media Rules */
+$mobile-width: 414px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-width+1}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@include mobile {
+  font-size: $Mobile_Header_Size;
+}

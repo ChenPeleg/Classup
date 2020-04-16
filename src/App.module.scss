@@ -25,6 +25,9 @@
     rgba(0, 212, 255, 1) 100%
   );
   overflow: hidden;
+  @include mobile {
+    font-size: $Mobile_fontSize;
+  }
 }
 @media only screen and (max-width: 600px) {
   .App {

@@ -17,6 +17,9 @@
 
 .LogoInHeader {
   vertical-align: middle;
-  font-size: 32px;
+  font-size: $base_Header_Size;
   padding-bottom: 5px;
+  @include mobile {
+    font-size: $Mobile_Header_Size;
+  }
 }
