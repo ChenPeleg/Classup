@@ -1,12 +1,12 @@
 {
   "meta": {
-    "name": "English Colors"
+    "name": "English Colors",
+    "id": "abc123"
   },
   "questions": {
     "1": {
       "type": "info",
       "text": "The colors Lesson: \n\n In this lesson we will practice questions about colors. Choose the correct answer and press \"submit\".",
-      "text_img": "",
       "answers": [],
       "solution": "1"
     },
@@ -21,7 +21,7 @@
       "solution": "2"
     },
     "4": {
-      "text": "Please cook the meat it's too...",
+      "text": "Please cook the meat  it's too...",
       "answers": ["orange", "yellow", "red", "green"],
       "solution": "3"
     },
@@ -41,29 +41,9 @@
       "solution": "2"
     },
     "8": {
-      "text": "What is the color of the sky?",
-      "answers": ["blue", "white", "green", "pink"],
-      "solution": "1"
-    },
-    "9": {
-      "text": "Look! your grass is very beautiful and...",
-      "answers": ["blue", "white", "green", "pink"],
-      "solution": "3"
-    },
-    "10": {
-      "text": "Are you shy? your face is...",
-      "answers": ["red", "purple", "green", "black"],
-      "solution": "1"
-    },
-    "11": {
-      "text": "This banana looks good and...",
-      "answers": ["white", "yellow", "blue", "pink"],
+      "text": "Which of these is not a color?",
+      "answers": ["orange", "yellow", "three", "pink"],
       "solution": "2"
-    },
-    "12": {
-      "text": "What is the color of the sky?",
-      "answers": ["blue", "white", "green", "pink"],
-      "solution": "1"
     }
   }
 }

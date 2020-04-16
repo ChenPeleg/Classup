@@ -1,5 +1,6 @@
 @import "../../assets/styles/base";
 
+$LoaderColor: rgb(10, 59, 110);
 .loader {
   font-size: 10px;
   margin: 50px auto;
@@ -7,26 +8,30 @@
   width: 11em;
   height: 11em;
   border-radius: 50%;
-  background: #ffffff;
+  background: $LoaderColor;
   background: -moz-linear-gradient(
     left,
-    #ffffff 10%,
+    $LoaderColor 10%,
     rgba(255, 255, 255, 0) 42%
   );
   background: -webkit-linear-gradient(
     left,
-    #ffffff 10%,
+    $LoaderColor 10%,
     rgba(255, 255, 255, 0) 42%
   );
-  background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -o-linear-gradient(
+    left,
+    $LoaderColor 10%,
+    rgba(255, 255, 255, 0) 42%
+  );
   background: -ms-linear-gradient(
     left,
-    #ffffff 10%,
+    $LoaderColor 10%,
     rgba(255, 255, 255, 0) 42%
   );
   background: linear-gradient(
     to right,
-    #ffffff 10%,
+    $LoaderColor 10%,
     rgba(255, 255, 255, 0) 42%
   );
   position: relative;
@@ -39,7 +44,7 @@
 .loader:before {
   width: 50%;
   height: 50%;
-  background: #ffffff;
+  background: $LoaderColor;
   border-radius: 100% 0 0 0;
   position: absolute;
   top: 0;

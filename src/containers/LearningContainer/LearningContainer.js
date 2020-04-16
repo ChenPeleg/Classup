@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import QuestionContainer from "../QuestionContainer/QuestionContainer";
-import allquestions from "./allquestions";
+
+//https://click123.s3.eu-west-2.amazonaws.com/classUp_dev/this.props.AllQuestions.json
 import AdvanceContext from "../../context/advance-context";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import SummaryContainer from "../SummaryContatiner/SummaryContatiner";
@@ -15,7 +16,7 @@ const updateSummaryArray = (sumArray = [], q_number, result = "RIGHT") => {
 };
 class LearningContainer extends Component {
   TIME_AFTER_ANSWER = 1500;
-  total_q = Object.keys(allquestions.questions).length;
+  total_q = Object.keys(this.props.AllQuestions.questions).length;
   answeringHandler = (action) => {
     const newSummaryArray = updateSummaryArray(
       [...this.state.summaryArray],
@@ -28,7 +29,7 @@ class LearningContainer extends Component {
     this.setState({
       ...this.state,
       question_number: new_q_number,
-      question_Object: allquestions.questions[new_q_number],
+      question_Object: this.props.AllQuestions.questions[new_q_number],
       next_unanswered_q:
         new_q_number > this.state.next_unanswered_q
           ? new_q_number
@@ -45,7 +46,7 @@ class LearningContainer extends Component {
     this.setState({
       ...this.state,
       question_number: number + 1,
-      question_Object: allquestions.questions[number + 1],
+      question_Object: this.props.AllQuestions.questions[number + 1],
     });
   };
   resetGameHandler = () => {
@@ -61,7 +62,7 @@ class LearningContainer extends Component {
     const num = 1;
     this.setState({
       question_number: num,
-      question_Object: allquestions.questions[1],
+      question_Object: this.props.AllQuestions.questions[1],
       next_unanswered_q: num,
       summaryArray: [...Array(this.total_q + 1)].map((e) => []),
     });
@@ -78,14 +79,16 @@ class LearningContainer extends Component {
   }
   state = {
     question_number: 1,
-    question_Object: allquestions.questions[1],
+    question_Object: this.props.AllQuestions.questions[1],
     next_unanswered_q: 1,
     summaryArray: [...Array(this.total_q + 1)].map((e) => []),
     gameHistory: [],
   };
-  info_Array = Object.keys(allquestions.questions)
+  info_Array = Object.keys(this.props.AllQuestions.questions)
     .filter((num) =>
-      allquestions.questions[num].type === "info" ? Number(+num) : null
+      this.props.AllQuestions.questions[num].type === "info"
+        ? Number(+num)
+        : null
     )
     .map((e) => +e);
 
