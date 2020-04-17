@@ -6,7 +6,7 @@ This app was created to help teachers and educators teach with computers or smar
 
 Open [https://chenpeleg.github.io/upclass/](https://chenpeleg.github.io/upclass/) to view it in the browser.
 
-![Upclass](https://github.com/ChenPeleg/upclass/blob/gh-pages/images/classupExample.gif)
+![Upclass](https://chenpeleg.github.io/upclass/images/classupExample.gif)
 
 ### how to use
 
