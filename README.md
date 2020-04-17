@@ -6,6 +6,8 @@ This app was created to help teachers and educators teach with computers or smar
 
 Open [https://chenpeleg.github.io/upclass/](https://chenpeleg.github.io/upclass/) to view it in the browser.
 
-### `npm run build` fails to minify
+![Upclass](https://github.com/ChenPeleg/upclass/blob/gh-pages/images/classupExample.gif)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### how to use
+
+This is build with create-react-app. To change the content of the questions and answers change the questions inside the "allquestions.json" file in the public folder.
