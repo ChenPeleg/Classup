@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/upclass/static/css/main.35f792cd.chunk.css",
+    "main.js": "/upclass/static/js/main.5470be5f.chunk.js",
+    "main.js.map": "/upclass/static/js/main.5470be5f.chunk.js.map",
+    "runtime-main.js": "/upclass/static/js/runtime-main.e85a46ae.js",
+    "runtime-main.js.map": "/upclass/static/js/runtime-main.e85a46ae.js.map",
+    "static/js/2.f9f2ace8.chunk.js": "/upclass/static/js/2.f9f2ace8.chunk.js",
+    "static/js/2.f9f2ace8.chunk.js.map": "/upclass/static/js/2.f9f2ace8.chunk.js.map",
+    "index.html": "/upclass/index.html",
+    "precache-manifest.6298e8b4de9e30faab7d92f88a89c191.js": "/upclass/precache-manifest.6298e8b4de9e30faab7d92f88a89c191.js",
+    "service-worker.js": "/upclass/service-worker.js",
+    "static/css/main.35f792cd.chunk.css.map": "/upclass/static/css/main.35f792cd.chunk.css.map",
+    "static/js/2.f9f2ace8.chunk.js.LICENSE.txt": "/upclass/static/js/2.f9f2ace8.chunk.js.LICENSE.txt",
+    "static/media/Correct.mp3": "/upclass/static/media/Correct.3806fe59.mp3",
+    "static/media/App.module.scss": "/upclass/static/media/KulimPark-Regular.46646479.ttf",
+    "static/media/SubjectHeader.module.scss": "/upclass/static/media/LuckiestGuy-Regular.c6004be4.ttf",
+    "static/media/Wrong.mp3": "/upclass/static/media/Wrong.5612b2bd.mp3",
+    "static/media/check-mark.svg": "/upclass/static/media/check-mark.dd066612.svg",
+    "static/media/menu-button.svg": "/upclass/static/media/menu-button.baa55592.svg",
+    "static/media/x-mark.svg": "/upclass/static/media/x-mark.e9a05bdf.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e85a46ae.js",
+    "static/js/2.f9f2ace8.chunk.js",
+    "static/css/main.35f792cd.chunk.css",
+    "static/js/main.5470be5f.chunk.js"
+  ]
+}
