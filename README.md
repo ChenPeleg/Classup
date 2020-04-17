@@ -1,8 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Upclass - A Learning Tool
 
-## Available Scripts
-
-In the project directory, you can run:
+This app was created to help teachers and educators teach with computers or smartphones.
 
 ### `npm start`
 
