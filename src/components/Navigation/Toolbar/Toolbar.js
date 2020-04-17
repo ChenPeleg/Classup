@@ -8,7 +8,7 @@ import SubjectHeader from "../../SubjectHeader/SubjectHeader";
 const toolbar = (props) => (
   <header className={styles.Toolbar}>
     <div style={{ alignSelf: "flex-start" }}>
-      <MenuButton /> {"\u00A0"} <Uplogo />
+      <MenuButton /> {"\u00A0"} <Uplogo className={styles.mediaQuery} />
     </div>
 
     <SubjectHeader text={props.AllQuestions.meta.name} />

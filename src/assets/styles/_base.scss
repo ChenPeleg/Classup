@@ -47,11 +47,7 @@ $desktop-width: 1024px;
 }
 
 @mixin tablet {
-  @media (min-width: #{$mobile-width+1}) and (max-width: #{$desktop-width - 1px}) {
+  @media (min-width: #{$mobile-width+1}) and (max-width: #{$tablet-width - 1px}) {
     @content;
   }
-}
-
-@include mobile {
-  font-size: $Mobile_Header_Size;
 }

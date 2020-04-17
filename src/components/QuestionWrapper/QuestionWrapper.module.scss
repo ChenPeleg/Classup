@@ -13,6 +13,16 @@
   overflow-x: hidden;
   height: 450px;
   @include scrollbars(10px, rgba(12, 134, 196, 0.986899), #00d4ff);
+  @include tablet {
+    font-size: $Mobile_fontSize;
+    width: 75%;
+    left: 10%;
+  }
+  @include mobile {
+    font-size: $Mobile_fontSize;
+    width: 85%;
+    left: 3%;
+  }
 }
 .questionWrapper {
   position: relative;

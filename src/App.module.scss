@@ -25,12 +25,13 @@
     rgba(0, 212, 255, 1) 100%
   );
   overflow: hidden;
+  @include tablet {
+    font-size: $Mobile_fontSize;
+    width: 100%;
+    left: 0%;
+  }
   @include mobile {
     font-size: $Mobile_fontSize;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .App {
     width: 100%;
     left: 0%;
   }

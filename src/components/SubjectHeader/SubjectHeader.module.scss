@@ -13,8 +13,6 @@
   font-family: LuckiestGuy;
   color: yellow;
   display: inline-block;
-
-  font-size: $base_Header_Size;
   font-weight: bold;
   letter-spacing: 2px;
   background: linear-gradient(
@@ -31,7 +29,4 @@
   -webkit-text-stroke-color: black;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  @include mobile {
-    font-size: $Mobile_fontSize;
-  }
 }
