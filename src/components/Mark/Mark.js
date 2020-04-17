@@ -9,7 +9,7 @@ const mark = (props) => {
       <img
         src={props.marked_Answer === "RIGHT" ? Vmark : Xmark}
         className={styles.checkMark}
-        alt="MyBurger"
+        alt={props.marked_Answer}
       />
     </div>
   );

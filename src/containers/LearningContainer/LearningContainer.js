@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import QuestionContainer from "../QuestionContainer/QuestionContainer";
-
 import AdvanceContext from "../../context/advance-context";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import SummaryContainer from "../SummaryContatiner/SummaryContatiner";
