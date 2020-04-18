@@ -8,7 +8,7 @@ const answer = (props) => {
     <div
       className={`${styles.answer} ${
         props.isChosen ? styles.choosenAnswer : ""
-      }`}
+        }`}
       onClick={(event) => {
         props.chooseAnswerHandler(event, +props.num);
       }}

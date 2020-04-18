@@ -1,3 +1,5 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "sync.autoDownload": true,
+    "sync.forceDownload": true
 }
