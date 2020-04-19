@@ -19,7 +19,7 @@ const SummaryText = (props) => {
         <br></br>
         {props.children}
         <br></br>
-        You can practice this lesson again by Pressing "Strat Again".
+        You can practice this lesson again by pressing "Start Again".
       </div>
     </>
   );

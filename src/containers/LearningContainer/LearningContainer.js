@@ -6,7 +6,6 @@ import SummaryContainer from "../SummaryContatiner/SummaryContatiner";
 
 const updateSummaryArray = (sumArray = [], q_number, result = "RIGHT") => {
   let array = [...sumArray];
-
   array[q_number].push(result);
   return array;
 };
@@ -111,11 +110,11 @@ class LearningContainer extends Component {
             soundOn={this.props.soundOn}
           />
         ) : (
-          <SummaryContainer
-            sumData={this.state.summaryArray}
-            resetHandler={this.resetGameHandler}
-          />
-        )}
+            <SummaryContainer
+              sumData={this.state.summaryArray}
+              resetHandler={this.resetGameHandler}
+            />
+          )}
       </AdvanceContext.Provider>
     );
   }
