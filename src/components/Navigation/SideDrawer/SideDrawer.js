@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Toolbar.module.scss";
+import styles from "./SideDrawer.module.scss";
 import Uplogo from "../../Uplogo/Uplogo";
 import MenuButton from "../NavigationItems/menu-button";
 import SoundToggle from "../../SoundToggle/SoundToggle";
@@ -8,7 +8,7 @@ import SubjectHeader from "../../SubjectHeader/SubjectHeader";
 const toolbar = (props) => (
   <header className={styles.Toolbar}>
     <div style={{ alignSelf: "flex-start" }}>
-      <Uplogo className={styles.mediaQuery} />  {"\u00A0"}
+      <MenuButton /> {"\u00A0"} <Uplogo className={styles.mediaQuery} />
     </div>
 
     <SubjectHeader text={props.AllQuestions.meta.name} />

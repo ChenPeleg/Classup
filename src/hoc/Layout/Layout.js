@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import LearningContainer from "../../containers/LearningContainer/LearningContainer";
-import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
+import Navigation from "../../components/Navigation/Navigation";
 import "./Layout.scss";
 import LoaderAnimation from "../../components/LoaderAnimation/LoaderAnimation";
 
@@ -21,7 +21,7 @@ class Layout extends Component {
   render() {
     return (
       <React.Fragment>
-        <Toolbar
+        <Navigation
           AllQuestions={
             this.state.AllQuestions
               ? this.state.AllQuestions
@@ -37,8 +37,8 @@ class Layout extends Component {
             soundOn={this.state.soundOn}
           />
         ) : (
-          <LoaderAnimation />
-        )}
+            <LoaderAnimation />
+          )}
       </React.Fragment>
     );
   }
