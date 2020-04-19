@@ -1,12 +1,12 @@
-## Upclass - A Learning Tool
+## Classup - A Learning Tool
 
 This app was created to help teachers and educators teach with computers or smartphones.
 
 ### `Live expamle`
 
-Open [https://chenpeleg.github.io/upclass/](https://chenpeleg.github.io/upclass/) to view it in the browser.
+Open [https://chenpeleg.github.io/classup/](https://chenpeleg.github.io/classup/) to view it in the browser.
 
-![Upclass](https://chenpeleg.github.io/upclass/images/classupExample.gif)
+![Classup](https://chenpeleg.github.io/classup/images/classupExample.gif)
 
 ### how to use
 

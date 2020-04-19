@@ -11,39 +11,74 @@
       "solution": "1"
     },
     "2": {
-      "text": "What is the color of the sand?",
-      "answers": ["blue", "black", "green", "yellow"],
+      "text": "What is the color of sand?",
+      "answers": [
+        "blue",
+        "black",
+        "green",
+        "yellow"
+      ],
       "solution": "4"
     },
     "3": {
       "text": "My dog Lucky is brown and...",
-      "answers": ["purple", "white", "green", "pink"],
+      "answers": [
+        "purple",
+        "white",
+        "green",
+        "pink"
+      ],
       "solution": "2"
     },
     "4": {
       "text": "Please cook the meat  it's too...",
-      "answers": ["orange", "yellow", "red", "green"],
+      "answers": [
+        "orange",
+        "yellow",
+        "red",
+        "green"
+      ],
       "solution": "3"
     },
     "5": {
-      "text": "Look! your grass is very beautiful and...",
-      "answers": ["blue", "white", "green", "pink"],
+      "text": "Look! Your grass is very...",
+      "answers": [
+        "blue",
+        "white",
+        "green",
+        "pink"
+      ],
       "solution": "3"
     },
     "6": {
-      "text": "Are you shy? your face is...",
-      "answers": ["red", "purple", "green", "black"],
+      "text": "Are you shy? Your face is...",
+      "answers": [
+        "red",
+        "purple",
+        "green",
+        "black"
+      ],
       "solution": "1"
     },
     "7": {
       "text": "This banana looks good and...",
-      "answers": ["white", "yellow", "blue", "pink"],
+      "answers": [
+        "white",
+        "yellow",
+        "blue",
+        "pink"
+      ],
       "solution": "2"
     },
     "8": {
       "text": "Which of these is not a color?",
-      "answers": ["orange", "yellow", "three", "pink"],
-      "solution": "2"
+      "answers": [
+        "orange",
+        "yellow",
+        "three",
+        "pink"
+      ],
+      "solution": "3"
     }
   }
 }
