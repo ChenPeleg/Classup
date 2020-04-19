@@ -3,7 +3,7 @@ import { shallow } from "enzyme"
 import SoundToggle from "./SoundToggle"
 const mockClick = jest.fn();
 const soundtog = shallow(<SoundToggle soundOn={true} soundHandler={mockClick} />)
-
+ 
 describe("<Sound Toggle>", () => {
     it('renders correctly', () => {
         expect(soundtog).toMatchSnapshot()
