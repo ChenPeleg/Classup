@@ -1,9 +1,9 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Loader from "./LoaderAnimation";
+import LoaderAnimation from "./LoaderAnimation";
 
-const loader = shallow(<Loader />);
-describe("<Loader anination>", () => {
+const loader = shallow(<LoaderAnimation />);
+describe("<LoaderAnimation>", () => {
   it("renders correctly", () => {
     expect(loader).toMatchSnapshot();
   });

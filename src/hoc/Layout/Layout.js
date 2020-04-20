@@ -3,7 +3,7 @@ import axios from "axios";
 import LearningContainer from "../../containers/LearningContainer/LearningContainer";
 import Navigation from "../../components/Navigation/Navigation";
 import "./Layout.scss";
-import LoaderAnimation from "../../components/LoaderAnimation/LoaderAnimation";
+import LoaderAnimation from "../../components/UI/LoaderAnimation/LoaderAnimation";
 
 class Layout extends Component {
   state = { AllQuestions: false, soundOn: false };

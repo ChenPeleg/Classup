@@ -6,7 +6,7 @@ import SoundToggle from "../../SoundToggle/SoundToggle";
 import SubjectHeader from "../../SubjectHeader/SubjectHeader";
 
 const toolbar = (props) => (
-  <header className={styles.Toolbar}>
+  <header className={styles.SideDrawer}>
     <div style={{ alignSelf: "flex-start" }}>
       <MenuButton /> {"\u00A0"} <Uplogo className={styles.mediaQuery} />
     </div>
