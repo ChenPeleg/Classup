@@ -3,7 +3,7 @@ import styles from "./uplogo.module.scss";
 
 const uplogo = (props) => {
   return (
-    <div className={styles.logo + " " + styles.LogoInHeader + props.className}>
+    <div className={styles.logo + " " + styles.LogoInHeader + props.className + "fsfs"}>
       Class-Up!
     </div>
   );

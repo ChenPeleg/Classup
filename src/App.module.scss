@@ -17,13 +17,9 @@
   border-radius: 0.5%;
   text-align: center;
   font-size: $Base_fontSize;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(12, 134, 196, 0.9868989832261029) 0%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: rgb(115, 111, 206);
+  @include mainBackGround
+  
   overflow: hidden;
   @include tablet {
     font-size: $Mobile_fontSize;

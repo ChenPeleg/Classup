@@ -1,13 +1,13 @@
+@import "../../../assets/styles/base";
+
 .menuButton {
   vertical-align: middle;
   width: 20px;
   height: 20px;
-
   padding: 0;
   height: 100%;
+  @include desktopTabletOnly {
+    display: none;
+  }
 }
-// @media (min-width: 500px) {
-//   .NavigationItems {
-//     flex-flow: row;
-//   }
-// }
+ 

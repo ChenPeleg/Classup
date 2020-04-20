@@ -6,7 +6,7 @@ const SoundToggle = (props) => {
   return (
     <img
       src={props.soundOn ? volumeOn : volumeOff}
-      className={styles.soundToggle}
+      className={[styles.soundToggle, props.InSideDrawer ? styles.in_SideDrawer : styles.in_ToolBar].join(" ")}
       onClick={() => {
         props.soundHandler();
       }}

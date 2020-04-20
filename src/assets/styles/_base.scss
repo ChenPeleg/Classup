@@ -14,6 +14,23 @@ $ProgBar_unanswered_color: grey;
 $ProgBar_answered_color: rgb(8, 8, 65);
 $ProgBar_answered_BGcolor: $ProgBar_LineColor;
 $ProgBar_current_color: black;
+
+@mixin mainBackGround {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(12, 134, 196, 0.9868989832261029) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+@mixin sideDrawerBG {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(12, 196, 37, 0.987) 0%,
+    rgb(2, 94, 2) 100%
+  );
+}
 @mixin current_question_icon {
   background: linear-gradient(
     90deg,

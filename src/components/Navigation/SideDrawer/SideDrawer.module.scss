@@ -1,26 +1,11 @@
 @import "../../../assets//styles/base";
-.Toolbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  top: 0;
-  left: 0;
-  padding: 5px 20px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  z-index: 90;
-  vertical-align: middle;
-  font-size: $base_Header_Size;
-  @include tablet {
-    font-size: inherit;
-  }
-  @include mobile {
-    font-size: inherit;
-  }
-}
+
 .mediaQuery {
   visibility: hidden;
 }
 .SideDrawer {
+  font-size: $Base_fontSize;
+  text-align: left;
   position: fixed;
   width: 280px;
   max-width: 70%;
@@ -28,8 +13,14 @@
   left: 0;
   top: 0;
   z-index: 200;
-  background-color: white;
-  padding: 32px 16px;
+   
+  background: linear-gradient(
+    90deg,
+    rgb(100, 207, 58) 0%,
+    rgb(69, 179, 25) 100%,
+     
+  );
+  padding: 10px 16px;
   box-sizing: border-box;
   transition: transform 0.3s ease-out;
 }

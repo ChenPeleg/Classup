@@ -1,10 +1,23 @@
+
+
 .soundToggle {
   height: 24px * 1.5;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.in_ToolBar {
+ 
+  height:100%;
   margin: 0px;
   vertical-align: "middle";
   margin: " auto 0 ";
   position: absolute;
   right: 0%;
-  transition: all 0.5s;
-  cursor: pointer;
+  
+}
+.in_SideDrawer {
+ position: relative;
+ vertical-align: middle;
+ 
 }

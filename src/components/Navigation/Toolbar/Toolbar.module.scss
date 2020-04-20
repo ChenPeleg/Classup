@@ -20,3 +20,21 @@
 .mediaQuery {
   visibility: hidden;
 }
+.rightSideOftoolBar {
+  position: relative;
+  vertical-align: "middle";
+  color: "green";
+  margin: " auto 0 ";
+  position: "relative";
+  padding-right: "80px";
+  @include mobileOnly{
+    display: none;
+  }
+  
+}
+.leftSideOftoolBar{
+  align-self: "flex-start";
+  @include mobileOnly{
+    display: none;
+  }
+}
