@@ -3,22 +3,17 @@ import QuestionContainer from "../QuestionContainer/QuestionContainer";
 import AdvanceContext from "../../context/advance-context";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import SummaryContainer from "../SummaryContatiner/SummaryContatiner";
+import Util from "../../Utility/Utility";
 
-const updateSummaryArray = (sumArray = [], q_number, result = "RIGHT") => {
-  let array = [...sumArray];
-  array[q_number].push(result);
-  return array;
-};
 class LearningContainer extends Component {
   TIME_AFTER_ANSWER = 1500;
   total_q = Object.keys(this.props.AllQuestions.questions).length;
   answeringHandler = (action) => {
-    const newSummaryArray = updateSummaryArray(
+    const newSummaryArray = Util.updateSummaryArray(
       [...this.state.summaryArray],
       this.state.question_number,
       action
     );
-
     const new_q_number =
       this.state.question_number + (action === "WRONG" ? 0 : 1);
     this.setState({
@@ -46,11 +41,12 @@ class LearningContainer extends Component {
   };
   resetGameHandler = () => {
     const newGameHistory = [...this.state.gameHistory];
-    newGameHistory.push({ summary: this.summaryArray, time: Date.now() });
+
+    newGameHistory.push({ summary: this.state.summaryArray, time: Date.now() });
     this.initState();
     setTimeout(() => {
       this.setState({ ...this.state, gameHistory: newGameHistory });
-    }, 1000);
+    }, 10);
   };
 
   initState = () => {
