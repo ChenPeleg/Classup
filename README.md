@@ -16,7 +16,10 @@ You can fork and clone the project and run:
 `npm start` - to run the project on  http://localhost:3000
 This project has been tested with node v12.16.2 and npm 6.14.4.
 
-### how to use
+### how to edit the content
 
-This is build with create-react-app. To change the content of the questions and answers change the questions inside the "allquestions.json" file in the public folder.
+This is build with create-react-app. To change the content of the questions and answers change the questions and answers inside the "allquestions.json" file in the public folder. You can also get the file from an external server by changing the QUESTIONS_URL in app.js. 
+
+
+
 

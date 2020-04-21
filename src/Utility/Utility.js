@@ -22,6 +22,26 @@ const util = {
       }
     }
   },
+  createAnswerObject: (answers) => {
+    answers.map((a) => {
+      return { content: a, number: 1 + answers.indexOf(a) };
+    });
+  },
+  reorderAnswers: (answers) => {
+    const wasReorderCompletely = (arr1, arr2) => {
+      for (let i = 1; i < arr1.length; i++) {
+        if (arr1[i].number === arr2[i].number) {
+          return false;
+        }
+        return true;
+      }
+    };
+    let newAnswersObject = [...answers];
+    newAnswersObject.sort(() => Math.random() - 0.5);
+    return wasReorderCompletely(newAnswersObject, answers)
+      ? newAnswersObject
+      : this.reorderAnswers(answers);
+  },
 };
 
 // if (typeof require !== "undefined" && require.main === module) {

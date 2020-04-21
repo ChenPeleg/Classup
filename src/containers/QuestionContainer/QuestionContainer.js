@@ -8,11 +8,11 @@ import WrongMedia from "../../assets/media/Wrong.mp3";
 
 const TIME_AFTER_ANSWER = 2000;
 
-const createAnswerObject = (answers) =>
+export const createAnswerObject = (answers) =>
   answers.map((a) => {
     return { content: a, number: 1 + answers.indexOf(a) };
   });
-const reorderAnswers = (answers) => {
+export const reorderAnswers = (answers) => {
   const wasReorderCompletely = (arr1, arr2) => {
     for (let i = 1; i < arr1.length; i++) {
       if (arr1[i].number === arr2[i].number) {
