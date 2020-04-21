@@ -23,7 +23,7 @@ const util = {
     }
   },
   createAnswerObject: (answers) => {
-    answers.map((a) => {
+    return answers.map((a) => {
       return { content: a, number: 1 + answers.indexOf(a) };
     });
   },
@@ -42,11 +42,25 @@ const util = {
       ? newAnswersObject
       : this.reorderAnswers(answers);
   },
+  createSummaryObject: (allQuestions) => {
+    let numOfquestions = 0;
+    let mistakesObject = { q0: 0, q1: 0, q23: 0 };
+    const sumArray = allQuestions.filter((e) => e.includes("RIGHT"));
+    for (let i = 0; i < sumArray.length; i++) {
+      const wrongs = sumArray[i].filter((e) => e === "WRONG").length;
+      const rights = sumArray[i].filter((e) => e === "RIGHT").length;
+      let mistakeCound = wrongs < 2 ? "q" + wrongs : "q23";
+      mistakesObject[mistakeCound] += 1;
+      numOfquestions += rights;
+    }
+
+    return { mistakesObject, numOfquestions };
+  }
 };
 
 // if (typeof require !== "undefined" && require.main === module) {
 //   console.clear();
 //   const o1 = { q0: 87, q1: 1, q23: 7 };
-//
+
 // }
 export default util;

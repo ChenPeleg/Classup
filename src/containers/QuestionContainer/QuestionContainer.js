@@ -5,39 +5,19 @@ import SubmitButton from "../../components/SubmitButton/SubmitButton";
 import QuestionWrapper from "../../components/QuestionWrapper/QuestionWrapper";
 import CorrectMedia from "../../assets/media/Correct.mp3";
 import WrongMedia from "../../assets/media/Wrong.mp3";
-
+import util from "../../Utility/Utility"
 const TIME_AFTER_ANSWER = 2000;
 
-export const createAnswerObject = (answers) =>
-  answers.map((a) => {
-    return { content: a, number: 1 + answers.indexOf(a) };
-  });
-export const reorderAnswers = (answers) => {
-  const wasReorderCompletely = (arr1, arr2) => {
-    for (let i = 1; i < arr1.length; i++) {
-      if (arr1[i].number === arr2[i].number) {
-        return false;
-      }
-      return true;
-    }
-  };
-  let newAnswersObject = [...answers];
-  newAnswersObject.sort(() => Math.random() - 0.5);
-  return wasReorderCompletely(newAnswersObject, answers)
-    ? newAnswersObject
-    : reorderAnswers(answers);
-};
 const correctSound = new Audio(CorrectMedia);
 const Wrongsound = new Audio(WrongMedia);
 const Question = (props) => {
   const [chosenAnswer, setChosenAnswer] = useState(false);
   const [markInAnswer, setMarkInAnswer] = useState(false);
   const [answersArray, setanswersArray] = useState(
-    createAnswerObject(props.Question_Object.answers)
+    util.createAnswerObject(props.Question_Object.answers)
   );
   useEffect(() => {
-    setanswersArray(createAnswerObject(props.Question_Object.answers));
-
+    setanswersArray(util.createAnswerObject(props.Question_Object.answers));
     if (props.next_unanswered_q > props.q_num) {
       setChosenAnswer(+props.Question_Object.solution);
       setMarkInAnswer("RIGHT");
@@ -80,7 +60,7 @@ const Question = (props) => {
       setMarkInAnswer("WRONG");
       props.answeringHandler("WRONG");
       setTimeout(() => {
-        setanswersArray(reorderAnswers(answersArray));
+        setanswersArray(util.reorderAnswers(answersArray));
         resetQuestionState();
       }, TIME_AFTER_ANSWER);
     }
