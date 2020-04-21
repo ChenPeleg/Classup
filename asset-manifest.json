@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.387c0f5a.chunk.css",
-    "main.js": "/static/js/main.5c8d5481.chunk.js",
-    "main.js.map": "/static/js/main.5c8d5481.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.2c9ab709.js",
-    "runtime-main.js.map": "/static/js/runtime-main.2c9ab709.js.map",
-    "static/js/2.e61ac3fe.chunk.js": "/static/js/2.e61ac3fe.chunk.js",
-    "static/js/2.e61ac3fe.chunk.js.map": "/static/js/2.e61ac3fe.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.e7e1fc4170af98ba1e6eb8f5fb4f8344.js": "/precache-manifest.e7e1fc4170af98ba1e6eb8f5fb4f8344.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.387c0f5a.chunk.css.map": "/static/css/main.387c0f5a.chunk.css.map",
-    "static/js/2.e61ac3fe.chunk.js.LICENSE.txt": "/static/js/2.e61ac3fe.chunk.js.LICENSE.txt",
-    "static/media/Correct.mp3": "/static/media/Correct.3806fe59.mp3",
-    "static/media/App.module.scss": "/static/media/KulimPark-Regular.46646479.ttf",
-    "static/media/SubjectHeader.module.scss": "/static/media/LuckiestGuy-Regular.c6004be4.ttf",
-    "static/media/Wrong.mp3": "/static/media/Wrong.5612b2bd.mp3",
-    "static/media/check-mark.svg": "/static/media/check-mark.dd066612.svg",
-    "static/media/menu-button.svg": "/static/media/menu-button.baa55592.svg",
-    "static/media/x-mark.svg": "/static/media/x-mark.e9a05bdf.svg",
-    "static/media/xbutton.png": "/static/media/xbutton.b3c65bf0.png"
+    "main.css": "/Classup/static/css/main.a91a490f.chunk.css",
+    "main.js": "/Classup/static/js/main.fbf4c781.chunk.js",
+    "main.js.map": "/Classup/static/js/main.fbf4c781.chunk.js.map",
+    "runtime-main.js": "/Classup/static/js/runtime-main.e526d175.js",
+    "runtime-main.js.map": "/Classup/static/js/runtime-main.e526d175.js.map",
+    "static/js/2.e61ac3fe.chunk.js": "/Classup/static/js/2.e61ac3fe.chunk.js",
+    "static/js/2.e61ac3fe.chunk.js.map": "/Classup/static/js/2.e61ac3fe.chunk.js.map",
+    "index.html": "/Classup/index.html",
+    "precache-manifest.ffdd3f1c8c4867721673652ecaa00648.js": "/Classup/precache-manifest.ffdd3f1c8c4867721673652ecaa00648.js",
+    "service-worker.js": "/Classup/service-worker.js",
+    "static/css/main.a91a490f.chunk.css.map": "/Classup/static/css/main.a91a490f.chunk.css.map",
+    "static/js/2.e61ac3fe.chunk.js.LICENSE.txt": "/Classup/static/js/2.e61ac3fe.chunk.js.LICENSE.txt",
+    "static/media/Correct.mp3": "/Classup/static/media/Correct.3806fe59.mp3",
+    "static/media/App.module.scss": "/Classup/static/media/KulimPark-Regular.46646479.ttf",
+    "static/media/SubjectHeader.module.scss": "/Classup/static/media/LuckiestGuy-Regular.c6004be4.ttf",
+    "static/media/Wrong.mp3": "/Classup/static/media/Wrong.5612b2bd.mp3",
+    "static/media/check-mark.svg": "/Classup/static/media/check-mark.dd066612.svg",
+    "static/media/menu-button.svg": "/Classup/static/media/menu-button.baa55592.svg",
+    "static/media/x-mark.svg": "/Classup/static/media/x-mark.e9a05bdf.svg",
+    "static/media/xbutton.png": "/Classup/static/media/xbutton.b3c65bf0.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.2c9ab709.js",
+    "static/js/runtime-main.e526d175.js",
     "static/js/2.e61ac3fe.chunk.js",
-    "static/css/main.387c0f5a.chunk.css",
-    "static/js/main.5c8d5481.chunk.js"
+    "static/css/main.a91a490f.chunk.css",
+    "static/js/main.fbf4c781.chunk.js"
   ]
 }
