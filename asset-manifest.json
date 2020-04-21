@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Classup/static/css/main.e776df17.chunk.css",
+    "main.css": "/Classup/static/css/main.baf2ab69.chunk.css",
     "main.js": "/Classup/static/js/main.3ce102f0.chunk.js",
     "main.js.map": "/Classup/static/js/main.3ce102f0.chunk.js.map",
     "runtime-main.js": "/Classup/static/js/runtime-main.e526d175.js",
@@ -8,9 +8,9 @@
     "static/js/2.02631ce8.chunk.js": "/Classup/static/js/2.02631ce8.chunk.js",
     "static/js/2.02631ce8.chunk.js.map": "/Classup/static/js/2.02631ce8.chunk.js.map",
     "index.html": "/Classup/index.html",
-    "precache-manifest.2994fef6941b06455af7ad998b4b5eca.js": "/Classup/precache-manifest.2994fef6941b06455af7ad998b4b5eca.js",
+    "precache-manifest.4a85576e0340cbf9ec2f191444e8766c.js": "/Classup/precache-manifest.4a85576e0340cbf9ec2f191444e8766c.js",
     "service-worker.js": "/Classup/service-worker.js",
-    "static/css/main.e776df17.chunk.css.map": "/Classup/static/css/main.e776df17.chunk.css.map",
+    "static/css/main.baf2ab69.chunk.css.map": "/Classup/static/css/main.baf2ab69.chunk.css.map",
     "static/js/2.02631ce8.chunk.js.LICENSE.txt": "/Classup/static/js/2.02631ce8.chunk.js.LICENSE.txt",
     "static/media/Correct.mp3": "/Classup/static/media/Correct.3806fe59.mp3",
     "static/media/App.module.scss": "/Classup/static/media/KulimPark-Regular.46646479.ttf",
@@ -24,7 +24,7 @@
   "entrypoints": [
     "static/js/runtime-main.e526d175.js",
     "static/js/2.02631ce8.chunk.js",
-    "static/css/main.e776df17.chunk.css",
+    "static/css/main.baf2ab69.chunk.css",
     "static/js/main.3ce102f0.chunk.js"
   ]
 }
