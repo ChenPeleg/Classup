@@ -1,3 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SummaryText> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<SummaryText> renders correctly 1`] = `
+<Fragment>
+  <div
+    style={
+      Object {
+        "textAlign": "left",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "fontWeight": "Bold",
+          "paddingBottom": "5px",
+          "textAlign": "center",
+        }
+      }
+    >
+       
+      Very Good!
+       
+    </div>
+    You've completed this lesson. This is your lesson summary:
+    <br />
+    <br />
+    <br />
+    You can practice this lesson again by pressing "Start Again".
+  </div>
+</Fragment>
+`;

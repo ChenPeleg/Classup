@@ -1,3 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<QuestionContainer> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<QuestionContainer> renders correctly 1`] = `
+<QuestionWrapper>
+  <QuestionText>
+    1
+    . 
+    What is the color of the sand?
+  </QuestionText>
+  <answer
+    chooseAnswerHandler={[Function]}
+    content="blue"
+    isChosen={false}
+    key="Q11"
+    marked_Answer={false}
+    num={1}
+  />
+  <answer
+    chooseAnswerHandler={[Function]}
+    content="black"
+    isChosen={false}
+    key="Q12"
+    marked_Answer={false}
+    num={2}
+  />
+  <answer
+    chooseAnswerHandler={[Function]}
+    content="green"
+    isChosen={false}
+    key="Q13"
+    marked_Answer={false}
+    num={3}
+  />
+  <answer
+    chooseAnswerHandler={[Function]}
+    content="yellow"
+    isChosen={false}
+    key="Q14"
+    marked_Answer={false}
+    num={4}
+  />
+  <br />
+  <SubmitButton
+    disableButton={true}
+    submitHandler={[Function]}
+  >
+    Submit
+  </SubmitButton>
+</QuestionWrapper>
+`;

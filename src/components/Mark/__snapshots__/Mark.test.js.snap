@@ -1,3 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Mark> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<Mark> renders correctly 1`] = `
+<div
+  className="checkMarkWrapper"
+>
+  <img
+    className="checkMark"
+    src="x-mark.svg"
+  />
+</div>
+`;

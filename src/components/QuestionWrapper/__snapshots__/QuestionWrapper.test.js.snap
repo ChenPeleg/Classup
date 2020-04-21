@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`QuestionWrapper renders correctly 1`] = `ShallowWrapper {}`;
+exports[`QuestionWrapper renders correctly 1`] = `
+<div
+  className="questionWrapper"
+>
+  <div
+    className="questionScroller"
+  >
+     
+  </div>
+</div>
+`;

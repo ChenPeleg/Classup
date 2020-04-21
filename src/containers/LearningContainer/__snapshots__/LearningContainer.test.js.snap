@@ -1,3 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LearningContainer> general rendering renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<LearningContainer> general rendering renders correctly 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "info_questions": Array [],
+      "q_next": 1,
+      "q_number": 8,
+      "total_q": 2,
+    }
+  }
+>
+  <ProgressBar
+    viewAnotherQuestionHandler={[Function]}
+  />
+  <SummaryContainer
+    resetHandler={[Function]}
+    sumData={
+      Array [
+        Array [],
+        Array [],
+        Array [],
+      ]
+    }
+  />
+</ContextProvider>
+`;

@@ -1,3 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<QuestionText> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<QuestionText> renders correctly 1`] = `
+<Fragment>
+  <div
+    className="centeringDiv"
+  >
+    <pre
+      className="questionText"
+    >
+       
+    </pre>
+  </div>
+</Fragment>
+`;

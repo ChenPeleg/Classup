@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LoaderAnimation> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<LoaderAnimation> renders correctly 1`] = `
+<div>
+  <br />
+  <br />
+  <br />
+  <div
+    className="loader"
+  />
+  Loading...
+</div>
+`;

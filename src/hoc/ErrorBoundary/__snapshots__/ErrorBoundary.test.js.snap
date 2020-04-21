@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ErrorBoundary should render beacause of error 1`] = `ReactWrapper {}`;
+exports[`ErrorBoundary should render beacause of error 1`] = `
+<ErrorBoundary>
+  <h1>
+    Something went wrong.
+  </h1>
+</ErrorBoundary>
+`;

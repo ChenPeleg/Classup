@@ -1,3 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ProgressBar> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<ProgressBar> renders correctly 1`] = `
+<div
+  className="progbar"
+>
+  <div
+    className="prog-line"
+    style={
+      Object {
+        "width": "0px",
+      }
+    }
+  />
+  <ContextConsumer>
+    <Component />
+  </ContextConsumer>
+</div>
+`;

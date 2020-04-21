@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SubmitButton> renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<SubmitButton> renders correctly 1`] = `
+<button
+  className="submitButton "
+  disabled={false}
+  onClick={[MockFunction]}
+/>
+`;
