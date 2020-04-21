@@ -13,9 +13,17 @@
   @include tablet {
     font-size: inherit;
   }
+ 
   @include mobile {
-    font-size: inherit;
+    font-size: inherit ;
   }
+  
+    @media (min-width: #{$tablet-width+1}) and (max-width: #{$desktop-width})  {
+      color: red;
+      font-size:$base_Header_Size * 0.75;
+   
+    }
+  
 }
 .mediaQuery {
   visibility: hidden;
