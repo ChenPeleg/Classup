@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import styles from "./Navigation.module.scss";
 import Toolbar from "./Toolbar/Toolbar"
 import SideDrawer from "./SideDrawer/SideDrawer"
-import MenuButton from "../UI/MenuButton/menu-button";
+import MenuButton from "./MenuButton/menu-button";
 
 const Navigation = (props) => {
 

@@ -8,6 +8,15 @@
   border: 0px solid black;
   z-index: 10;
   transition: $Transition_Duration;
+  @include tablet {
+    font-size: $Base_fontSize;
+    
+  }
+  @include mobile {
+    padding-left: 5px;
+  padding-right: 5px;
+  
+  }
 }
 .unanswered {
   color: $ProgBar_unanswered_color;
