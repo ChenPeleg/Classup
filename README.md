@@ -4,9 +4,9 @@ This app was created to help teachers and educators teach with computers or smar
 
 ### `Live expamle`
 
-Open [https://chenpeleg.github.io/classup/](https://chenpeleg.github.io/classup/) to view it in the browser.
+Open [https://chenpeleg.github.io/classup/](https://chenpeleg.github.io/Classup/) to view it in the browser.
 
-![Classup](https://chenpeleg.github.io/classup/images/classupExample.gif)
+![Classup](https://chenpeleg.github.io/Classup/images/classupExample.gif)
 
 
 ### How to install

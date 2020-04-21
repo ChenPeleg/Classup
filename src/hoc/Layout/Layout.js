@@ -11,9 +11,8 @@ class Layout extends Component {
     this.setState({ ...this.state, soundOn: !this.state.soundOn });
   };
   componentDidMount() {
-    let url =
-      "https://click123.s3.eu-west-2.amazonaws.com/classUp_dev/allquestions.json";
-    url = "allquestions.json"; // for local file
+
+    const url = this.props.questions_url;
     axios.get(url, { crossdomain: true }).then((res) => {
       this.setState({ ...this.state, AllQuestions: res.data });
     });
