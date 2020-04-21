@@ -2,7 +2,7 @@
   "name": "classup",
   "version": "0.1.0",
   "private": true,
-  "homepage": "",
+  "homepage": "https://chenpeleg.github.io/Classup/",
   "updateHomePageWhenDeploying": "https://chenpeleg.github.io/Classup/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

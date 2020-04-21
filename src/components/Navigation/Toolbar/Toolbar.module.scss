@@ -19,7 +19,7 @@
   }
   
     @media (min-width: #{$tablet-width+1}) and (max-width: #{$desktop-width})  {
-      color: red;
+     
       font-size:$base_Header_Size * 0.75;
    
     }

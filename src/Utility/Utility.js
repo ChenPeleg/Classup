@@ -40,7 +40,7 @@ const util = {
     newAnswersObject.sort(() => Math.random() - 0.5);
     return wasReorderCompletely(newAnswersObject, answers)
       ? newAnswersObject
-      : this.reorderAnswers(answers);
+      : util.reorderAnswers(answers);
   },
   createSummaryObject: (allQuestions) => {
     let numOfquestions = 0;

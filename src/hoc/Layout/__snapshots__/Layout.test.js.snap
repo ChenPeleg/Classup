@@ -11,7 +11,7 @@ exports[`<Layout> renders correctly 1`] = `
       }
     }
     soundHandler={[Function]}
-    soundOn={false}
+    soundOn={true}
   />
   <LoaderAnimation />
 </Fragment>
@@ -28,7 +28,7 @@ exports[`<Layout> renders correctly 2`] = `
       }
     }
     soundHandler={[Function]}
-    soundOn={false}
+    soundOn={true}
   />
   <LoaderAnimation />
 </Fragment>

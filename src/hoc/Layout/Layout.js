@@ -6,7 +6,7 @@ import "./Layout.scss";
 import LoaderAnimation from "../../components/UI/LoaderAnimation/LoaderAnimation";
 
 class Layout extends Component {
-  state = { AllQuestions: false, soundOn: false };
+  state = { AllQuestions: false, soundOn: true };
   soundHandler = () => {
     this.setState({ ...this.state, soundOn: !this.state.soundOn });
   };
