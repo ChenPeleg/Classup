@@ -1,13 +1,21 @@
 @import "../../../assets/styles/base";
 
 .menuButton {
+  position: absolute;
   vertical-align: middle;
+  top: 1%;
+  left: 0%;
   width: 20px;
   height: 20px;
-  padding: 0;
-  height: 100%;
+  padding-left: 5px;
+  padding-top: 2px;
+  z-index: 20;
+  transition: all 0.4s ease-in-out;
+  opacity: 1;
+
   @include desktopTabletOnly {
     display: none;
+    opacity: 0;
   }
 }
  

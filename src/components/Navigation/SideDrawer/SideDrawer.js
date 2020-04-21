@@ -1,18 +1,17 @@
 import React from "react";
 import styles from "./SideDrawer.module.scss";
 import Uplogo from "../../Uplogo/Uplogo";
-import MenuButton from "../../UI/MenuButton/menu-button";
 import SoundToggle from "../../SoundToggle/SoundToggle";
 
 const sideDrawer = (props) => {
   let attachedClasses = [styles.SideDrawer, styles.Close];
-  if (props.open) {
+  if (props.isOpen) {
     attachedClasses = [styles.SideDrawer, styles.Open];
   }
   return (
     <header className={attachedClasses.join(' ')}>
       <div >
-        <MenuButton /> {"\u00A0"} <Uplogo className={styles.mediaQuery} />
+        {"\u00A0"}  {"\u00A0"} {"\u00A0"}<Uplogo extraStyle={styles.logoInDrawer}/>
         <br></br><br></br>
       Logged In{" "}
         <span role="img" aria-label="login">

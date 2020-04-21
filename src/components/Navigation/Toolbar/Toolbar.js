@@ -1,18 +1,19 @@
 import React from "react";
 import styles from "./Toolbar.module.scss";
 import Uplogo from "../../Uplogo/Uplogo";
-import MenuButton from "../../UI/MenuButton/menu-button";
+
 import SoundToggle from "../../SoundToggle/SoundToggle";
 import SubjectHeader from "../../SubjectHeader/SubjectHeader";
 
 const toolbar = (props) => (
   <header className={styles.Toolbar} >
+
     <div className={styles.leftSideOftoolBar}>
       <Uplogo className={styles.mediaQuery} />  {"\u00A0"}
     </div>
     <div>
-      <MenuButton />
-      <SubjectHeader text={" " + props.AllQuestions.meta.name} />
+
+      <SubjectHeader text={"\u00a0\u00a0\u00a0\u00a0" + props.AllQuestions.meta.name} />
     </div>
 
     <div className={styles.rightSideOftoolBar}>

@@ -1,7 +1,8 @@
 @import "../../../assets//styles/base";
 
-.mediaQuery {
-  visibility: hidden;
+.logoInDrawer{
+ padding: 0;
+ font-size: inherit;
 }
 .SideDrawer {
   font-size: $Base_fontSize;
@@ -12,7 +13,7 @@
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 200;
+  z-index: 19;
    
   background: linear-gradient(
     90deg,
@@ -20,16 +21,17 @@
     rgb(69, 179, 25) 100%,
      
   );
-  padding: 10px 16px;
+  padding-left:  16px;
+  padding-top: 0px;
   box-sizing: border-box;
   transition: transform 0.3s ease-out;
 }
-
-@media (min-width: 500px) {
+@include desktopTabletOnly{
   .SideDrawer {
-      display: none;
-  }
+    display: none;
 }
+}
+ 
 
 .Open {
   transform: translateX(0);
