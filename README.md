@@ -19,7 +19,7 @@ This project has been tested with node v12.16.2 and npm 6.14.4.
 ### How to test
 
 `npm install` - launches the test runner in the interactive watch mode.
-See the section about running tests for more information. The tests were written with Jest and Enzyme.
+The tests were written with Jest and Enzyme.
 
 ### how to edit the content
 
