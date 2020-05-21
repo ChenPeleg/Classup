@@ -22,7 +22,7 @@ const mockedQuestionObject = {
     },
   },
 };
-const wrap = shallow(<LearningContainer allQuestions={mockedQuestionObject} />);
+const wrap = shallow(<LearningContainer AllQuestions={mockedQuestionObject} />);
 
 describe("<LearningContainer>", () => {
   describe("general rendering", () => {
@@ -38,47 +38,47 @@ describe("<LearningContainer>", () => {
   })
   describe("state managment", () => {
     beforeEach(() => {
-      const totalQuestions = Object.keys(mockedQuestionObject.questions).length;
+      const total_q = Object.keys(mockedQuestionObject.questions).length;
       const num = 1
       wrap.setState({
-        questionNumber: num,
-        questionObject: mockedQuestionObject.questions[1],
-        nextUnansweredQuestion: num,
-        summaryArray: [...Array(totalQuestions + 1)].map((e) => []),
+        question_number: num,
+        question_Object: mockedQuestionObject.questions[1],
+        next_unanswered_q: num,
+        summaryArray: [...Array(total_q + 1)].map((e) => []),
         gameHistory: [],
       });
     })
     const oldstate = wrap.state()
-    wrap.setState({ ...oldstate, questionNumber: 8 })
+    wrap.setState({ ...oldstate, question_number: 8 })
     it("initialises sate correctly", () => {
       wrap.instance().initState()
-      expect(wrap.state()).toMatchObject({ questionNumber: 1 })
+      expect(wrap.state()).toMatchObject({ question_number: 1 })
     });
     it("doesn't progress to next Question when wrong", () => {
       wrap.instance().answeringHandler("WRONG")
-      expect(wrap.state()).toMatchObject({ questionNumber: 1 })
+      expect(wrap.state()).toMatchObject({ question_number: 1 })
     })
     it("progresses to next Question when right", () => {
       wrap.instance().answeringHandler("RIGHT")
-      expect(wrap.state()).toMatchObject({ questionNumber: 2 })
+      expect(wrap.state()).toMatchObject({ question_number: 2 })
     })
     it("views another question if already answered it", () => {
       wrap.setState({
         ...wrap.state(),
-        questionNumber: 1,
-        nextUnansweredQuestion: 4,
+        question_number: 1,
+        next_unanswered_q: 4,
       });
       wrap.instance().viewAnotherQuestionHandler(3);
-      expect(wrap.state()).toMatchObject({ questionNumber: 3 + 1 })
+      expect(wrap.state()).toMatchObject({ question_number: 3 + 1 })
     })
     it("doesn't view another question if player didn't answer  it", () => {
       wrap.setState({
         ...wrap.state(),
-        questionNumber: 1,
-        nextUnansweredQuestion: 2,
+        question_number: 1,
+        next_unanswered_q: 2,
       });
       wrap.instance().viewAnotherQuestionHandler(3);
-      expect(wrap.state()).toMatchObject({ questionNumber: 1 })
+      expect(wrap.state()).toMatchObject({ question_number: 1 })
     })
     it("resets the game and saves results in history object", () => {
       jest.useFakeTimers();
@@ -86,12 +86,12 @@ describe("<LearningContainer>", () => {
       wrap.setState({
         ...wrap.state(),
         summaryArray: mockSummary,
-        questionNumber: 1,
-        nextUnansweredQuestion: 2,
+        question_number: 1,
+        next_unanswered_q: 2,
       });
       wrap.instance().resetGameHandler();
       jest.runAllTimers();
-      expect(wrap.state()).toMatchObject({ questionNumber: 1 })
+      expect(wrap.state()).toMatchObject({ question_number: 1 })
       expect(wrap.state()).toEqual(
         expect.objectContaining({
           gameHistory: expect.arrayContaining([expect.objectContaining({ summary: mockSummary })])

@@ -4,15 +4,15 @@ import ProgressNumber from "./ProgressNumber/ProgressNumber";
 
 class progressNumbers extends Component {
   render() {
-    const { questionNumber, q_total, questionNext, info_questions } = this.props.questionCounter;
+    const { q_number, q_total, q_next, info_questions } = this.props.q_counter;
 
     let q_prog_array = [];
 
     for (let i = 1; i <= q_total; i++) {
       const txt = i;
-      const wasAnswered = questionNext > i ? true : false;
-      const isCurrent = i === questionNumber ? true : false;
-      const isNext = i === questionNext ? true : false;
+      const wasAnswered = q_next > i ? true : false;
+      const isCurrent = i === q_number ? true : false;
+      const isNext = i === q_next ? true : false;
       const isInfo = info_questions.includes(i);
       q_prog_array.push({
         txt: txt,
@@ -28,13 +28,13 @@ class progressNumbers extends Component {
         key={q.txt + "progKey"}
         className={`prog_q_icon ${q.wasAnswered ? "answered" : "unanswered"} ${
           q.isCurrent ? "current_Q_num" : ""
-          } ${q.isNext ? "next_ questionNum" : ""} ${q.isInfo ? " infoNumber" : ""}`}
+        } ${q.isNext ? "next_q_num" : ""} ${q.isInfo ? " infoNumber" : ""}`}
         text={q.txt}
-        curren_ questionNumber={questionNumber}
+        curren_q_number={q_number}
         number={q_prog_array.indexOf(q)}
         lineWidthHandler={this.props.lineWidthHandler}
         viewAnotherQuestionHandler={this.props.viewAnotherQuestionHandler}
-        nextUnansweredQuestion={this.props.nextUnansweredQuestion}
+        next_unanswered_q={this.props.next_unanswered_q}
       />
     ));
   }

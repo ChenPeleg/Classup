@@ -7,14 +7,14 @@ class ProgressNumber extends Component {
     this.currentNumberRef = React.createRef();
   }
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.curren_ questionNumber === this.props.curren_ questionNumber
+    return nextProps.curren_q_number === this.props.curren_q_number
       ? false
       : true;
   }
 
   updateLineLength(prevProps, prevState) {
     if (
-      +this.props.number + 1 === +this.props.nextUnansweredQuestion &&
+      +this.props.number + 1 === +this.props.next_unanswered_q &&
       this.currentNumberRef.current
     ) {
       this.props.lineWidthHandler(

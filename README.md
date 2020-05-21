@@ -8,11 +8,6 @@ Open [https://chenpeleg.github.io/classup/](https://chenpeleg.github.io/Classup/
 
 ![Classup](https://chenpeleg.github.io/Classup/images/classupExample.gif)
 
-### How to test
- 
-`npm test` - aunches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-The tests were written with Jest and Enzyme.
 
 ### How to install
 

@@ -7,9 +7,9 @@ const mark = (props) => {
   return (
     <div className={styles.checkMarkWrapper}>
       <img
-        src={props.markedAnswer === "RIGHT" ? Vmark : Xmark}
+        src={props.marked_Answer === "RIGHT" ? Vmark : Xmark}
         className={styles.checkMark}
-        alt={props.markedAnswer}
+        alt={props.marked_Answer}
       />
     </div>
   );

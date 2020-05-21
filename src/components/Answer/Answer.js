@@ -14,8 +14,8 @@ const answer = (props) => {
       }}
     >
       {props.content}
-      {props.isChosen && props.markedAnswer ? (
-        <Mark markedAnswer={props.markedAnswer} />
+      {props.isChosen && props.marked_Answer ? (
+        <Mark marked_Answer={props.marked_Answer} />
       ) : null}
     </div>
   );

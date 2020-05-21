@@ -3,7 +3,7 @@
 exports[`<Layout> renders correctly 1`] = `
 <Fragment>
   <Navigation
-    allQuestions={
+    AllQuestions={
       Object {
         "meta": Object {
           "name": "...",
@@ -20,7 +20,7 @@ exports[`<Layout> renders correctly 1`] = `
 exports[`<Layout> renders correctly 2`] = `
 <Fragment>
   <Navigation
-    allQuestions={
+    AllQuestions={
       Object {
         "meta": Object {
           "name": "...",

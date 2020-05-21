@@ -6,7 +6,7 @@ class ProgressBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      questionNumber: "2",
+      q_number: "2",
       widthOfLine: "0px",
     };
     this.progBarRef = React.createRef();
@@ -36,15 +36,15 @@ class ProgressBar extends Component {
         <AdvanceContext.Consumer>
           {(context) => (
             <ProgressNumbers
-              questionCounter={{
-                questionNumber: +context.questionNumber,
-                q_total: +context.totalQuestions,
-                questionNext: +context.questionNext,
+              q_counter={{
+                q_number: +context.q_number,
+                q_total: +context.total_q,
+                q_next: +context.q_next,
                 info_questions: context.info_questions,
               }}
               lineWidthHandler={this.lineWidthHandler}
               viewAnotherQuestionHandler={this.props.viewAnotherQuestionHandler}
-              nextUnansweredQuestion={+context.questionNext}
+              next_unanswered_q={+context.q_next}
             />
           )}
         </AdvanceContext.Consumer>

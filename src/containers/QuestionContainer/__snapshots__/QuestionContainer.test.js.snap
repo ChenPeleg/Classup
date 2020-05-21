@@ -12,7 +12,7 @@ exports[`<QuestionContainer> renders correctly 1`] = `
     content="blue"
     isChosen={false}
     key="Q11"
-    markedAnswer={false}
+    marked_Answer={false}
     num={1}
   />
   <answer
@@ -20,7 +20,7 @@ exports[`<QuestionContainer> renders correctly 1`] = `
     content="black"
     isChosen={false}
     key="Q12"
-    markedAnswer={false}
+    marked_Answer={false}
     num={2}
   />
   <answer
@@ -28,7 +28,7 @@ exports[`<QuestionContainer> renders correctly 1`] = `
     content="green"
     isChosen={false}
     key="Q13"
-    markedAnswer={false}
+    marked_Answer={false}
     num={3}
   />
   <answer
@@ -36,7 +36,7 @@ exports[`<QuestionContainer> renders correctly 1`] = `
     content="yellow"
     isChosen={false}
     key="Q14"
-    markedAnswer={false}
+    marked_Answer={false}
     num={4}
   />
   <br />

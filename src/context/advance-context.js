@@ -1,6 +1,6 @@
 import React from "react";
 
 const AdvanceContext = React.createContext({
-  questionNumber: 1,
+  q_number: 1,
 });
 export default AdvanceContext;
