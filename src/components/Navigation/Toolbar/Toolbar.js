@@ -13,7 +13,7 @@ const toolbar = (props) => (
     </div>
     <div>
 
-      <SubjectHeader text={"\u00a0\u00a0\u00a0\u00a0" + props.AllQuestions.meta.name} />
+      <SubjectHeader text={"\u00a0\u00a0\u00a0\u00a0" + props.allQuestions.meta.name} />
     </div>
 
     <div className={styles.rightSideOftoolBar}>

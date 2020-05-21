@@ -24,9 +24,9 @@ const mockedQuestionObject = {
 const mockHandler = jest.fn()
 const mockProps = {
     Question_Object: mockedQuestionObject.questions["1"],
-    q_num: 1,
+    questionNum: 1,
     answeringHandler: mockHandler,
-    next_unanswered_q: 1
+    nextUnansweredQuestion: 1
 };
 
 const wrap = shallow(<QuestionContainer {...mockProps} />)

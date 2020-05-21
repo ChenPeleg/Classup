@@ -7,12 +7,12 @@ const currnet = 3;
 const next = 4;
 
 const comp = shallow(<ProgressNumber key={"key1"}
-    curren_q_number={currnet}
+    curren_ questionNumber={currnet}
     number={num}
     viewAnotherQuestionHandler={mockClick}
-    next_unanswered_q={next}
+    nextUnansweredQuestion={next}
 />)
-const shouldUpdate = comp.instance().shouldComponentUpdate({ curren_q_number: next }, false);
+const shouldUpdate = comp.instance().shouldComponentUpdate({ curren_ questionNumber: next }, false);
 
 describe("<ProgressNumber>", () => {
     it("renders correctly", () => {
@@ -22,7 +22,7 @@ describe("<ProgressNumber>", () => {
         expect(shouldUpdate).toBe(true)
     })
     it("shouldComponentupdates shoul not update when question number doesn't change", () => {
-        const shouldUpdate2 = comp.instance().shouldComponentUpdate({ curren_q_number: currnet }, false);
+        const shouldUpdate2 = comp.instance().shouldComponentUpdate({ curren_ questionNumber: currnet }, false);
         expect(shouldUpdate2).toBe(false)
     });
     it("should fire view anither question with number as argument", () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import SummaryContatiner from "./SummaryContatiner";
+import SummaryContainer from "./SummaryContainer";
 
 // const test1 = 
 
@@ -21,8 +21,8 @@ const props = {
     ["WRONG", "RIGHT"],
   ]
 };
-const wrap = shallow(<SummaryContatiner {...props} />)
+const wrap = shallow(<SummaryContainer {...props} />)
 
-describe("<SummaryContatiner>", () => {
+describe("<SummaryContainer>", () => {
   it("renders correctly", () => { expect(wrap).toMatchSnapshot() })
 })

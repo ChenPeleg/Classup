@@ -4,49 +4,49 @@ exports[`<ProgressNumber> renders correctly 1`] = `
 Array [
   <ProgressNumber
     className="prog_q_icon answered    infoNumber"
-    curren_q_number={3}
+    curren_ questionNumber={3}
     key="1progKey"
     number={0}
     text={1}
   />,
   <ProgressNumber
     className="prog_q_icon answered    infoNumber"
-    curren_q_number={3}
+    curren_ questionNumber={3}
     key="2progKey"
     number={1}
     text={2}
   />,
   <ProgressNumber
     className="prog_q_icon answered current_Q_num  "
-    curren_q_number={3}
+    curren_ questionNumber={3}
     key="3progKey"
     number={2}
     text={3}
   />,
   <ProgressNumber
-    className="prog_q_icon unanswered  next_q_num "
-    curren_q_number={3}
+    className="prog_q_icon unanswered  next_ questionNum "
+    curren_ questionNumber={3}
     key="4progKey"
     number={3}
     text={4}
   />,
   <ProgressNumber
     className="prog_q_icon unanswered   "
-    curren_q_number={3}
+    curren_ questionNumber={3}
     key="5progKey"
     number={4}
     text={5}
   />,
   <ProgressNumber
     className="prog_q_icon unanswered   "
-    curren_q_number={3}
+    curren_ questionNumber={3}
     key="6progKey"
     number={5}
     text={6}
   />,
   <ProgressNumber
     className="prog_q_icon unanswered   "
-    curren_q_number={3}
+    curren_ questionNumber={3}
     key="7progKey"
     number={6}
     text={7}

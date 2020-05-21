@@ -18,16 +18,16 @@ const Question = (props) => {
   );
   useEffect(() => {
     setanswersArray(util.createAnswerObject(props.Question_Object.answers));
-    if (props.next_unanswered_q > props.q_num) {
+    if (props.nextUnansweredQuestion > props.questionNum) {
       setChosenAnswer(+props.Question_Object.solution);
       setMarkInAnswer("RIGHT");
     } else {
       setChosenAnswer(false);
       setMarkInAnswer(false);
     }
-  }, [props.Question_Object, props.q_num, props.next_unanswered_q]);
+  }, [props.Question_Object, props.questionNum, props.nextUnansweredQuestion]);
 
-  const wasAnswered = props.q_num < props.next_unanswered_q;
+  const wasAnswered = props.questionNum < props.nextUnansweredQuestion;
   const isInfo = props.Question_Object.type === "info";
 
   const setAnswerHandler = (event, num) => {
@@ -68,16 +68,16 @@ const Question = (props) => {
   return (
     <QuestionWrapper>
       <QuestionText>
-        {props.q_num}. {props.Question_Object.text}
+        {props.questionNum}. {props.Question_Object.text}
       </QuestionText>
       {answersArray.map((a) => (
         <Answer
           content={a.content}
-          key={"Q" + props.q_num + a.number}
+          key={"Q" + props.questionNum + a.number}
           num={a.number}
           isChosen={chosenAnswer === a.number ? true : false}
           chooseAnswerHandler={setAnswerHandler}
-          marked_Answer={markInAnswer}
+          markedAnswer={markInAnswer}
         />
       ))}
       <br></br>

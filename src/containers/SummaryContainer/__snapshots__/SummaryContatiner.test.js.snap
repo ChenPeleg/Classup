@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SummaryContatiner> renders correctly 1`] = `
+exports[`<SummaryContainer> renders correctly 1`] = `
 <QuestionWrapper>
   <QuestionText>
     <SummaryText>

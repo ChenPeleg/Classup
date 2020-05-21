@@ -5,9 +5,9 @@ exports[`<LearningContainer> general rendering renders correctly 1`] = `
   value={
     Object {
       "info_questions": Array [],
-      "q_next": 1,
-      "q_number": 8,
-      "total_q": 2,
+      " questionNext": 1,
+      " questionNumber": 8,
+      "totalQuestions": 2,
     }
   }
 >
