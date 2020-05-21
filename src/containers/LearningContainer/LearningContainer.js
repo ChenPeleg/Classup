@@ -54,7 +54,7 @@ class LearningContainer extends Component {
       question_number: num,
       question_Object: this.props.AllQuestions.questions[1],
       next_unanswered_q: num,
-      summaryArray: [...Array(this.total_q + 1)].map((e) => []),
+      summaryArray: [...Array(this.total_q + 1)].map((el) => []),
     });
   };
   componentDidMount() {
@@ -81,7 +81,7 @@ class LearningContainer extends Component {
         ? Number(+num)
         : null
     )
-    .map((e) => +e);
+    .map((el) => +el);
 
   render() {
     return (

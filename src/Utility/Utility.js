@@ -15,7 +15,7 @@ const util = {
     ) {
       return mObj;
     } else {
-      const min = Math.min(...values.filter((e) => e > 0));
+      const min = Math.min(...values.filter((el) => el > 0));
       for (const k of Object.keys(mObj)) {
         if (mObj[k] === min) {
           mObj[k] = mObj[k] + 1;
@@ -47,10 +47,10 @@ const util = {
   createSummaryObject: (allQuestions) => {
     let numOfquestions = 0;
     let mistakesObject = { q0: 0, q1: 0, q23: 0 };
-    const sumArray = allQuestions.filter((e) => e.includes("RIGHT"));
+    const sumArray = allQuestions.filter((el) => el.includes("RIGHT"));
     for (let i = 0; i < sumArray.length; i++) {
-      const wrongs = sumArray[i].filter((e) => e === "WRONG").length;
-      const rights = sumArray[i].filter((e) => e === "RIGHT").length;
+      const wrongs = sumArray[i].filter((el) => el === "WRONG").length;
+      const rights = sumArray[i].filter((el) => el === "RIGHT").length;
       let mistakeCound = wrongs < 2 ? "q" + wrongs : "q23";
       mistakesObject[mistakeCound] += 1;
       numOfquestions += rights;
