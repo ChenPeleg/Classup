@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import QuestionContainer from "../QuestionContainer/QuestionContainer";
 import AdvanceContext from "../../context/advance-context";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
-import SummaryContainer from "../SummaryContatiner/SummaryContatiner";
+import SummaryContainer from "../SummaryContainer/SummaryContainer";
 import Util from "../../Utility/Utility";
 
 class LearningContainer extends Component {
@@ -41,7 +41,6 @@ class LearningContainer extends Component {
   };
   resetGameHandler = () => {
     const newGameHistory = [...this.state.gameHistory];
-
     newGameHistory.push({ summary: this.state.summaryArray, time: Date.now() });
     this.initState();
     setTimeout(() => {
