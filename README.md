@@ -13,12 +13,13 @@ Open [https://chenpeleg.github.io/classup/](https://chenpeleg.github.io/Classup/
 
 You can fork and clone the project and run:
 `npm install` - to install the external dependencies.
+
 `npm start` - to run the project on  http://localhost:3000
 This project has been tested with node v12.16.2 and npm 6.14.4.
 
 ### How to test
 
-`npm install` - launches the test runner in the interactive watch mode.
+`npm test` - launches the test runner in the interactive watch mode.
 The tests were written with Jest and Enzyme.
 
 ### how to edit the content
