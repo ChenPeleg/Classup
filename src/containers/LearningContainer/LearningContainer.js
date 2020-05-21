@@ -57,16 +57,19 @@ class LearningContainer extends Component {
       summaryArray: [...Array(this.total_q + 1)].map((el) => []),
     });
   };
-  componentDidMount() {
-    document.addEventListener("keydown", (event) => {
-      if (this.state.next_unanswered_q > this.state.question_number) return;
-      if (event.keyCode === 32) {
-        this.total_q >= this.state.question_number
-          ? this.answeringHandler("RIGHT")
-          : this.resetGameHandler();
-      }
+  onKeyPressed(e) {
+    e.preventDefault();
+
+    if (this.state.next_unanswered_q > this.state.question_number) return;
+    if (e.keyCode === 32) {
+      this.total_q >= this.state.question_number
+        ? this.answeringHandler("RIGHT")
+        : this.resetGameHandler();
       // for Testing purpuses
-    });
+    }
+  }
+  componentDidMount() {
+
   }
   state = {
     question_number: 1,
@@ -85,32 +88,35 @@ class LearningContainer extends Component {
 
   render() {
     return (
-      <AdvanceContext.Provider
-        value={{
-          q_number: this.state.question_number,
-          total_q: this.total_q,
-          q_next: this.state.next_unanswered_q,
-          info_questions: this.info_Array,
-        }}
-      >
-        <ProgressBar
-          viewAnotherQuestionHandler={this.viewAnotherQuestionHandler}
-        />
-        {this.total_q >= this.state.question_number ? (
-          <QuestionContainer
-            Question_Object={this.state.question_Object}
-            q_num={this.state.question_number}
-            answeringHandler={this.answeringHandler}
-            next_unanswered_q={this.state.next_unanswered_q}
-            soundOn={this.props.soundOn}
+      <div tabIndex="0" onKeyDown={(e) => this.onKeyPressed(e)} >
+
+        <AdvanceContext.Provider
+          value={{
+            q_number: this.state.question_number,
+            total_q: this.total_q,
+            q_next: this.state.next_unanswered_q,
+            info_questions: this.info_Array,
+          }}
+        >
+          <ProgressBar
+            viewAnotherQuestionHandler={this.viewAnotherQuestionHandler}
           />
-        ) : (
-            <SummaryContainer
-              sumData={this.state.summaryArray}
-              resetHandler={this.resetGameHandler}
+          {this.total_q >= this.state.question_number ? (
+            <QuestionContainer
+              Question_Object={this.state.question_Object}
+              q_num={this.state.question_number}
+              answeringHandler={this.answeringHandler}
+              next_unanswered_q={this.state.next_unanswered_q}
+              soundOn={this.props.soundOn}
             />
-          )}
-      </AdvanceContext.Provider>
+          ) : (
+              <SummaryContainer
+                sumData={this.state.summaryArray}
+                resetHandler={this.resetGameHandler}
+              />
+            )}
+        </AdvanceContext.Provider>
+      </div>
     );
   }
 }
