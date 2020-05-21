@@ -1,8 +1,10 @@
 const util = {
   updateSummaryArray: (sumArray = [], q_number, result = "RIGHT") => {
+
     let array = [...sumArray];
     array[q_number].push(result);
     return array;
+
   },
   roundTo100: (mObj) => {
     const values = Object.values(mObj);
