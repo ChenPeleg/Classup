@@ -105,7 +105,7 @@ class LearningContainer extends Component {
             qNumber: this.state.question_number,
             totalQ: this.totalQ,
             qNext: this.state.nextUnansweredQ,
-            info_questions: this.info_Array,
+            infoQuestions: this.info_Array,
           }}
         >
           <ProgressBar

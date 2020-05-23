@@ -4,17 +4,17 @@ import ProgressNumber from "./ProgressNumber/ProgressNumber";
 
 class progressNumbers extends Component {
   render() {
-    const { qNumber, q_total, qNext, info_questions } = this.props.q_counter;
+    const { qNumber, qTotal, qNext, infoQuestions } = this.props.qusetionCounter;
 
-    let q_prog_array = [];
+    let qProgArray = [];
 
-    for (let i = 1; i <= q_total; i++) {
+    for (let i = 1; i <= qTotal; i++) {
       const txt = i;
       const wasAnswered = qNext > i ? true : false;
       const isCurrent = i === qNumber ? true : false;
       const isNext = i === qNext ? true : false;
-      const isInfo = info_questions.includes(i);
-      q_prog_array.push({
+      const isInfo = infoQuestions.includes(i);
+      qProgArray.push({
         txt: txt,
         wasAnswered: wasAnswered,
         isCurrent: isCurrent,
@@ -23,7 +23,7 @@ class progressNumbers extends Component {
       });
     }
 
-    return q_prog_array.map((q) => (
+    return qProgArray.map((q) => (
       <ProgressNumber
         key={q.txt + "progKey"}
         className={`prog_q_icon ${q.wasAnswered ? "answered" : "unanswered"} ${
@@ -31,7 +31,7 @@ class progressNumbers extends Component {
           } ${q.isNext ? "next_q_num" : ""} ${q.isInfo ? " infoNumber" : ""}`}
         text={q.txt}
         curren_qNumber={qNumber}
-        number={q_prog_array.indexOf(q)}
+        number={qProgArray.indexOf(q)}
         lineWidthHandler={this.props.lineWidthHandler}
         viewAnotherQuestionHandler={this.props.viewAnotherQuestionHandler}
         nextUnansweredQ={this.props.nextUnansweredQ}

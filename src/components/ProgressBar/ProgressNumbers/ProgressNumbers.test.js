@@ -4,13 +4,13 @@ import ProgressNumbers from "./ProgressNumbers"
 import ProgressNumber from "./ProgressNumber/ProgressNumber"
 
 const totalQuestions = 7;
-const mockq_counter = {
+const mockqusetionCounter = {
     qNumber: 3,
-    q_total: totalQuestions,
+    qTotal: totalQuestions,
     qNext: 4,
-    info_questions: [2, 1],
+    infoQuestions: [2, 1],
 }
-const wrap = shallow(<ProgressNumbers q_counter={mockq_counter} />)
+const wrap = shallow(<ProgressNumbers qusetionCounter={mockqusetionCounter} />)
 
 
 describe("<ProgressNumber>", () => {

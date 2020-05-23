@@ -12,15 +12,15 @@ class ProgressBar extends Component {
     this.progBarRef = React.createRef();
     this.lineWidthHandler = this.lineWidthHandler.bind(this);
   }
-  lineWidthHandler(length_) {
+  lineWidthHandler(lengthFromBar) {
     if (!this.progBarRef.current) {
       setTimeout(() => {
-        this.lineWidthHandler(length_);
+        this.lineWidthHandler(lengthFromBar);
       }, 500);
       return;
     }
     const startPosition = this.progBarRef.current.getBoundingClientRect().left;
-    const lineLength = length_ - startPosition + 20;
+    const lineLength = lengthFromBar - startPosition + 20;
     setTimeout(() => {
       this.setState({ ...this.state, widthOfLine: lineLength + "px" });
     }, 500);
@@ -36,11 +36,11 @@ class ProgressBar extends Component {
         <AdvanceContext.Consumer>
           {(context) => (
             <ProgressNumbers
-              q_counter={{
+              qusetionCounter={{
                 qNumber: +context.qNumber,
-                q_total: +context.totalQ,
+                qTotal: +context.totalQ,
                 qNext: +context.qNext,
-                info_questions: context.info_questions,
+                infoQuestions: context.infoQuestions,
               }}
               lineWidthHandler={this.lineWidthHandler}
               viewAnotherQuestionHandler={this.props.viewAnotherQuestionHandler}
