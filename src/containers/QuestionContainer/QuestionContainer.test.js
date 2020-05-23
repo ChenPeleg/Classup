@@ -23,8 +23,8 @@ const mockedQuestionObject = {
 };
 const mockHandler = jest.fn()
 const mockProps = {
-    Question_Object: mockedQuestionObject.questions["1"],
-    q_num: 1,
+    QuestionObject: mockedQuestionObject.questions["1"],
+    qNumber: 1,
     answeringHandler: mockHandler,
     nextUnansweredQ: 1
 };

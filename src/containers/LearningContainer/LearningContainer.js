@@ -6,37 +6,37 @@ import SummaryContainer from "../SummaryContainer/SummaryContainer";
 import Util from "../../Utility/Utility";
 
 class LearningContainer extends Component {
-  TIME_AFTER_ANSWER = 1500;
+  timeAfterAnswer = 1500;
   totalQ = Object.keys(this.props.AllQuestions.questions).length;
   answeringHandler = (action) => {
     const newSummaryArray = Util.updateSummaryArray(
       [...this.state.summaryArray],
-      this.state.question_number,
+      this.state.questionNumber,
       action
     );
-    const new_qNumber =
-      this.state.question_number + (action === "WRONG" ? 0 : 1);
+    const newQusetionNumber =
+      this.state.questionNumber + (action === "WRONG" ? 0 : 1);
     this.setState({
       ...this.state,
-      question_number: new_qNumber,
-      question_Object: this.props.AllQuestions.questions[new_qNumber],
+      questionNumber: newQusetionNumber,
+      QuestionObject: this.props.AllQuestions.questions[newQusetionNumber],
       nextUnansweredQ:
-        new_qNumber > this.state.nextUnansweredQ
-          ? new_qNumber
+        newQusetionNumber > this.state.nextUnansweredQ
+          ? newQusetionNumber
           : this.state.nextUnansweredQ,
       summaryArray: newSummaryArray,
     });
   };
   viewAnotherQuestionHandler = (number) => {
     const questionWasntReached = this.state.nextUnansweredQ < +number + 1;
-    const isItSummary = this.totalQ <= this.state.question_number;
+    const isItSummary = this.totalQ <= this.state.questionNumber;
     if (questionWasntReached || isItSummary) {
       return;
     }
     this.setState({
       ...this.state,
-      question_number: number + 1,
-      question_Object: this.props.AllQuestions.questions[number + 1],
+      questionNumber: number + 1,
+      QuestionObject: this.props.AllQuestions.questions[number + 1],
     });
   };
   resetGameHandler = () => {
@@ -51,17 +51,17 @@ class LearningContainer extends Component {
   initState = () => {
     const num = 1;
     this.setState({
-      question_number: num,
-      question_Object: this.props.AllQuestions.questions[1],
+      questionNumber: num,
+      QuestionObject: this.props.AllQuestions.questions[1],
       nextUnansweredQ: num,
       summaryArray: [...Array(this.totalQ + 1)].map((el) => []),
     });
   };
   onKeyPressed(e) {
     e.preventDefault();
-    if (this.state.nextUnansweredQ > this.state.question_number) return;
+    if (this.state.nextUnansweredQ > this.state.questionNumber) return;
     if (e.keyCode === 32) {
-      this.totalQ >= this.state.question_number
+      this.totalQ >= this.state.questionNumber
         ? this.answeringHandler("RIGHT")
         : this.resetGameHandler();
       // for Testing purpuses
@@ -72,9 +72,9 @@ class LearningContainer extends Component {
   }
   componentDidMount() {
     document.addEventListener("keydown", (event) => {
-      if (this.state.nextUnansweredQ > this.state.question_number) return;
+      if (this.state.nextUnansweredQ > this.state.questionNumber) return;
       if (event.keyCode === 32) {
-        this.totalQ >= this.state.question_number
+        this.totalQ >= this.state.questionNumber
           ? this.answeringHandler("RIGHT")
           : this.resetGameHandler();
       }
@@ -82,13 +82,13 @@ class LearningContainer extends Component {
     });
   }
   state = {
-    question_number: 1,
-    question_Object: this.props.AllQuestions.questions[1],
+    questionNumber: 1,
+    QuestionObject: this.props.AllQuestions.questions[1],
     nextUnansweredQ: 1,
     summaryArray: [...Array(this.totalQ + 1)].map((e) => []),
     gameHistory: [],
   };
-  info_Array = Object.keys(this.props.AllQuestions.questions)
+  infoArray = Object.keys(this.props.AllQuestions.questions)
     .filter((num) =>
       this.props.AllQuestions.questions[num].type === "info"
         ? Number(+num)
@@ -102,19 +102,19 @@ class LearningContainer extends Component {
 
         <AdvanceContext.Provider
           value={{
-            qNumber: this.state.question_number,
+            qNumber: this.state.questionNumber,
             totalQ: this.totalQ,
             qNext: this.state.nextUnansweredQ,
-            infoQuestions: this.info_Array,
+            infoQuestions: this.infoArray,
           }}
         >
           <ProgressBar
             viewAnotherQuestionHandler={this.viewAnotherQuestionHandler}
           />
-          {this.totalQ >= this.state.question_number ? (
+          {this.totalQ >= this.state.questionNumber ? (
             <QuestionContainer
-              Question_Object={this.state.question_Object}
-              q_num={this.state.question_number}
+              QuestionObject={this.state.QuestionObject}
+              qNumber={this.state.questionNumber}
               answeringHandler={this.answeringHandler}
               nextUnansweredQ={this.state.nextUnansweredQ}
               soundOn={this.props.soundOn}

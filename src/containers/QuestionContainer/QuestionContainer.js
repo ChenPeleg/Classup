@@ -6,7 +6,7 @@ import QuestionWrapper from "../../components/QuestionWrapper/QuestionWrapper";
 import CorrectMedia from "../../assets/media/Correct.mp3";
 import WrongMedia from "../../assets/media/Wrong.mp3";
 import util from "../../Utility/Utility"
-const TIME_AFTER_ANSWER = 2000;
+const timeAfterAnswer = 2000;
 
 const correctSound = new Audio(CorrectMedia);
 const Wrongsound = new Audio(WrongMedia);
@@ -14,28 +14,28 @@ const Question = (props) => {
   const [chosenAnswer, setChosenAnswer] = useState(false);
   const [markInAnswer, setMarkInAnswer] = useState(false);
   const [answersArray, setanswersArray] = useState(
-    util.createAnswerObject(props.Question_Object.answers)
+    util.createAnswerObject(props.QuestionObject.answers)
   );
   useEffect(() => {
-    setanswersArray(util.createAnswerObject(props.Question_Object.answers));
-    if (props.nextUnansweredQ > props.q_num) {
-      setChosenAnswer(+props.Question_Object.solution);
+    setanswersArray(util.createAnswerObject(props.QuestionObject.answers));
+    if (props.nextUnansweredQ > props.qNumber) {
+      setChosenAnswer(+props.QuestionObject.solution);
       setMarkInAnswer("RIGHT");
     } else {
       setChosenAnswer(false);
       setMarkInAnswer(false);
     }
-  }, [props.Question_Object, props.q_num, props.nextUnansweredQ]);
+  }, [props.QuestionObject, props.qNumber, props.nextUnansweredQ]);
 
-  const wasAnswered = props.q_num < props.nextUnansweredQ;
-  const isInfo = props.Question_Object.type === "info";
+  const wasAnswered = props.qNumber < props.nextUnansweredQ;
+  const isInfo = props.QuestionObject.type === "info";
 
   const setAnswerHandler = (event, num) => {
     if (wasAnswered || markInAnswer) return;
     setChosenAnswer(num);
   };
   const submitHandler = (event) => {
-    const isCorrect = chosenAnswer === +props.Question_Object.solution;
+    const isCorrect = chosenAnswer === +props.QuestionObject.solution;
     const resetQuestionState = () => {
       setMarkInAnswer(false);
       setChosenAnswer(false);
@@ -53,7 +53,7 @@ const Question = (props) => {
           props.answeringHandler("RIGHT");
           resetQuestionState();
         },
-        false ? 2 : TIME_AFTER_ANSWER
+        false ? 2 : timeAfterAnswer
       );
     } else {
       if (props.soundOn) Wrongsound.play();
@@ -62,18 +62,18 @@ const Question = (props) => {
       setTimeout(() => {
         setanswersArray(util.reorderAnswers(answersArray));
         resetQuestionState();
-      }, TIME_AFTER_ANSWER);
+      }, timeAfterAnswer);
     }
   };
   return (
     <QuestionWrapper>
       <QuestionText>
-        {props.q_num}. {props.Question_Object.text}
+        {props.qNumber}. {props.QuestionObject.text}
       </QuestionText>
       {answersArray.map((a) => (
         <Answer
           content={a.content}
-          key={"Q" + props.q_num + a.number}
+          key={"Q" + props.qNumber + a.number}
           num={a.number}
           isChosen={chosenAnswer === a.number ? true : false}
           chooseAnswerHandler={setAnswerHandler}
