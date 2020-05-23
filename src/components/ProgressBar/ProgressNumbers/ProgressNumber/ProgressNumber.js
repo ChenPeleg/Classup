@@ -7,7 +7,7 @@ class ProgressNumber extends Component {
     this.currentNumberRef = React.createRef();
   }
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.curren_qNumber === this.props.curren_qNumber
+    return nextProps.currentQusetNumber === this.props.currentQusetNumber
       ? false
       : true;
   }

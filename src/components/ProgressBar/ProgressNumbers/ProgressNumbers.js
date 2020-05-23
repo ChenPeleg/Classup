@@ -30,7 +30,7 @@ class progressNumbers extends Component {
           q.isCurrent ? "current_Q_num" : ""
           } ${q.isNext ? "next_q_num" : ""} ${q.isInfo ? " infoNumber" : ""}`}
         text={q.txt}
-        curren_qNumber={qNumber}
+        currentQusetNumber={qNumber}
         number={qProgArray.indexOf(q)}
         lineWidthHandler={this.props.lineWidthHandler}
         viewAnotherQuestionHandler={this.props.viewAnotherQuestionHandler}
