@@ -26,7 +26,7 @@ const mockProps = {
     Question_Object: mockedQuestionObject.questions["1"],
     q_num: 1,
     answeringHandler: mockHandler,
-    next_unanswered_q: 1
+    nextUnansweredQ: 1
 };
 
 const wrap = shallow(<QuestionContainer {...mockProps} />)

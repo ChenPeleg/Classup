@@ -38,13 +38,13 @@ describe("<LearningContainer>", () => {
   })
   describe("state managment", () => {
     beforeEach(() => {
-      const total_q = Object.keys(mockedQuestionObject.questions).length;
+      const totalQ = Object.keys(mockedQuestionObject.questions).length;
       const num = 1
       wrap.setState({
         question_number: num,
         question_Object: mockedQuestionObject.questions[1],
-        next_unanswered_q: num,
-        summaryArray: [...Array(total_q + 1)].map((e) => []),
+        nextUnansweredQ: num,
+        summaryArray: [...Array(totalQ + 1)].map((e) => []),
         gameHistory: [],
       });
     })
@@ -66,7 +66,7 @@ describe("<LearningContainer>", () => {
       wrap.setState({
         ...wrap.state(),
         question_number: 1,
-        next_unanswered_q: 4,
+        nextUnansweredQ: 4,
       });
       wrap.instance().viewAnotherQuestionHandler(3);
       expect(wrap.state()).toMatchObject({ question_number: 3 + 1 })
@@ -75,7 +75,7 @@ describe("<LearningContainer>", () => {
       wrap.setState({
         ...wrap.state(),
         question_number: 1,
-        next_unanswered_q: 2,
+        nextUnansweredQ: 2,
       });
       wrap.instance().viewAnotherQuestionHandler(3);
       expect(wrap.state()).toMatchObject({ question_number: 1 })
@@ -87,7 +87,7 @@ describe("<LearningContainer>", () => {
         ...wrap.state(),
         summaryArray: mockSummary,
         question_number: 1,
-        next_unanswered_q: 2,
+        nextUnansweredQ: 2,
       });
       wrap.instance().resetGameHandler();
       jest.runAllTimers();

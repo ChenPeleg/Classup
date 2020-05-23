@@ -1,8 +1,8 @@
 const util = {
-  updateSummaryArray: (sumArray = [], q_number, result = "RIGHT") => {
+  updateSummaryArray: (sumArray = [], qNumber, result = "RIGHT") => {
 
     let array = [...sumArray];
-    array[q_number].push(result);
+    array[qNumber].push(result);
     return array;
 
   },

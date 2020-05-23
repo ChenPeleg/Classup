@@ -18,16 +18,16 @@ const Question = (props) => {
   );
   useEffect(() => {
     setanswersArray(util.createAnswerObject(props.Question_Object.answers));
-    if (props.next_unanswered_q > props.q_num) {
+    if (props.nextUnansweredQ > props.q_num) {
       setChosenAnswer(+props.Question_Object.solution);
       setMarkInAnswer("RIGHT");
     } else {
       setChosenAnswer(false);
       setMarkInAnswer(false);
     }
-  }, [props.Question_Object, props.q_num, props.next_unanswered_q]);
+  }, [props.Question_Object, props.q_num, props.nextUnansweredQ]);
 
-  const wasAnswered = props.q_num < props.next_unanswered_q;
+  const wasAnswered = props.q_num < props.nextUnansweredQ;
   const isInfo = props.Question_Object.type === "info";
 
   const setAnswerHandler = (event, num) => {
