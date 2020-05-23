@@ -7,7 +7,7 @@
 /coverage
 
 # production
-
+/build
 
 # misc
 CLASSUP-work-space.code-workspace

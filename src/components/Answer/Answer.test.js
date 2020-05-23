@@ -5,7 +5,7 @@ import Mark from "../Mark/Mark";
 
 const mockChoose = jest.fn();
 const ansNum = 5;
-const answer = shallow(<Answer isChosen={true} marked_Answer={"RIGHT"} num={ansNum} chooseAnswerHandler={mockChoose} />);
+const answer = shallow(<Answer isChosen={true} markedAnswer={"RIGHT"} num={ansNum} chooseAnswerHandler={mockChoose} />);
 
 describe("<Answer>", () => {
 

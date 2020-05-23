@@ -59,7 +59,6 @@ class LearningContainer extends Component {
   };
   onKeyPressed(e) {
     e.preventDefault();
-
     if (this.state.next_unanswered_q > this.state.question_number) return;
     if (e.keyCode === 32) {
       this.total_q >= this.state.question_number
@@ -68,8 +67,19 @@ class LearningContainer extends Component {
       // for Testing purpuses
     }
   }
-  componentDidMount() {
+  onKeyPressedFake(e) {
 
+  }
+  componentDidMount() {
+    document.addEventListener("keydown", (event) => {
+      if (this.state.next_unanswered_q > this.state.question_number) return;
+      if (event.keyCode === 32) {
+        this.total_q >= this.state.question_number
+          ? this.answeringHandler("RIGHT")
+          : this.resetGameHandler();
+      }
+      // for Testing purpuses
+    });
   }
   state = {
     question_number: 1,
@@ -88,7 +98,7 @@ class LearningContainer extends Component {
 
   render() {
     return (
-      <div tabIndex="0" onKeyDown={(e) => this.onKeyPressed(e)} >
+      <div tabIndex="0" onKeyDown={(e) => this.onKeyPressedFake(e)} >
 
         <AdvanceContext.Provider
           value={{

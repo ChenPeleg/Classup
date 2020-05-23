@@ -24,7 +24,7 @@ The tests were written with Jest and Enzyme.
 
 ### how to edit the content
 
-This is build with create-react-app. To change the content of the questions and answers change the questions and answers inside the "allquestions.json" file in the public folder. You can also get the file from an external server by changing the QUESTIONS_URL in app.js. 
+This is build with create-react-app. To change the content of the questions and answers change the questions and answers inside the "allquestions.json" file in the public folder. You can also get the file from an external server by changing the questionsUrl in app.js. 
 
 
 

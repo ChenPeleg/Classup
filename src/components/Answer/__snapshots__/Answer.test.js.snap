@@ -6,7 +6,7 @@ exports[`<Answer> renders correctly 1`] = `
   onClick={[Function]}
 >
   <mark
-    marked_Answer="RIGHT"
+    markedAnswer="RIGHT"
   />
 </div>
 `;

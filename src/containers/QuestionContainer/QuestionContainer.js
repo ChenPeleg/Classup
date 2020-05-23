@@ -77,7 +77,7 @@ const Question = (props) => {
           num={a.number}
           isChosen={chosenAnswer === a.number ? true : false}
           chooseAnswerHandler={setAnswerHandler}
-          marked_Answer={markInAnswer}
+          markedAnswer={markInAnswer}
         />
       ))}
       <br></br>

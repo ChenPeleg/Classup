@@ -6,7 +6,7 @@ exports[`renders without crashing 1`] = `
     className="App"
   >
     <Layout
-      questions_url="allquestions.json"
+      questionsUrl="allquestions.json"
     />
   </div>
 </ErrorBoundary>

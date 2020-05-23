@@ -12,8 +12,7 @@ class Layout extends Component {
     this.setState({ ...this.state, soundOn: !this.state.soundOn });
   };
   componentDidMount() {
-
-    const url = this.props.questions_url;
+    const url = this.props.questionsUrl;
     axios.get(url, { crossdomain: true }).then((res) => {
       this.setState({ ...this.state, AllQuestions: res.data });
     }).catch(() => { this.setState({ ...this.state, AllQuestions: allquestions }) });
