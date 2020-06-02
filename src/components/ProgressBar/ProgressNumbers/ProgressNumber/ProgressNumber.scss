@@ -1,43 +1,48 @@
 @import "../../../../assets/styles/base";
 .prog_q_icon {
-  display: inline;
-  width: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 50%;
-  border: 0px solid black;
-  z-index: 10;
-  transition: $Transition_Duration;
-  @include tablet {
-    font-size: $Base_fontSize;
-    
-  }
-  @include mobile {
-    padding-left: 5px;
-  padding-right: 5px;
-  
-  }
+    display: inline;
+    width: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 50%;
+    border: 0px solid black;
+    z-index: 10;
+    transition: $Transition_Duration;
+    @include tablet {
+        font-size: $Base_fontSize;
+        padding-bottom: 28px;
+    }
+    @include mobile {
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 18px;
+    }
 }
+
 .unanswered {
-  color: $ProgBar_unanswered_color;
+    color: $ProgBar_unanswered_color;
 }
+
 .answered {
-  color: $ProgBar_answered_color;
-  background-color: $ProgBar_answered_BGcolor;
-  cursor: pointer;
+    color: $ProgBar_answered_color;
+    background-color: $ProgBar_answered_BGcolor;
+    cursor: pointer;
 }
+
 .current_Q_num {
-  transition-delay: 0.3s;
-  font-weight: bold;
-  @include current_question_icon;
-  color: $ProgBar_current_color;
-  cursor: pointer;
+    transition-delay: 0.3s;
+    font-weight: bold;
+    @include current_question_icon;
+    color: $ProgBar_current_color;
+    cursor: pointer;
 }
+
 .next_q_num {
-  @include next_question_icon;
-  color: $ProgBar_current_color;
-  cursor: pointer;
+    @include next_question_icon;
+    color: $ProgBar_current_color;
+    cursor: pointer;
 }
+
 .infoNumber {
-  border-radius: 0%;
+    border-radius: 0%;
 }

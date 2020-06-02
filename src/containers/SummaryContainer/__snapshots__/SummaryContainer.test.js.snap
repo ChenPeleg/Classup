@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SummaryContainer> renders correctly 1`] = `
+<QuestionWrapper>
+  <QuestionText>
+    <SummaryText>
+      <SummaryTable
+        summaryObject={
+          Object {
+            "mistakesObject": Object {
+              "q0": 6,
+              "q1": 3,
+              "q23": 2,
+            },
+            "numOfquestions": 11,
+          }
+        }
+      />
+    </SummaryText>
+  </QuestionText>
+  <SubmitButton
+    submitHandler={[Function]}
+  >
+    Start Again
+  </SubmitButton>
+</QuestionWrapper>
+`;

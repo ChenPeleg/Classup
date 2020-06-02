@@ -1,30 +1,29 @@
 @import "../../assets/styles/base";
 .progbar {
-  position: relative;
-  padding: 3px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  background-color: $ProgBar_BGrColor;
-  width: 100%;
-  height: 30px; 
-  @include tablet {
-    height:   $Base_fontSize;;
-    
-  }
-  @include mobile {
-    height: $Mobile_fontSize;
-  
-  }
+    position: relative;
+    padding: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: $ProgBar_BGrColor;
+    width: 100%;
+    height: 30px;
+    @include tablet {
+        height: $Base_fontSize + 4px;
+    }
+    @include mobile {
+        height: $Mobile_fontSize;
+    }
 }
+
 .prog-line {
-  position: absolute;
-  left: 0px;
-  z-index: 1;
-  background-color: $ProgBar_LineColor;
-  top: 35%;
-  height: 30%;
-  width: 100%;
-  border-radius: 0px 10px 10px 0px;
-  transition: all ease-in-out $Transition_Duration;
+    position: absolute;
+    left: 0px;
+    z-index: 1;
+    background-color: $ProgBar_LineColor;
+    top: 35%;
+    height: 30%;
+    width: 100%;
+    border-radius: 0px 10px 10px 0px;
+    transition: all ease-in-out $Transition_Duration;
 }

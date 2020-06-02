@@ -8,10 +8,10 @@ exports[`<LearningContainer> general rendering renders correctly 1`] = `
   <ContextProvider
     value={
       Object {
-        "info_questions": Array [],
-        "q_next": 1,
-        "q_number": 8,
-        "total_q": 2,
+        "infoQuestions": Array [],
+        "qNext": 1,
+        "qNumber": 8,
+        "totalQ": 2,
       }
     }
   >
