@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Classup/static/css/main.598f2e8f.chunk.css",
-    "main.js": "/Classup/static/js/main.d4c6aa74.chunk.js",
-    "main.js.map": "/Classup/static/js/main.d4c6aa74.chunk.js.map",
+    "main.css": "/Classup/static/css/main.e72f9dfe.chunk.css",
+    "main.js": "/Classup/static/js/main.5ee45df5.chunk.js",
+    "main.js.map": "/Classup/static/js/main.5ee45df5.chunk.js.map",
     "runtime-main.js": "/Classup/static/js/runtime-main.e526d175.js",
     "runtime-main.js.map": "/Classup/static/js/runtime-main.e526d175.js.map",
     "static/js/2.7e249ff3.chunk.js": "/Classup/static/js/2.7e249ff3.chunk.js",
     "static/js/2.7e249ff3.chunk.js.map": "/Classup/static/js/2.7e249ff3.chunk.js.map",
     "index.html": "/Classup/index.html",
-    "precache-manifest.d21d8d6e633f5d54eca5527819e21b49.js": "/Classup/precache-manifest.d21d8d6e633f5d54eca5527819e21b49.js",
+    "precache-manifest.1ea32fd3d22588fbac8913108eae1f55.js": "/Classup/precache-manifest.1ea32fd3d22588fbac8913108eae1f55.js",
     "service-worker.js": "/Classup/service-worker.js",
-    "static/css/main.598f2e8f.chunk.css.map": "/Classup/static/css/main.598f2e8f.chunk.css.map",
+    "static/css/main.e72f9dfe.chunk.css.map": "/Classup/static/css/main.e72f9dfe.chunk.css.map",
     "static/js/2.7e249ff3.chunk.js.LICENSE.txt": "/Classup/static/js/2.7e249ff3.chunk.js.LICENSE.txt",
     "static/media/Correct.mp3": "/Classup/static/media/Correct.3806fe59.mp3",
     "static/media/App.module.scss": "/Classup/static/media/KulimPark-Regular.46646479.ttf",
@@ -24,7 +24,7 @@
   "entrypoints": [
     "static/js/runtime-main.e526d175.js",
     "static/js/2.7e249ff3.chunk.js",
-    "static/css/main.598f2e8f.chunk.css",
-    "static/js/main.d4c6aa74.chunk.js"
+    "static/css/main.e72f9dfe.chunk.css",
+    "static/js/main.5ee45df5.chunk.js"
   ]
 }

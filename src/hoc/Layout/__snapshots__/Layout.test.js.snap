@@ -185,6 +185,7 @@ exports[`<Layout> renders correctly 1`] = `
     }
     soundOn={true}
   />
+   
 </Fragment>
 `;
 
@@ -373,5 +374,6 @@ exports[`<Layout> renders correctly 2`] = `
     }
     soundOn={true}
   />
+   
 </Fragment>
 `;
