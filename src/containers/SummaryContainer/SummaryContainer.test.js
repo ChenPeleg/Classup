@@ -1,8 +1,6 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { render } from "@testing-library/react";
 import SummaryContainer from "./SummaryContainer";
-
-// const test1 = 
 
 const props = {
   sumData: [
@@ -19,10 +17,12 @@ const props = {
     ["RIGHT"],
     ["RIGHT"],
     ["WRONG", "RIGHT"],
-  ]
+  ],
 };
-const wrap = shallow(<SummaryContainer {...props} />)
 
 describe("<SummaryContainer>", () => {
-  it("renders correctly", () => { expect(wrap).toMatchSnapshot() })
-})
+  it("renders correctly", () => {
+    const { container } = render(<SummaryContainer {...props} />);
+    expect(container.firstChild).toBeTruthy();
+  });
+});

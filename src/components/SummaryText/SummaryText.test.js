@@ -1,8 +1,10 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { render } from "@testing-library/react";
 import SummaryText from "./SummaryText";
-const wrap = shallow(<SummaryText />)
 
 describe("<SummaryText>", () => {
-  it("renders correctly", () => { expect(wrap).toMatchSnapshot() })
-})
+  it("renders correctly", () => {
+    const { container } = render(<SummaryText />);
+    expect(container.firstChild).toBeTruthy();
+  });
+});

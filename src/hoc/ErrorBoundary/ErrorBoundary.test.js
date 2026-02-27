@@ -1,26 +1,30 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
+import { render } from "@testing-library/react";
 import ErrorBoundary from "./ErrorBoundary";
 
-const Something = () => null;
-const wrapper = mount(
-  <ErrorBoundary>
-    <Something />
-  </ErrorBoundary>
-);
-describe('ErrorBoundary', () => {
-  beforeEach(() => {
-    wrapper.setState({ hasError: false })
+const ThrowError = ({ shouldThrow }) => {
+  if (shouldThrow) throw new Error("test error");
+  return <div>OK</div>;
+};
+
+describe("ErrorBoundary", () => {
+  it("renders children when there is no error", () => {
+    const { getByText } = render(
+      <ErrorBoundary>
+        <ThrowError shouldThrow={false} />
+      </ErrorBoundary>
+    );
+    expect(getByText("OK")).toBeTruthy();
   });
 
-  it('should display an ErrorMessage if wrapped component throws', () => {
-    const error = new Error('test');
-    wrapper.find(Something).simulateError(error);
-    expect(wrapper.state().hasError).toBe(true);
-
+  it("should display an error message if wrapped component throws", () => {
+    const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    const { getByText } = render(
+      <ErrorBoundary>
+        <ThrowError shouldThrow={true} />
+      </ErrorBoundary>
+    );
+    expect(getByText("Something went wrong.")).toBeTruthy();
+    consoleSpy.mockRestore();
   });
-  it("should render beacause of error", () => {
-    wrapper.setState({ hasError: true });
-    expect(wrapper).toMatchSnapshot()
-  })
-})
+});

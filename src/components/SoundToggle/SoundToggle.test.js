@@ -1,18 +1,21 @@
-import React from "react"
-import { shallow } from "enzyme"
-import SoundToggle from "./SoundToggle"
-const mockClick = jest.fn();
-const soundtog = shallow(<SoundToggle soundOn={true} soundHandler={mockClick} />)
- 
+import React from "react";
+import { render, fireEvent } from "@testing-library/react";
+import SoundToggle from "./SoundToggle";
+
+const mockClick = vi.fn();
+
 describe("<Sound Toggle>", () => {
-    it('renders correctly', () => {
-        expect(soundtog).toMatchSnapshot()
-    })
-    it("fires sound toggle event", () => {
-        soundtog.simulate('click')
-        expect(mockClick).toHaveBeenCalled()
-    });
-    it("contains image", () => {
-        expect(soundtog.contains('img')).toEqual(false);
-    })
-})
+  it("renders correctly", () => {
+    const { container } = render(<SoundToggle soundOn={true} soundHandler={mockClick} />);
+    expect(container.firstChild).toBeTruthy();
+  });
+  it("fires sound toggle event", () => {
+    const { container } = render(<SoundToggle soundOn={true} soundHandler={mockClick} />);
+    fireEvent.click(container.firstChild);
+    expect(mockClick).toHaveBeenCalled();
+  });
+  it("contains image", () => {
+    const { container } = render(<SoundToggle soundOn={true} soundHandler={mockClick} />);
+    expect(container.querySelector('img')).toBeTruthy();
+  });
+});

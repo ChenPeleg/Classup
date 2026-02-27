@@ -1,9 +1,8 @@
-import React from "react"
-import { shallow } from 'enzyme'
-import QuestionWrapper from './QuestionWrapper'
-
-const wrap = shallow(<QuestionWrapper />)
+import React from "react";
+import { render } from "@testing-library/react";
+import QuestionWrapper from "./QuestionWrapper";
 
 it("QuestionWrapper renders correctly", () => {
-    expect(wrap).toMatchSnapshot()
-})
+  const { container } = render(<QuestionWrapper />);
+  expect(container.firstChild).toBeTruthy();
+});

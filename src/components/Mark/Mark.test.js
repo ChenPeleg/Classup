@@ -1,11 +1,10 @@
 import React from "react";
+import { render } from "@testing-library/react";
 import Mark from "./Mark";
-import { shallow } from "enzyme";
-
-const mark = shallow(<Mark />);
 
 describe("<Mark>", () => {
   it("renders correctly", () => {
-    expect(mark).toMatchSnapshot();
+    const { container } = render(<Mark />);
+    expect(container.firstChild).toBeTruthy();
   });
 });

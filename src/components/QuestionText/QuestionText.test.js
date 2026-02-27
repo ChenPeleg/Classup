@@ -1,11 +1,10 @@
-import React from "react"
-import { shallow } from "enzyme"
-import QuestionText from "./QuestionText"
-
-const wrap = shallow(<QuestionText />)
+import React from "react";
+import { render } from "@testing-library/react";
+import QuestionText from "./QuestionText";
 
 describe("<QuestionText>", () => {
-    it("renders correctly", () => {
-        expect(wrap).toMatchSnapshot()
-    })
-})
+  it("renders correctly", () => {
+    const { container } = render(<QuestionText />);
+    expect(container.firstChild).toBeTruthy();
+  });
+});

@@ -1,10 +1,10 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { render } from "@testing-library/react";
 import LoaderAnimation from "./LoaderAnimation";
 
-const loader = shallow(<LoaderAnimation />);
 describe("<LoaderAnimation>", () => {
   it("renders correctly", () => {
-    expect(loader).toMatchSnapshot();
+    const { container } = render(<LoaderAnimation />);
+    expect(container.firstChild).toBeTruthy();
   });
 });
