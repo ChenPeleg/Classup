@@ -15,7 +15,6 @@ This document outlines the steps to migrate the Classup app from **React 16 / Cr
 | Test runner    | Jest (via react-scripts)         |
 | Test utilities | Enzyme + enzyme-adapter-react-16 |
 | CSS            | node-sass (SCSS modules)         |
-| Deploy         | gh-pages                         |
 
 ## Target Stack
 
@@ -26,7 +25,6 @@ This document outlines the steps to migrate the Classup app from **React 16 / Cr
 | Test runner    | Vitest                           |
 | Test utilities | @testing-library/react           |
 | CSS            | sass (modern Dart Sass)          |
-| Deploy         | gh-pages (unchanged)             |
 
 ---
 
@@ -50,12 +48,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Classup/',   // matches homepage in package.json
-  css: {
-    modules: {
-      localsConvention: 'camelCase',
-    },
-  },
+  base: '',
 });
 ```
 
@@ -125,15 +118,12 @@ React 19 removes several deprecated APIs. Key changes to make in the source:
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "test:watch": "vitest"
   }
 }
 ```
 
-> **Note:** Vite outputs to `dist/` by default (not `build/`). Update
-> `gh-pages` accordingly and add `dist/` to `.gitignore`.
+> **Note:** Vite outputs to `dist/` by default (not `build/`). Add `dist/` to `.gitignore`. Deployment will be handled by GitHub Actions.
 
 ### 5. Set up Vitest
 
@@ -149,10 +139,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Classup/',
-  css: {
-    modules: { localsConvention: 'camelCase' },
-  },
+  base: '',
   test: {
     environment: 'jsdom',
     globals: true,
@@ -218,10 +205,6 @@ dist/
 # Vite cache
 .vite/
 ```
-
-Remove any CRA-specific entries that are no longer relevant (e.g., `build/`
-can be kept if you want to preserve the old output directory reference, or
-removed if `dist/` is now used).
 
 ### 9. Clean up and verify
 
