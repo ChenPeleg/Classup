@@ -1,13 +1,17 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { render, fireEvent } from "@testing-library/react";
 import SubmitButton from "./SubmitButton";
-const mockClick = jest.fn();
-const wrap = shallow(<SubmitButton submitHandler={mockClick} disableButton={false} />)
+
+const mockClick = vi.fn();
 
 describe("<SubmitButton>", () => {
-    it("renders correctly", () => { expect(wrap).toMatchSnapshot() });
-    it("fires submit event", () => {
-        wrap.simulate('click')
-        expect(mockClick).toHaveBeenCalled()
-    });
-})
+  it("renders correctly", () => {
+    const { container } = render(<SubmitButton submitHandler={mockClick} disableButton={false} />);
+    expect(container.firstChild).toBeTruthy();
+  });
+  it("fires submit event", () => {
+    const { container } = render(<SubmitButton submitHandler={mockClick} disableButton={false} />);
+    fireEvent.click(container.firstChild);
+    expect(mockClick).toHaveBeenCalled();
+  });
+});

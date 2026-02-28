@@ -1,25 +1,10 @@
-import React from "react";
-import { shallow } from "enzyme";
 import util from "./Utility";
 
 const answerArray = [
-  {
-    "content": "blue",
-    "number": 1,
-  },
-  {
-    "content": "black",
-    "number": 2,
-  },
-  {
-    "content": "green",
-    "number": 3,
-  },
-  {
-    "content": "yellow",
-    "number": 4,
-  },
-
+  { content: "blue", number: 1 },
+  { content: "black", number: 2 },
+  { content: "green", number: 3 },
+  { content: "yellow", number: 4 },
 ];
 const sumData = [
   [],
@@ -36,32 +21,37 @@ const sumData = [
   ["RIGHT"],
   ["WRONG", "RIGHT"],
 ];
+
 describe("<Utility>", () => {
   describe("update SummaryArray", () => {
     it("adds wrong answer to array", () => {
-      expect(util.updateSummaryArray([[], [], [], [], ["RIGHT"], []], 3, "WRONG")).toMatchObject([[], [], [], ["WRONG"], ["RIGHT"], []])
-    })
-  })
+      expect(util.updateSummaryArray([[], [], [], [], ["RIGHT"], []], 3, "WRONG")).toMatchObject(
+        [[], [], [], ["WRONG"], ["RIGHT"], []]
+      );
+    });
+  });
   describe("roundTo100", () => {
     it("rounds to 100", () => {
-      expect(util.roundTo100({ a: 80, b: 11, c: 3 })).toMatchObject({ a: 80, b: 11, c: 9 })
-    })
-  })
+      expect(util.roundTo100({ a: 80, b: 11, c: 3 })).toMatchObject({ a: 80, b: 11, c: 9 });
+    });
+  });
   describe("reorderAnswers", () => {
-    it("reorder Answers nswers in different order", () => {
-      expect(util.reorderAnswers(answerArray)).not.toBe(answerArray)
-    })
-  })
+    it("reorders answers in different order", () => {
+      expect(util.reorderAnswers(answerArray)).not.toBe(answerArray);
+    });
+  });
   describe("helper functions - createAnswerObject", () => {
-    it("creates an  answer object", () => {
+    it("creates an answer object", () => {
       const answers = ["blue", "black", "green", "yellow"];
-      const res = util.createAnswerObject(answers)
-      expect(res).toMatchObject(answerArray)
-    })
-  })
+      const res = util.createAnswerObject(answers);
+      expect(res).toMatchObject(answerArray);
+    });
+  });
   describe("createSummaryObject", () => {
     it("create summary object from sumData", () => {
-      expect(util.createSummaryObject(sumData)).toMatchObject({ mistakesObject: { q0: 6, q1: 3, q23: 2 } })
-    })
-  })
-})
+      expect(util.createSummaryObject(sumData)).toMatchObject({
+        mistakesObject: { q0: 6, q1: 3, q23: 2 },
+      });
+    });
+  });
+});

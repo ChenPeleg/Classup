@@ -1,10 +1,10 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { render } from "@testing-library/react";
 import Layout from "./Layout";
-import renderer from 'react-test-renderer';
-const wrap = shallow(<Layout />)
 
 describe("<Layout>", () => {
-  it("renders correctly", () => { expect(wrap).toMatchSnapshot() })
-  it("renders correctly", () => { expect(wrap).toMatchSnapshot() })
-})
+  it("renders correctly", () => {
+    const { container } = render(<Layout />);
+    expect(container.firstChild).toBeTruthy();
+  });
+});

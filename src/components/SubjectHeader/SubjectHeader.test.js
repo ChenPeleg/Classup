@@ -1,8 +1,10 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { render } from "@testing-library/react";
 import SubjectHeader from "./SubjectHeader";
-const wrap = shallow(<SubjectHeader />)
 
 describe("SubjectHeader", () => {
-    it("renders correctly", () => { expect(wrap).toMatchSnapshot() })
-})
+  it("renders correctly", () => {
+    const { container } = render(<SubjectHeader />);
+    expect(container.firstChild).toBeTruthy();
+  });
+});

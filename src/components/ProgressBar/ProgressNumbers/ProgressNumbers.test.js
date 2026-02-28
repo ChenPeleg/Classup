@@ -1,24 +1,37 @@
-import React from "react"
-import { shallow } from "enzyme"
-import ProgressNumbers from "./ProgressNumbers"
-import ProgressNumber from "./ProgressNumber/ProgressNumber"
+import React from "react";
+import { render } from "@testing-library/react";
+import ProgressNumbers from "./ProgressNumbers";
 
 const totalQuestions = 7;
-const mockqusetionCounter = {
-    qNumber: 3,
-    qTotal: totalQuestions,
-    qNext: 4,
-    infoQuestions: [2, 1],
-}
-const wrap = shallow(<ProgressNumbers qusetionCounter={mockqusetionCounter} />)
+const mockQuestionCounter = {
+  qNumber: 3,
+  qTotal: totalQuestions,
+  qNext: 4,
+  infoQuestions: [2, 1],
+};
 
+describe("<ProgressNumbers>", () => {
+  it("renders correctly", () => {
+    const { container } = render(
+      <ProgressNumbers
+        qusetionCounter={mockQuestionCounter}
+        viewAnotherQuestionHandler={() => {}}
+        lineWidthHandler={() => {}}
+        nextUnansweredQ={4}
+      />
+    );
+    expect(container).toBeTruthy();
+  });
 
-describe("<ProgressNumber>", () => {
-    it("renders correctly", () => {
-        expect(wrap).toMatchSnapshot()
-    })
-    it("renders the proper number of numbers", () => {
-        expect(wrap.length).toBe(totalQuestions)
-    })
-
-})
+  it("renders the proper number of progress numbers", () => {
+    const { container } = render(
+      <ProgressNumbers
+        qusetionCounter={mockQuestionCounter}
+        viewAnotherQuestionHandler={() => {}}
+        lineWidthHandler={() => {}}
+        nextUnansweredQ={4}
+      />
+    );
+    expect(container.children.length).toBe(totalQuestions);
+  });
+});

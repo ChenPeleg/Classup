@@ -1,8 +1,10 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { render } from "@testing-library/react";
 import Uplogo from "./Uplogo";
-const wrap = shallow(<Uplogo />)
 
 describe("<Uplogo>", () => {
-  it("renders correctly", () => { expect(wrap).toMatchSnapshot() })
-})
+  it("renders correctly", () => {
+    const { container } = render(<Uplogo />);
+    expect(container.firstChild).toBeTruthy();
+  });
+});

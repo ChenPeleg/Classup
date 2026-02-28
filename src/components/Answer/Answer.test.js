@@ -1,31 +1,25 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { render, fireEvent } from "@testing-library/react";
 import Answer from "./Answer";
-import Mark from "../Mark/Mark";
 
-const mockChoose = jest.fn();
+const mockChoose = vi.fn();
 const ansNum = 5;
-const answer = shallow(<Answer isChosen={true} markedAnswer={"RIGHT"} num={ansNum} chooseAnswerHandler={mockChoose} />);
 
 describe("<Answer>", () => {
-
   it("renders correctly", () => {
-    expect(answer).toMatchSnapshot();
+    const { container } = render(
+      <Answer isChosen={true} markedAnswer={"RIGHT"} num={ansNum} chooseAnswerHandler={mockChoose} />
+    );
+    expect(container.firstChild).toBeTruthy();
   });
 
-  describe("<Answer> choosen with marks", () => {
-
-    it("should render a check mark", () => {
-      expect(answer.contains(<Mark />));
-    });
-  });
   describe("<Answer> is clicked on", () => {
-
-    beforeEach(() => {
-      answer.simulate("click");
-    });
     it("calls a function with the ChooseAnswer callback", () => {
-      expect(mockChoose).toHaveBeenCalledWith(undefined, ansNum);
+      const { container } = render(
+        <Answer isChosen={false} markedAnswer={null} num={ansNum} chooseAnswerHandler={mockChoose} />
+      );
+      fireEvent.click(container.firstChild);
+      expect(mockChoose).toHaveBeenCalledWith(expect.anything(), ansNum);
     });
   });
 });

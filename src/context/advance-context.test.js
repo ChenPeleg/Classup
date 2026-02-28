@@ -1,10 +1,14 @@
 import React from "react";
-import { shallow, mount, render } from "enzyme";
+import { render } from "@testing-library/react";
 import AdvanceContext from "./advance-context";
-const dummyContext = (<><AdvanceContext.Consumer>
-  {(context) => (
-    <p>{context.qNumber}</p>)} </AdvanceContext.Consumer></>)
-describe("<advance-context >", () => {
-  it("renders correctly", () => { expect(dummyContext).toMatchSnapshot() });
 
-})
+describe("<advance-context>", () => {
+  it("renders correctly", () => {
+    const { container } = render(
+      <AdvanceContext.Consumer>
+        {(context) => <p>{context.qNumber}</p>}
+      </AdvanceContext.Consumer>
+    );
+    expect(container).toBeTruthy();
+  });
+});

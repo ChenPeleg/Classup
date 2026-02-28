@@ -3,30 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://chenpeleg.github.io/Classup/",
-  "updateHomePageWhenDeploying": "https://chenpeleg.github.io/Classup/",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "node-sass": "^4.13.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "react-test-renderer": "^16.13.1"
+    "react": "^19",
+    "react-dom": "^19"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "browserslist": {
     "production": [
@@ -41,12 +28,15 @@
     ]
   },
   "devDependencies": {
-    "enzyme-to-json": "^3.4.4",
-    "gh-pages": "^2.2.0"
-  },
-  "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6",
+    "@testing-library/react": "^16",
+    "@testing-library/user-event": "^14",
+    "@vitejs/plugin-react": "^4",
+    "gh-pages": "^2.2.0",
+    "jsdom": "^25",
+    "sass": "^1",
+    "vite": "^6",
+    "vitest": "^2"
   }
 }
