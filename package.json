@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://chenpeleg.github.io/Classup/",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^1",
     "react": "^19",
     "react-dom": "^19"
   },
@@ -33,10 +33,10 @@
     "@testing-library/react": "^16",
     "@testing-library/user-event": "^14",
     "@vitejs/plugin-react": "^4",
-    "gh-pages": "^2.2.0",
+    "gh-pages": "^6",
     "jsdom": "^25",
     "sass": "^1",
-    "vite": "^6",
-    "vitest": "^2"
+    "vite": "^7",
+    "vitest": "^4"
   }
 }
