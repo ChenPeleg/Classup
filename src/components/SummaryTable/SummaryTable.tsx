@@ -1,21 +1,30 @@
-import React from "react";
-import styles from "./SummaryTable.module.scss";
-import util from "../../Utility/Utility";
+import styles from './SummaryTable.module.scss';
+import { SummaryData } from '../../types/questions';
 
-const preCenter = (small, big) => {
+const preCenter = (small: number, big: number): number => {
   if (small && big) {
   } else return 0;
-  let double = Math.floor(100 * (small / big));
+  const double = Math.floor(100 * (small / big));
   return double;
 };
-const SummaryTable = (props) => {
+
+interface SummaryTableProps {
+  summaryObject: SummaryData;
+}
+
+const SummaryTable = (props: SummaryTableProps) => {
   const { q0, q1, q23 } = props.summaryObject.mistakesObject;
   const total = props.summaryObject.numOfquestions;
   let p0 = preCenter(q0, total);
   let p1 = preCenter(q1, total);
   let p23 = preCenter(q23, total);
-  const ob = { p0, p1, p23 };
-  const pre = util.roundTo100(ob);
+
+  // Ensure percentages add up to 100
+  const sum = p0 + p1 + p23;
+  if (sum > 0 && sum !== 100) {
+    const diff = 100 - sum;
+    p0 += diff;
+  }
 
   return (
     <>
@@ -32,17 +41,17 @@ const SummaryTable = (props) => {
             <tr>
               <td>without errors</td>
               <td>{q0}</td>
-              <td>{pre.p0}%</td>
+              <td>{p0}%</td>
             </tr>
             <tr>
               <td>on second attempt</td>
               <td>{q1}</td>
-              <td>{pre.p1}%</td>
+              <td>{p1}%</td>
             </tr>
             <tr>
               <td>after second attempt</td>
               <td>{q23}</td>
-              <td>{pre.p23}%</td>
+              <td>{p23}%</td>
             </tr>
           </tbody>
         </table>

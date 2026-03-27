@@ -1,7 +1,6 @@
-import React from "react";
-import styles from "./LoaderAnimation.module.scss";
+import styles from './LoaderAnimation.module.scss';
 
-const LoaderAnimation = (props) => {
+const LoaderAnimation = () => {
   return (
     <div>
       <br></br>

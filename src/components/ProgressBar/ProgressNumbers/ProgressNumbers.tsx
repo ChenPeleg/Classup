@@ -1,12 +1,34 @@
-import React, { Component } from "react";
-import "./ProgressNumbers.scss";
-import ProgressNumber from "./ProgressNumber/ProgressNumber";
+import { Component } from 'react';
+import './ProgressNumbers.scss';
+import ProgressNumber from './ProgressNumber/ProgressNumber';
 
-class progressNumbers extends Component {
+interface QuestionCounter {
+  qNumber: number;
+  qTotal: number;
+  qNext: number;
+  infoQuestions: number[];
+}
+
+interface ProgressNumbersProps {
+  qusetionCounter: QuestionCounter;
+  lineWidthHandler: (left: number) => void;
+  viewAnotherQuestionHandler: (number: number) => void;
+  nextUnansweredQ: number;
+}
+
+interface QuestionProgress {
+  txt: number;
+  wasAnswered: boolean;
+  isCurrent: boolean;
+  isNext: boolean;
+  isInfo: boolean;
+}
+
+class progressNumbers extends Component<ProgressNumbersProps> {
   render() {
     const { qNumber, qTotal, qNext, infoQuestions } = this.props.qusetionCounter;
 
-    let qProgArray = [];
+    const qProgArray: QuestionProgress[] = [];
 
     for (let i = 1; i <= qTotal; i++) {
       const txt = i;
@@ -25,10 +47,10 @@ class progressNumbers extends Component {
 
     return qProgArray.map((q) => (
       <ProgressNumber
-        key={q.txt + "progKey"}
-        className={`prog_q_icon ${q.wasAnswered ? "answered" : "unanswered"} ${
-          q.isCurrent ? "current_Q_num" : ""
-          } ${q.isNext ? "next_q_num" : ""} ${q.isInfo ? " infoNumber" : ""}`}
+        key={q.txt + 'progKey'}
+        className={`prog_q_icon ${q.wasAnswered ? 'answered' : 'unanswered'} ${
+          q.isCurrent ? 'current_Q_num' : ''
+        } ${q.isNext ? 'next_q_num' : ''} ${q.isInfo ? ' infoNumber' : ''}`}
         text={q.txt}
         currentQusetNumber={qNumber}
         number={qProgArray.indexOf(q)}
